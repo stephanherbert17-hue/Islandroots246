@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islandroots.246 Tuk Band | Official Bookings</title>
+    <meta name="description" content="Book Islandroots.246 Tuk Band for Barbados events, weddings, festivals and cultural performances. Contact the band email or directors directly for fast booking." />
+    <meta name="keywords" content="Islandroots 246, Tuk Band, Barbados band, steel pan, event booking, cultural performance, band booking" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Islandroots.246 Tuk Band | Official Bookings" />
+    <meta property="og:description" content="Book Islandroots.246 Tuk Band for Barbados events, weddings, festivals and cultural performances. Contact us for authentic Tuk band entertainment." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url_for('index', _external=True) }}" />
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Islandroots.246+Tuk+Band" />
+    <style>
+        :root {
+            --primary-blue: #002664; /* Deep Barbadian Blue */
+            --accent-gold: #FFC000;  /* Vibrant Gold */
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #eaeff5; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--dark-text); 
+        }
+
+        /* Outstanding Header Design */
+        header { 
+            background: linear-gradient(135deg, #001f54 0%, #034078 100%);
+            color: white; 
+            padding: 50px 20px; 
+            text-align: center; 
+            border-bottom: 6px solid var(--accent-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        header h1 { 
+            margin: 0; 
+            font-size: 3rem; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .header-subtitle { 
+            margin: 10px 0 20px 0; 
+            font-size: 1.2rem; 
+            color: #e0e0e0; 
+        }
+
+        /* Instrument Decoration Banner */
+        .instrument-banner {
+            font-size: 2.5rem;
+            margin-top: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+        @media (max-width: 850px) { .grid { grid-template-columns: 1fr; } }
+        
+        /* Card Styling */
+        .card { 
+            background: white; 
+            padding: 35px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        h2 { 
+            color: var(--primary-blue); 
+            margin-top: 0; 
+            border-bottom: 2px solid #eee; 
+            padding-bottom: 15px; 
+            font-size: 1.8rem;
+        }
+        
+        /* Form Styling */
+        label { display: block; margin: 15px 0 8px; font-weight: bold; color: #444; }
+        input, select, textarea { 
+            width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; background-color: #fcfcfc; transition: all 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-gold); outline: none; box-shadow: 0 0 8px rgba(255, 192, 0, 0.3);
+        }
+        textarea { resize: vertical; height: 120px; }
+        
+        .checkbox-group { margin: 25px 0; display: flex; align-items: center; background: var(--light-bg); padding: 15px; border-radius: 6px; border-left: 4px solid var(--accent-gold); }
+        .checkbox-group input { margin-right: 15px; width: 20px; height: 20px; accent-color: var(--primary-blue); }
+        
+        button { 
+            background: linear-gradient(135deg, var(--primary-blue), #003380); 
+            color: white; padding: 16px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+        }
+        button:hover { background: linear-gradient(135deg, #001f54, var(--primary-blue)); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        
+        /* Info Sections */
+        .info-section { margin-bottom: 30px; }
+        .info-section h3 { color: #333; margin-bottom: 10px; font-size: 1.3rem; }
+        
+        .board-list { list-style: none; padding: 0; }
+        .board-list li { background: var(--light-bg); padding: 15px 20px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--primary-blue); font-size: 1.1rem; }
+        .board-list li strong { color: var(--primary-blue); font-size: 1.2rem; }
+
+        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        @media (max-width: 700px) { .video-grid { grid-template-columns: 1fr; } }
+        .video-card { display: flex; gap: 15px; background: var(--light-bg); border-radius: 12px; padding: 16px; border: 1px solid #dcdcdc; text-decoration: none; color: inherit; transition: transform 0.2s, border-color 0.2s; }
+        .video-card:hover { transform: translateY(-2px); border-color: var(--primary-blue); }
+        .video-thumb { min-width: 66px; min-height: 66px; background: var(--primary-blue); color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        .video-copy strong { display: block; margin-bottom: 6px; font-size: 1rem; }
+        .video-copy span { color: #555; font-size: 0.95rem; line-height: 1.4; }
+
+        .instrument-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .tag { background: var(--accent-gold); color: #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; }
+
+        .contact-box { background: #eef2f7; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .contact-box p { margin: 10px 0; font-size: 1.1rem; }
+
+        /* Success Box */
+        .status-box { background-color: #d4edda; color: #155724; padding: 20px; border-radius: 8px; border-left: 6px solid #28a745; margin-bottom: 30px; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.1); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Islandroots.246 Tuk Band</h1>
+    <div class="header-subtitle">Authentic Barbadian Culture • High-Energy Performances • Unforgettable Events</div>
+    <div class="instrument-banner">
+        🥁 🪈 🎶 🥁
+    </div>
+</header>
+
+<div class="container">
+    {% if success %}
+        <div class="status-box">
+            <strong>✓ Booking Request Successfully Submitted!</strong><br>
+            Your request has been routed to the Director. We will review your event details and respond shortly.
+            {% if email_sent is not defined or email_sent %}
+                <br>Notification sent to the band email address.
+            {% else %}
+                <br><strong>Note:</strong> The booking was saved, but the email notification could not be delivered. Please verify the email settings.
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if conflict %}
+        <div class="status-box" style="background: #fff3cd; color: #856404; border-left-color: #ffc107;">
+            <strong>Unavailable date/time:</strong> {{ conflict_message }}
+        </div>
+    {% endif %}
+
+    <div class="grid">
+        <div class="card">
+            <h2>Book the Band</h2>
+            <form action="/book" method="POST">
+                <div id="formError" style="display:none; background:#f8d7da; color:#721c24; padding:12px; border-radius:6px; border-left:6px solid #f5c6cb; margin-bottom:16px;"></div>
+                <label for="name">Full Name / Event Organizer</label>
+                <input type="text" id="name" name="name" placeholder="E.g., John Doe" value="{{ form_data.name|default('') }}" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" value="{{ form_data.email|default('') }}" required>
+
+                <label for="phone">Contact Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(246) XXX-XXXX" value="{{ form_data.phone|default('') }}" required>
+
+                <label for="event_type">Type of Event</label>
+                <select id="event_type" name="event_type">
+                    <option value="Party" {% if form_data.event_type == 'Party' %}selected{% endif %}>Party / Celebration</option>
+                    <option value="Festival" {% if form_data.event_type == 'Festival' %}selected{% endif %}>Festival / Parade</option>
+                    <option value="Corporate" {% if form_data.event_type == 'Corporate' %}selected{% endif %}>Corporate Event</option>
+                    <option value="Wedding" {% if form_data.event_type == 'Wedding' %}selected{% endif %}>Wedding Entertainment</option>
+                    <option value="Other" {% if form_data.event_type == 'Other' %}selected{% endif %}>Other Custom Request</option>
+                </select>
+
+                <label for="event_date">Event Date</label>
+                <input type="date" id="event_date" name="event_date" value="{{ form_data.event_date|default('') }}" required>
+
+                <label for="start_time">Start Time</label>
+                <input type="time" id="start_time" name="start_time" value="{{ form_data.start_time|default('') }}" required>
+
+                <label for="end_time">End Time</label>
+                <input type="time" id="end_time" name="end_time" value="{{ form_data.end_time|default('') }}" required>
+
+                <label for="location">Location / Venue</label>
+                <input type="text" id="location" name="location" placeholder="E.g., Bridgetown Community Hall" value="{{ form_data.location|default('') }}" required>
+
+                <label for="budget">Your Budget (BBD)</label>
+                <div style="display: grid; gap: 10px;">
+                    <input type="range" id="budget" name="budget" min="0" max="3000" step="50" value="{{ form_data.budget|default('800') }}" aria-label="Budget slider">
+                    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+                        <span style="color:#444; font-size:0.95rem;">Budget: BBD <strong id="budgetValue">{{ form_data.budget|default('800') }}</strong></span>
+                        <input type="number" min="0" max="3000" step="50" value="{{ form_data.budget|default('800') }}" id="budgetNumber" style="width:140px; padding:12px; border:1px solid #ddd; border-radius:6px;" aria-label="Budget amount">
+                    </div>
+                </div>
+
+                <label for="details">Event Notes</label>
+                <textarea id="details" name="details" placeholder="Please share any special requests, audience size, or performance notes...">{{ form_data.details|default('') }}</textarea>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirm_bot" name="confirm_bot" checked disabled>
+                    <label for="confirm_bot" style="display:inline; margin:0; font-weight:normal;">Send automated itinerary to Director for review</label>
+                </div>
+
+                <button type="submit">Submit Official Booking</button>
+            </form>
+        </div>
+
+        <div class="card">
+            
+            <div class="info-section">
+                <h2>Our Sound</h2>
+                <p>We bring the traditional rhythm and spirit of Barbados to your event with an authentic acoustic lineup:</p>
+                <div class="instrument-tags">
+                    <span class="tag">🥁 Tuk Bass</span>
+                    <span class="tag">🥁 Kettle Drum / Snare</span>
+                    <span class="tag">🥁 Rim</span>
+                    <span class="tag">🔔 Triangle</span>
+                    <span class="tag">🎺 Trumpet</span>
+                    <span class="tag">🥁 Steel Pan</span>
+                    <span class="tag">🪈 Penny Whistle</span>
+                    <span class="tag">✨ and more!</span>
+                </div>
+            </div>
+
+            <div class="info-section" style="margin-top: 40px;">
+                <h2>Board of Directors</h2>
+                <ul class="board-list">
+                    <li>
+                        <strong>Stephan Herbert</strong><br>
+                        <span style="color: #666; font-size: 0.95rem;">Founder & Musical Director</span>
+                    </li>
+                    <li>
+                        <strong>Trevern Ellis</strong><br>
+                        <span style="color: #666; font-size: 0.95rem;">Co-founder & Junior Director</span>
+                    </li>
+                    <li>
+                        <strong>Nathan Codrington</strong><br>
+                        <span style="color: #666; font-size: 0.95rem;">Assistant Music Director</span>
+                    </li>
+                    <li>
+                        <strong>Mr. R. Boyce</strong><br>
+                        <span style="color: #666; font-size: 0.95rem;">Chairman / Gig Coordinator</span>
+                    </li>
+                    <li>
+                        <strong>Roshae Husbands</strong><br>
+                        <span style="color: #666; font-size: 0.95rem;">Musical Coordinator</span>
+                    </li>
+                    <li>
+                        <strong>Embrany Harvey</strong><br>
+                        <span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span>
+                    </li>
+                    <li>
+                        <strong>Asia Jordan</strong><br>
+                        <span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span>
+                    </li>
+                    <li>
+                        <strong>Christan Iffil</strong><br>
+                        <span style="color: #666; font-size: 0.95rem;">Band Leader</span>
+                    </li>
+                    <li>
+                        <strong>Ashaunda Payne</strong><br>
+                        <span style="color: #666; font-size: 0.95rem;">Honorary Community Relations Ambassador</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-section" style="margin-top: 40px;">
+                <h2>Pricing Snapshot</h2>
+                <p>We know Barbados events need fair pricing. Use the budget slider above to tell us what you can pay, and we will work with you.</p>
+                <ul class="board-list" style="border-left-color: #FFC000;">
+                    <li><strong>Community Session</strong><br><span style="color: #666; font-size: 0.95rem;">From BBD $500 — Perfect for small local gatherings and street performances.</span></li>
+                    <li><strong>Local Celebration</strong><br><span style="color: #666; font-size: 0.95rem;">From BBD $900 — Great for birthday parties, family events, and community vibes.</span></li>
+                    <li><strong>Festival Groove</strong><br><span style="color: #666; font-size: 0.95rem;">From BBD $1,400 — Ideal for parish festivals, small concerts, and weddings.</span></li>
+                    <li><strong>Custom Island Experience</strong><br><span style="color: #666; font-size: 0.95rem;">Tell us your budget and event size; we can often do custom pricing for local shows.</span></li>
+                </ul>
+                <p style="margin-top: 15px; color: #444;">These are starting ranges. If your budget is lower, the band will still review your request and respond with options.</p>
+            </div>
+
+            {% if booked_schedule %}
+                <div class="info-section" style="margin-top: 40px;">
+                    <h2>Booked Dates</h2>
+                    <p>These dates and times are already reserved so the band can avoid double-booking.</p>
+                    <ul class="board-list" style="border-left-color: #002664;">
+                        {% for booking in booked_schedule %}
+                            <li>
+                                <strong>{{ booking.event_date }}</strong> • {{ booking.start_time }} - {{ booking.end_time }}<br>
+                                <span style="color: #666; font-size: 0.95rem;">{{ booking.location }} • {{ booking.event_type }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <div class="info-section" style="margin-top: 40px;">
+                <h2>Direct Contact</h2>
+                <div class="contact-box">
+                    <p>📧 <strong>Email:</strong> <a href="mailto:island.roots.246.tukband@gmail.com" style="color: var(--primary-blue); text-decoration: none;">island.roots.246.tukband@gmail.com</a></p>
+                    <p>📱 <strong>Phone (Directors / Coordinators):</strong></p>
+                    <ul style="margin: 10px 0 0 20px; padding: 0; color: #444; font-size: 1.05rem;">
+                        <li>246-247-6799</li>
+                        <li>246-286-5831</li>
+                        <li>246-239-8885</li>
+                        <li>246-829-7791</li>
+                        <li>246-261-7557</li>
+                        <li>246-833-5046</li>
+                    </ul>
+                    <p style="margin-top: 8px; color: #666; font-size: 0.95rem;">These numbers connect to band directors and coordinators; one may be down if the contact needs a phone.</p>
+                    <p>📸 <strong>Instagram:</strong> <a href="https://instagram.com/islandroots.246_tukband" target="_blank" style="color: var(--primary-blue); text-decoration: none;">@islandroots.246_tukband</a></p>
+                </div>
+            </div>
+
+            <div class="info-section" style="margin-top: 40px;">
+                <h2>Featured Instagram Performance</h2>
+                <p>Watch Islandroots.246 live on Instagram — authentic Tuk band energy and real event footage.</p>
+                <div style="margin-top: 24px; display:flex; justify-content:center;">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DSxRZKEEdVY/" data-instgrm-version="14" style="background:#FFF; border:0; margin: 0 auto; max-width:540px; width:100%;">
+                    </blockquote>
+                </div>
+                <script async defer src="https://www.instagram.com/embed.js"></script>
+                <div class="video-grid" style="margin-top: 28px;">
+                    <a class="video-card" href="https://instagram.com/islandroots.246_tukband" target="_blank" rel="noreferrer noopener">
+                        <div class="video-thumb">🎥</div>
+                        <div class="video-copy">
+                            <strong>More Instagram Videos</strong>
+                            <span>Explore more Islandroots.246 performances and event highlights.</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="text-align:center; margin-top: 20px;">
+        <a href="{{ url_for('admin_login') }}" style="color: var(--primary-blue); text-decoration: none;">Admin login</a>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    var range = document.getElementById('budget');
+    var number = document.getElementById('budgetNumber');
+    var display = document.getElementById('budgetValue');
+    if (range && number && display) {
+        // initialize
+        number.value = range.value;
+        display.innerText = range.value;
+        // keep in sync
+        range.addEventListener('input', function(){ number.value = this.value; display.innerText = this.value; });
+        number.addEventListener('input', function(){
+            var v = this.value;
+            if (v === '') return;
+            range.value = v;
+            display.innerText = v;
+        });
+    }
+
+    // Client-side date/time validation
+    var form = document.querySelector('form[action="/book"]');
+    var formError = document.getElementById('formError');
+    if (form) {
+        form.addEventListener('submit', function(e){
+            var dateVal = document.getElementById('event_date') ? document.getElementById('event_date').value : '';
+            var start = document.getElementById('start_time') ? document.getElementById('start_time').value : '';
+            var end = document.getElementById('end_time') ? document.getElementById('end_time').value : '';
+            var errors = [];
+            if (dateVal) {
+                var today = new Date();
+                today.setHours(0,0,0,0);
+                var ev = new Date(dateVal + 'T00:00:00');
+                if (ev < today) errors.push('Event date cannot be in the past.');
+            } else {
+                errors.push('Event date is required.');
+            }
+            if (start && end) {
+                var sParts = start.split(':'); var eParts = end.split(':');
+                var sMin = parseInt(sParts[0],10)*60 + parseInt(sParts[1],10);
+                var eMin = parseInt(eParts[0],10)*60 + parseInt(eParts[1],10);
+                if (isNaN(sMin) || isNaN(eMin)) {
+                    errors.push('Invalid start or end time.');
+                } else if (eMin <= sMin) {
+                    errors.push('End time must be after start time.');
+                }
+            }
+
+            if (errors.length) {
+                e.preventDefault();
+                if (formError) {
+                    formError.innerText = errors.join(' ');
+                    formError.style.display = 'block';
+                    formError.focus && formError.focus();
+                    formError.scrollIntoView({behavior:'smooth', block:'center'});
+                } else {
+                    alert(errors.join('\n'));
+                }
+                return false;
+            } else if (formError) {
+                formError.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
