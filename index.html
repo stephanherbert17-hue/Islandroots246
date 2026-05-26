@@ -59,7 +59,8 @@
         @media (max-width: 850px) { .grid { grid-template-columns: 1fr; } }
         
         .card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-top: 4px solid var(--primary-blue); margin-bottom: 25px; }
-        h2 { color: var(--primary-blue); margin: 0; border-bottom: 2px solid #eee; padding-bottom: 15px; font-size: 1.8rem; }
+        h2 { color: var(--primary-blue); margin: 20px 0 15px 0; border-bottom: 2px solid #eee; padding-bottom: 15px; font-size: 1.8rem; }
+        h2:first-child { margin-top: 0; }
         
         label { display: block; margin: 15px 0 8px; font-weight: bold; color: #444; }
         input, select, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; background-color: #fcfcfc; transition: all 0.3s; }
@@ -121,7 +122,7 @@
     <div class="container">
         <div id="successBox" class="status-box">
             <strong>✓ Booking Request Successfully Submitted!</strong><br>
-            Your request has been routed to the Director. An email notification has been dispatched automatically.
+            Your request has been routed to the Director. An email notification has been dispatched automatically to management.
         </div>
 
         <div class="grid">
@@ -175,7 +176,7 @@
                 </form>
             </div>
 
-            <!-- Sidebar Info Pane -->
+            <!-- Sidebar Info Pane (Restored Board & Direct Contacts) -->
             <div class="card">
                 <h2>Our Sound</h2>
                 <div style="margin-bottom: 25px;">
@@ -191,13 +192,28 @@
                 <ul class="board-list">
                     <li><strong>Stephan Herbert</strong><br><span style="color: #666; font-size: 0.95rem;">Founder & Musical Director</span></li>
                     <li><strong>Trevern Ellis</strong><br><span style="color: #666; font-size: 0.95rem;">Co-founder & Junior Director</span></li>
+                    <li><strong>Nathan Codrington</strong><br><span style="color: #666; font-size: 0.95rem;">Assistant Music Director</span></li>
                     <li><strong>Mr. R. Boyce</strong><br><span style="color: #666; font-size: 0.95rem;">Chairman / Gig Coordinator</span></li>
+                    <li><strong>Roshae Husbands</strong><br><span style="color: #666; font-size: 0.95rem;">Musical Coordinator</span></li>
+                    <li><strong>Embrany Harvey</strong><br><span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span></li>
+                    <li><strong>Asia Jordan</strong><br><span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span></li>
+                    <li><strong>Christan Iffil</strong><br><span style="color: #666; font-size: 0.95rem;">Band Leader</span></li>
+                    <li><strong>Ashaunda Payne</strong><br><span style="color: #666; font-size: 0.95rem;">Honorary Community Relations Ambassador</span></li>
                 </ul>
 
                 <h2>Direct Contact</h2>
                 <div class="contact-box">
-                    <p>📧 <strong>Email:</strong> <a href="mailto:island.roots.246.tukband@gmail.com">island.roots.246.tukband@gmail.com</a></p>
-                    <p>📸 <strong>Instagram:</strong> <a href="https://instagram.com/islandroots.246_tukband" target="_blank">@islandroots.246_tukband</a></p>
+                    <p>📧 <strong>Email:</strong> <a href="mailto:island.roots.246.tukband@gmail.com" style="color: var(--primary-blue); text-decoration: none;">island.roots.246.tukband@gmail.com</a></p>
+                    <p>📱 <strong>Phone (Coordinators):</strong></p>
+                    <ul style="margin: 10px 0 0 20px; padding: 0; color: #444; font-size: 1.05rem; list-style-type: disc;">
+                        <li>246-247-6799</li>
+                        <li>246-286-5831</li>
+                        <li>246-239-8885</li>
+                        <li>246-829-7791</li>
+                        <li>246-261-7557</li>
+                        <li>246-833-5046</li>
+                    </ul>
+                    <p style="margin-top: 15px;">📸 <strong>Instagram:</strong> <a href="https://instagram.com/islandroots.246_tukband" target="_blank" style="color: var(--primary-blue); text-decoration: none;">@islandroots.246_tukband</a></p>
                 </div>
             </div>
         </div>
@@ -283,24 +299,24 @@ const MASTER_PASSWORD = "roots246";
 const DEFAULT_ADMIN = "director@islandroots246.com";
 const BAND_MAIN_GMAIL = "island.roots.246.tukband@gmail.com";
 
-// Load Admin Emails list from storage
+// Setup dynamic admin storage lists
 if (!localStorage.getItem('allowedAdminEmails')) {
     localStorage.setItem('allowedAdminEmails', JSON.stringify([DEFAULT_ADMIN]));
 }
 
-// Load Booking records from storage
+// Setup bookings array storage memory matrix
 if (!localStorage.getItem('bandBookingsData')) {
     localStorage.setItem('bandBookingsData', JSON.stringify([]));
 }
 
-// Budget Slider handler
+// UI element budget listener layout updates
 const range = document.getElementById('budget');
 const display = document.getElementById('budgetValue');
 if(range && display) {
     range.addEventListener('input', function() { display.innerText = this.value; });
 }
 
-// Form Submit: Saves data & dispatches automated email to all management levels
+// Form Submit: Saves data & dispatches automated email immediately on form submission
 function handleFormSubmit(e) {
     e.preventDefault();
     
@@ -319,15 +335,15 @@ function handleFormSubmit(e) {
         status: "Pending"
     };
 
-    let existingBookings = JSON.parse(localStorage.getItem('bandBookingsData') || "[]");
-    existingBookings.push(newBooking);
-    localStorage.setItem('bandBookingsData', JSON.stringify(existingBookings));
+    let bookings = JSON.parse(localStorage.getItem('bandBookingsData') || "[]");
+    bookings.push(newBooking);
+    localStorage.setItem('bandBookingsData', JSON.stringify(bookings));
 
-    // Gather everyone that should get the notification email alert
+    // Compile dynamic routing lists to alert main email + alternate organizers
     const allowedAdmins = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
     const emailRecipientsList = [...new Set([BAND_MAIN_GMAIL, ...allowedAdmins])].join(', ');
 
-    // Match your custom email templates variables
+    // Templates parameters matching key configuration mappings
     const emailTemplateParams = {
         routing_recipients: emailRecipientsList,
         client_name: newBooking.name,
@@ -341,9 +357,9 @@ function handleFormSubmit(e) {
         notes: newBooking.details || "None"
     };
 
-    // Automated outbound alert request to your email platform
+    // Auto-fire network dispatch payload requests to API infrastructure
     emailjs.send("YOUR_SERVICE_ID", "YOUR_NEW_BOOKING_TEMPLATE_ID", emailTemplateParams)
-        .then(function() { console.log('Booking email routed safely.'); }, function(err) { console.log('Failed email delivery:', err); });
+        .then(function() { console.log('Booking email notification dispatched successfully.'); }, function(err) { console.log('Error delivering email pipeline:', err); });
 
     document.getElementById('successBox').style.display = 'block';
     document.getElementById('bookingForm').reset();
@@ -354,7 +370,7 @@ function handleFormSubmit(e) {
     }
 }
 
-// Action Operations Matrix: Clear, Approve, Mark Unavailable, Dismiss
+// Dashboard Actions Matrix: Clear, Approve, Mark Unavailable, Dismiss
 function updateBookingStatus(bookingId, targetStatus) {
     let bookings = JSON.parse(localStorage.getItem('bandBookingsData') || "[]");
     const booking = bookings.find(b => b.id === bookingId);
@@ -372,14 +388,14 @@ function updateBookingStatus(bookingId, targetStatus) {
     localStorage.setItem('bandBookingsData', JSON.stringify(bookings));
     renderBookingsTable();
     
-    // Automatically trigger confirmation message directly to client if Approved
+    // Automatically trigger notification to client upon Approval action
     if(targetStatus === "Approved") {
         sendClientApprovalEmail(booking);
     }
 }
 
 function removeBookingPermanently(bookingId) {
-    if(confirm("Permanently wipe this booking request from history?")) {
+    if(confirm("Permanently wipe this booking request from history records?")) {
         let bookings = JSON.parse(localStorage.getItem('bandBookingsData') || "[]");
         bookings = bookings.filter(b => b.id !== bookingId);
         localStorage.setItem('bandBookingsData', JSON.stringify(bookings));
@@ -387,7 +403,7 @@ function removeBookingPermanently(bookingId) {
     }
 }
 
-// Send outbound status update email directly to client
+// Dispatch automated approval template directly to client
 function sendClientApprovalEmail(booking) {
     const approvalParams = {
         client_email: booking.email,
@@ -399,10 +415,10 @@ function sendClientApprovalEmail(booking) {
     };
 
     emailjs.send("YOUR_SERVICE_ID", "YOUR_CLIENT_APPROVAL_TEMPLATE_ID", approvalParams)
-        .then(function() { alert("✓ Status updated & client has been emailed!"); }, function(err) { console.log('Error emailing client:', err); });
+        .then(function() { alert("✓ Booking Approved! Client has been notified via custom email."); }, function(err) { console.log('Error executing client approval email:', err); });
 }
 
-// Renders interactive records inside console
+// Renders the administrative records row matrices inside console panels
 function renderBookingsTable() {
     const tableBody = document.getElementById('bookingsTableBody');
     if(!tableBody) return;
@@ -411,13 +427,12 @@ function renderBookingsTable() {
     tableBody.innerHTML = "";
     
     if(bookings.length === 0) {
-        tableBody.innerHTML = "<tr><td colspan='4' style='text-align:center; color:#888; padding:20px;'>No active requests.</td></tr>";
+        tableBody.innerHTML = "<tr><td colspan='4' style='text-align:center; color:#888; padding:20px;'>No active booking requests found.</td></tr>";
         return;
     }
     
     bookings.forEach(b => {
         const row = document.createElement('tr');
-        
         row.innerHTML = `
             <td><strong>${b.name}</strong><br><small>${b.email}</small><br><small>${b.phone}</small></td>
             <td><strong>${b.eventType}</strong> ($${b.budget})<br><small>📅 ${b.date} (${b.startTime}-${b.endTime})</small><br><small>📍 ${b.location}</small></td>
@@ -435,7 +450,7 @@ function renderBookingsTable() {
     });
 }
 
-// Portal Login System
+// Secure Management Portal View toggles
 function openLoginModal() {
     if (sessionStorage.getItem('dashboardAccessGranted') === 'true') { showDashboardView(); } 
     else { document.getElementById('loginModal').style.display = 'flex'; }
@@ -453,7 +468,7 @@ function processLogin(e) {
         closeLoginModal();
         showDashboardView();
     } else {
-        document.getElementById('loginError').innerText = "Invalid credentials or unauthorized email.";
+        document.getElementById('loginError').innerText = "Invalid credentials or unauthorized access request.";
         document.getElementById('loginError').style.display = 'block';
     }
 }
@@ -471,7 +486,7 @@ function logoutAdmin() {
     document.getElementById('mainSiteView').style.display = 'block';
 }
 
-// Management Access Logic
+// Owner features controls management lists
 function addNewAdminEmail() {
     const emailInput = document.getElementById('newAdminEmail');
     const emailVal = emailInput.value.trim().toLowerCase();
@@ -486,7 +501,7 @@ function addNewAdminEmail() {
 }
 
 function removeAdminEmail(emailToRemove) {
-    if(emailToRemove !== DEFAULT_ADMIN && confirm("Revoke access for this admin?")) {
+    if(emailToRemove !== DEFAULT_ADMIN && confirm("Revoke system access for this admin email address?")) {
         let currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
         currentList = currentList.filter(e => e !== emailToRemove);
         localStorage.setItem('allowedAdminEmails', JSON.stringify(currentList));
