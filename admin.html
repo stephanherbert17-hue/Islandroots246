@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Islandroots.246 Tuk Band</title>
+    <style>
+        :root {
+            --primary-blue: #002664;
+            --accent-gold: #FFC000;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #eaeff5; color: var(--dark-text); }
+        header { background: linear-gradient(135deg, #001f54 0%, #034078 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid var(--accent-gold); }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .status-box { background-color: #eef6ff; color: #0f3a72; padding: 20px; border-radius: 8px; border-left: 6px solid var(--primary-blue); margin-bottom: 20px; }
+        .card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 25px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 14px; text-align: left; vertical-align: top; }
+        th { background: #f8f9fa; }
+        .tag { display: inline-block; background: var(--accent-gold); color: #000; border-radius: 18px; padding: 6px 12px; font-size: 0.9rem; margin-right: 8px; margin-bottom: 8px; }
+        .top-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .logout { background: #002664; color: white; padding: 12px 18px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        .empty-state { padding: 20px; background: #fff3cd; border: 1px solid #ffeeba; border-radius: 8px; text-align: center; font-weight: bold; }
+        input[type="email"] { padding: 12px; width: 100%; max-width: 300px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+        button { background: linear-gradient(135deg, #002664, #003380); color: white; padding: 12px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        button:hover { opacity: 0.9; }
+        .delete-btn { color: #dc3545; background: none; border: none; padding: 0; margin-left: 10px; font-size: 0.85rem; cursor: pointer; text-decoration: underline; font-weight: normal; }
+        .delete-btn:hover { color: #bd2130; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+</header>
+
+<div class="container">
+    <div class="status-box">
+        Logged in as <strong id="adminEmail">director@islandroots246.com</strong>. Review booking requests and reply directly by email or phone.
+    </div>
+
+    <div class="status-box" style="background: #fff7e0; border-left-color: #ffc107; color: #5a4b00; margin-bottom: 25px;">
+        <strong>Owner actions:</strong> Grant new admin access and manage the authorized admin list.
+    </div>
+    
+    <div class="card">
+        <h2>Grant Admin Access</h2>
+        <form id="adminForm" onsubmit="addAdmin(event)">
+            <label for="new_admin_email" style="display:block; margin-bottom:8px; font-weight:bold;">New Admin Email</label>
+            <input id="new_admin_email" type="email" placeholder="new.admin@example.com" required><br>
+            <button type="submit">Grant Admin Access</button>
+        </form>
+        <p style="margin-top: 20px; font-size: 0.95rem; color: #444; font-weight: bold;">Current admins:</p>
+        <ul id="adminList" style="list-style: none; padding-left: 0; color: #2c3e50;">
+            </ul>
+    </div>
+
+    <div class="card">
+        <div class="top-row">
+            <div>
+                <h2>Booking Requests</h2>
+                <p>These are the latest bookings submitted through the booking form.</p>
+            </div>
+            <a class="logout" href="login.html" onclick="handleLogout()">Log out</a>
+        </div>
+
+        <div id="tableContainer">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Requester</th>
+                        <th>Contact</th>
+                        <th>Event Details</th>
+                        <th>Notes</th>
+                        <th>Status</th>
+                        <th>Review</th>
+                    </tr>
+                </thead>
+                <tbody id="bookingTableBody">
+                </tbody>
+            </table>
+        </div>
+        <div id="emptyState" class="empty-state" style="display: none;">
+            No booking requests have been received yet.
+        </div>
+    </div>
+</div>
+
+<script>
+    // Sample mock data for bookings
+    let mockBookings = [
+        {
+            name: "Rihanna Alberg",
+            created_at: "May 25, 2026",
+            email: "rihanna@example.com",
+            phone: "246-555-0199",
+            event_type: "Wedding Entertainment",
+            event_date: "2026-08-15",
+            start_time: "16:00",
+            end_time: "19:00",
+            location: "Oistins, Christ Church",
+            budget: "1500",
+            details: "Looking for an authentic Tuk band performance for the cocktail hour welcome reception.",
+            status: "Pending",
+            reviewed_by: "",
+            updated_at: ""
+        },
+        {
+            name: "Mark Brewster",
+            created_at: "May 24, 2026",
+            email: "m.brewster@corporate.bb",
+            phone: "246-555-0122",
+            event_type: "Corporate Event",
+            event_date: "2026-07-02",
+            start_time: "12:00",
+            end_time: "14:00",
+            location: "Bridgetown, St. Michael",
+            budget: "1200",
+            details: "Lunch reception interactive presentation for regional delegates.",
+            status: "Reviewed",
+            reviewed_by: "director@islandroots246.com",
+            updated_at: "May 24, 2026"
+        }
+    ];
+
+    // Runs immediately when dashboard setup completes to fetch user identities
+    function initializeDashboard() {
+        // Display who logged in dynamically
+        const sessionUser = localStorage.getItem('currentLoggedInAdmin') || "director@islandroots246.com";
+        document.getElementById('adminEmail').innerText = sessionUser;
+
+        renderBookings();
+        renderAdminList();
+    }
+
+    function renderBookings() {
+        const tbody = document.getElementById('bookingTableBody');
+        const tableContainer = document.getElementById('tableContainer');
+        const emptyState = document.getElementById('emptyState');
+
+        if (mockBookings.length === 0) {
+            tableContainer.style.display = 'none';
+            emptyState.style.display = 'block';
+            return;
+        }
+
+        tableContainer.style.display = 'block';
+        emptyState.style.display = 'none';
+        tbody.innerHTML = '';
+
+        mockBookings.forEach((request, index) => {
+            let statusTag = '';
+            if (request.status === "Reviewed") {
+                statusTag = `<span class="tag" style="background: #d4edda; color: #155724;">Reviewed</span><br><small>${request.reviewed_by}</small>`;
+            } else {
+                statusTag = `<span class="tag" style="background: #fff3cd; color: #856404;">Pending</span>`;
+            }
+
+            if (request.updated_at) {
+                statusTag += `<div style="font-size: 0.85rem; color: #555; margin-top: 6px;">Updated ${request.updated_at}</div>`;
+            }
+
+            const row = `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td><strong>${request.name}</strong><br><small>Submitted ${request.created_at}</small></td>
+                    <td>
+                        <div><strong>Email:</strong> ${request.email}</div>
+                        <div><strong>Phone:</strong> ${request.phone}</div>
+                    </td>
+                    <td>
+                        <div><strong>Type:</strong> ${request.event_type}</div>
+                        <div><strong>Date:</strong> ${request.event_date}</div>
+                        <div><strong>Time:</strong> ${request.start_time} - ${request.end_time}</div>
+                        <div><strong>Location:</strong> ${request.location}</div>
+                        <div><strong>Budget:</strong> BBD ${request.budget}</div>
+                    </td>
+                    <td style="white-space: pre-wrap;">${request.details}</td>
+                    <td>${statusTag}</td>
+                    <td>
+                        <div style="display: grid; gap: 8px;">
+                            <label><input type="checkbox" checked disabled> WhatsApp</label>
+                            <label><input type="checkbox"> Email</label>
+                            <button onclick="markReviewed(${index})">Mark Reviewed</button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+            tbody.innerHTML += row;
+        });
+    }
+
+    function markReviewed(index) {
+        mockBookings[index].status = "Reviewed";
+        mockBookings[index].reviewed_by = document.getElementById('adminEmail').innerText;
+        
+        let today = new Date();
+        mockBookings[index].updated_at = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        
+        renderBookings();
+    }
+
+    // Pulls saved admins from memory bank to print them to the screen layout
+    function renderAdminList() {
+        const list = document.getElementById('adminList');
+        list.innerHTML = '';
+
+        // Add defaults permanently
+        list.innerHTML += `<li style="margin-bottom: 6px;">• director@islandroots246.com (Owner)</li>`;
+        list.innerHTML += `<li style="margin-bottom: 6px;">• coordination@islandroots246.com</li>`;
+
+        // Load added ones from custom storage arrays
+        let customAdmins = JSON.parse(localStorage.getItem('addedAdmins')) || [];
+        customAdmins.forEach((email) => {
+            const li = document.createElement('li');
+            li.style.marginBottom = '6px';
+            li.innerHTML = `• ${email} <button class="delete-btn" onclick="removeAdmin('${email}')">[Revoke]</button>`;
+            list.appendChild(li);
+        });
+    }
+
+    // Saves added admins inside localStorage so login pages can query it
+    function addAdmin(event) {
+        event.
+            

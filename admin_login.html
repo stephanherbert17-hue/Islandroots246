@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Islandroots.246 Tuk Band</title>
+    <style>
+        :root {
+            --primary-blue: #002664;
+            --accent-gold: #FFC000;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #eaeff5; color: var(--dark-text); }
+        header { background: linear-gradient(135deg, #001f54 0%, #034078 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 6px solid var(--accent-gold); }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        .container { max-width: 600px; margin: 40px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        label { display: block; margin: 18px 0 8px; font-weight: bold; }
+        input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+        button { width: 100%; margin-top: 20px; padding: 16px; background: linear-gradient(135deg, var(--primary-blue), #003380); border: none; color: white; font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer; }
+        button:hover { opacity: 0.95; }
+        .message { background: #f8d7da; border: 1px solid #f5c6cb; padding: 15px; border-radius: 8px; color: #721c24; margin-bottom: 20px; display: none; }
+        .footer-link { text-align: center; margin-top: 20px; }
+        .footer-link a { color: var(--primary-blue); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Admin Login</h1>
+</header>
+
+<div class="container">
+    <div class="card">
+        <!-- Error Alert box hidden by default -->
+        <div id="errorMessage" class="message"></div>
+        
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <label for="email">Admin Email</label>
+            <input type="email" id="email" required placeholder="director@islandroots246.com">
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" required placeholder="Enter admin password">
+            
+            <button type="submit">Sign In</button>
+        </form>
+        
+        <div class="footer-link">
+            <!-- Points to your root index booking page -->
+            <p><a href="index.html">Back to booking page</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function handleLogin(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById('email').value.trim().toLowerCase();
+        const password = document.getElementById('password').value;
+        const errorBox = document.getElementById('errorMessage');
+
+        // 1. Check against your default Master Owner credentials
+        if (email === "director@islandroots246.com" && password === "roots246") {
+            errorBox.style.display = "none";
+            // Save who logged in so the dashboard can display it correctly
+            localStorage.setItem('currentLoggedInAdmin', "director@islandroots246.com (Owner)");
+            window.location.href = "admin.html"; 
+            return;
+        }
+
+        // 2. Check the browser memory bank to see if this email was granted access
+        let customAdmins = JSON.parse(localStorage.getItem('addedAdmins')) || [];
+        
+        // Find if the typed email exists in our added admins list
+        if (customAdmins.includes(email) && password === "roots246") {
+            errorBox.style.display = "none";
+            localStorage.setItem('currentLoggedInAdmin', email);
+            window.location.href = "admin.html";
+            return;
+        }
+
+        // 3. If it matches nothing, show the error box
+        errorBox.innerText = "Invalid authorized admin email or password. Please try again.";
+        errorBox.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
