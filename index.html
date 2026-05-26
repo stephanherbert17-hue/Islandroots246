@@ -16,6 +16,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
+            // STEP 1: REPLACE THIS PLAIN STRING WITH YOUR ACCOUNT PUBLIC KEY
             emailjs.init("YOUR_PUBLIC_KEY");
         })();
     </script>
@@ -59,7 +60,6 @@
         
         .card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-top: 4px solid var(--primary-blue); margin-bottom: 25px; }
         
-        /* Direct targeting to ensure sections inside the sidebar layout separate beautifully */
         .sidebar-section { margin-bottom: 35px; display: block; clear: both; }
         .sidebar-section:last-child { margin-bottom: 0; }
         
@@ -172,14 +172,14 @@
 
                     <div class="checkbox-group">
                         <input type="checkbox" id="confirm_bot" checked disabled>
-                        <label for="confirm_bot" style="display:inline; margin:0; font-weight:normal;">Send automated alerts to Band and Admins</label>
+                        <label for="confirm_bot" style="display:inline; margin:0; font-weight:normal;">Send automated alerts to Band Email</label>
                     </div>
 
                     <button type="submit">Submit Official Booking</button>
                 </form>
             </div>
 
-            <!-- Sidebar Card Component (Explicit Individual Sections) -->
+            <!-- Sidebar Card Component -->
             <div class="card">
                 <div class="sidebar-section">
                     <h2>Our Sound</h2>
@@ -350,13 +350,9 @@ function handleFormSubmit(e) {
     bookings.push(newBooking);
     localStorage.setItem('bandBookingsData', JSON.stringify(bookings));
 
-    // Compile dynamic routing lists to alert main email + alternate organizers
-    const allowedAdmins = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
-    const emailRecipientsList = [...new Set([BAND_MAIN_GMAIL, ...allowedAdmins])].join(', ');
-
-    // Templates parameters matching key configuration mappings
+    // Templates parameters targeting the static main band Gmail account
     const emailTemplateParams = {
-        routing_recipients: emailRecipientsList,
+        routing_recipients: BAND_MAIN_GMAIL,
         client_name: newBooking.name,
         client_email: newBooking.email,
         client_phone: newBooking.phone,
@@ -368,9 +364,14 @@ function handleFormSubmit(e) {
         notes: newBooking.details || "None"
     };
 
-    // Auto-fire network dispatch payload requests to API infrastructure
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_NEW_BOOKING_TEMPLATE_ID", emailTemplateParams)
-        .then(function() { console.log('Booking email notification dispatched successfully.'); }, function(err) { console.log('Error delivering email pipeline:', err); });
+    // Auto-fire network dispatch payload requests to API infrastructure using service_ret9u1r
+    // STEP 2: REPLACE THE SECOND ARGUMENT WITH YOUR ACTUAL NEW BOOKING TEMPLATE ID
+    emailjs.send("service_ret9u1r", "YOUR_NEW_BOOKING_TEMPLATE_ID", emailTemplateParams)
+        .then(function() { 
+            console.log('Booking email notification dispatched successfully to main band email.'); 
+        }, function(err) { 
+            console.log('Error delivering email pipeline:', err); 
+        });
 
     document.getElementById('successBox').style.display = 'block';
     document.getElementById('bookingForm').reset();
@@ -425,8 +426,13 @@ function sendClientApprovalEmail(booking) {
         location: booking.location
     };
 
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_CLIENT_APPROVAL_TEMPLATE_ID", approvalParams)
-        .then(function() { alert("✓ Booking Approved! Client has been notified via custom email."); }, function(err) { console.log('Error executing client approval email:', err); });
+    // STEP 3: REPLACE THE SECOND ARGUMENT WITH YOUR ACTUAL CLIENT APPROVAL TEMPLATE ID IF USING IT
+    emailjs.send("service_ret9u1r", "YOUR_CLIENT_APPROVAL_TEMPLATE_ID", approvalParams)
+        .then(function() { 
+            alert("✓ Booking Approved! Client has been notified via custom email."); 
+        }, function(err) { 
+            console.log('Error executing client approval email:', err); 
+        });
 }
 
 // Renders the administrative records row matrices inside console panels
