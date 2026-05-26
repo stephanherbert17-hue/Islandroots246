@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Islandroots.246 Tuk Band | Official Bookings</title>
     
+    <!-- Auto-HTTPS Protocol Force -->
     <script>
         if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && !window.location.hostname.startsWith('127.')) {
             window.location.href = window.location.href.replace('http:', 'https:');
         }
     </script>
 
-    <meta name="description" content="Book Islandroots.246 Tuk Band for Barbados events, weddings, festivals and cultural performances." />
+    <meta name="description" content="Book Islandroots.246 Tuk Band for Barbados events, weddings, festivals and cultural performances. Contact the band email or directors directly for fast booking." />
+    <meta name="keywords" content="Islandroots 246, Tuk Band, Barbados band, steel pan, event booking, cultural performance, band booking" />
     <style>
         :root {
             --primary-blue: #002664; 
             --accent-gold: #FFC000;  
             --light-bg: #f8f9fa;
             --dark-text: #2c3e50;
+            --success-green: #28a745;
         }
 
         body { 
@@ -50,29 +53,40 @@
         h2 { color: var(--primary-blue); margin: 0; border-bottom: 2px solid #eee; padding-bottom: 15px; font-size: 1.8rem; }
         
         label { display: block; margin: 15px 0 8px; font-weight: bold; color: #444; }
-        input, select, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; background-color: #fcfcfc; }
-        input:focus, select:focus, textarea:focus { border-color: var(--accent-gold); outline: none; }
+        input, select, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; background-color: #fcfcfc; transition: all 0.3s; }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent-gold); outline: none; box-shadow: 0 0 8px rgba(255, 192, 0, 0.3); }
         textarea { resize: vertical; height: 120px; }
         
         .checkbox-group { margin: 25px 0; display: flex; align-items: center; background: var(--light-bg); padding: 15px; border-radius: 6px; border-left: 4px solid var(--accent-gold); }
-        .checkbox-group input { margin-right: 15px; width: 20px; height: 20px; }
+        .checkbox-group input { margin-right: 15px; width: 20px; height: 20px; accent-color: var(--primary-blue); }
         
-        button { background: linear-gradient(135deg, var(--primary-blue), #003380); color: white; padding: 16px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
-        button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        button { background: linear-gradient(135deg, var(--primary-blue), #003380); color: white; padding: 16px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        button:hover { background: linear-gradient(135deg, #001f54, var(--primary-blue)); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         
         .info-section { margin-bottom: 30px; }
         .board-list { list-style: none; padding: 0; margin: 0; }
-        .board-list li { background: var(--light-bg); padding: 15px 20px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--primary-blue); }
+        .board-list li { background: var(--light-bg); padding: 15px 20px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--primary-blue); font-size: 1.1rem; }
+        .board-list li strong { color: var(--primary-blue); font-size: 1.2rem; }
+        
         .tag { background: var(--accent-gold); color: #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin: 4px; }
         .contact-box { background: #eef2f7; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .contact-box p { margin: 10px 0; font-size: 1.1rem; }
 
-        /* Admin Dashboard Specific Tables & Elements */
+        .video-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; }
+        .video-card { display: flex; gap: 15px; background: var(--light-bg); border-radius: 12px; padding: 16px; border: 1px solid #dcdcdc; text-decoration: none; color: inherit; transition: all 0.2s; }
+        .video-card:hover { transform: translateY(-2px); border-color: var(--primary-blue); }
+        .video-thumb { min-width: 66px; min-height: 66px; background: var(--primary-blue); color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+
+        /* Admin Specific Styles */
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { border: 1px solid #ddd; padding: 12px; text-align: left; font-size: 0.95rem; }
         th { background: #f4f6f9; color: var(--primary-blue); }
         .logout-btn { background: #dc3545; padding: 10px 15px; width: auto; font-size: 1rem; display: inline-block; margin-bottom: 20px; }
+        .admin-action-input { display: flex; gap: 10px; margin-top: 15px; }
+        .admin-action-input input { flex: 1; }
+        .admin-action-input button { width: auto; padding: 0 25px; }
+        .remove-btn { background: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
         
-        /* Modal Popup Styling for Clean Login Experience */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
         .modal-content { background: white; padding: 40px; border-radius: 12px; max-width: 400px; width: 100%; position: relative; box-shadow: 0 5px 30px rgba(0,0,0,0.3); }
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #aaa; }
@@ -82,20 +96,22 @@
 </head>
 <body>
 
+<!-- MAIN BOOKING SITE VIEW -->
 <div id="mainSiteView">
     <header>
         <h1>Islandroots.246 Tuk Band</h1>
-        <div class="header-subtitle">Authentic Barbadian Culture • High-Energy Performances</div>
+        <div class="header-subtitle">Authentic Barbadian Culture • High-Energy Performances • Unforgettable Events</div>
         <div class="instrument-banner">🥁 🪈 🎶 🥁</div>
     </header>
 
     <div class="container">
         <div id="successBox" class="status-box">
             <strong>✓ Booking Request Successfully Submitted!</strong><br>
-            Your request has been routed to the Director.
+            Your request has been routed to the Director. We will review your event details and respond shortly.
         </div>
 
         <div class="grid">
+            <!-- Form Card -->
             <div class="card">
                 <h2>Book the Band</h2>
                 <form id="bookingForm" onsubmit="handleFormSubmit(event)">
@@ -116,6 +132,7 @@
                         <option value="Festival">Festival / Parade</option>
                         <option value="Corporate">Corporate Event</option>
                         <option value="Wedding">Wedding Entertainment</option>
+                        <option value="Other">Other Custom Request</option>
                     </select>
 
                     <label for="event_date">Event Date</label>
@@ -128,46 +145,98 @@
                     <input type="time" id="end_time" required>
 
                     <label for="location">Location / Venue</label>
-                    <input type="text" id="location" required placeholder="E.g., Oistins">
+                    <input type="text" id="location" required placeholder="E.g., Bridgetown Community Hall">
 
                     <label for="budget">Your Budget (BBD)</label>
                     <input type="range" id="budget" min="0" max="3000" step="50" value="800">
                     <p>Budget: BBD $<strong id="budgetValue">800</strong></p>
 
                     <label for="details">Event Notes</label>
-                    <textarea id="details" placeholder="Share your event size or performance notes..."></textarea>
+                    <textarea id="details" placeholder="Please share any special requests, audience size, or performance notes..."></textarea>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="confirm_bot" checked disabled>
+                        <label for="confirm_bot" style="display:inline; margin:0; font-weight:normal;">Send automated itinerary to Director for review</label>
+                    </div>
 
                     <button type="submit">Submit Official Booking</button>
                 </form>
             </div>
 
+            <!-- Full Sidebar Info Pane -->
             <div class="card">
                 <div class="info-section">
                     <h2>Our Sound</h2>
-                    <div class="board-list">
+                    <p>We bring the traditional rhythm and spirit of Barbados to your event with an authentic acoustic lineup:</p>
+                    <div class="instrument-tags">
                         <span class="tag">🥁 Tuk Bass</span>
-                        <span class="tag">🥁 Kettle Drum</span>
+                        <span class="tag">🥁 Kettle Drum / Snare</span>
+                        <span class="tag">🥁 Rim</span>
+                        <span class="tag">🔔 Triangle</span>
                         <span class="tag">🎺 Trumpet</span>
                         <span class="tag">🥁 Steel Pan</span>
+                        <span class="tag">🪈 Penny Whistle</span>
                     </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Board of Directors</h2>
+                    <ul class="board-list">
+                        <li><strong>Stephan Herbert</strong><br><span style="color: #666; font-size: 0.95rem;">Founder & Musical Director</span></li>
+                        <li><strong>Trevern Ellis</strong><br><span style="color: #666; font-size: 0.95rem;">Co-founder & Junior Director</span></li>
+                        <li><strong>Nathan Codrington</strong><br><span style="color: #666; font-size: 0.95rem;">Assistant Music Director</span></li>
+                        <li><strong>Mr. R. Boyce</strong><br><span style="color: #666; font-size: 0.95rem;">Chairman / Gig Coordinator</span></li>
+                        <li><strong>Roshae Husbands</strong><br><span style="color: #666; font-size: 0.95rem;">Musical Coordinator</span></li>
+                        <li><strong>Embrany Harvey</strong><br><span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span></li>
+                        <li><strong>Asia Jordan</strong><br><span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span></li>
+                        <li><strong>Christan Iffil</strong><br><span style="color: #666; font-size: 0.95rem;">Band Leader</span></li>
+                        <li><strong>Ashaunda Payne</strong><br><span style="color: #666; font-size: 0.95rem;">Honorary Community Relations Ambassador</span></li>
+                    </ul>
                 </div>
 
                 <div class="info-section">
                     <h2>Direct Contact</h2>
                     <div class="contact-box">
-                        <p>📧 <strong>Email:</strong> island.roots.246.tukband@gmail.com</p>
-                        <p>📸 <strong>Instagram:</strong> @islandroots.246_tukband</p>
+                        <p>📧 <strong>Email:</strong> <a href="mailto:island.roots.246.tukband@gmail.com" style="color: var(--primary-blue); text-decoration: none;">island.roots.246.tukband@gmail.com</a></p>
+                        <p>📱 <strong>Phone (Directors / Coordinators):</strong></p>
+                        <ul style="margin: 10px 0 0 20px; padding: 0; color: #444; font-size: 1.05rem;">
+                            <li>246-247-6799</li>
+                            <li>246-286-5831</li>
+                            <li>246-239-8885</li>
+                            <li>246-829-7791</li>
+                            <li>246-261-7557</li>
+                            <li>246-833-5046</li>
+                        </ul>
+                        <p style="margin-top: 15px;">📸 <strong>Instagram:</strong> <a href="https://instagram.com/islandroots.246_tukband" target="_blank" style="color: var(--primary-blue); text-decoration: none;">@islandroots.246_tukband</a></p>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Featured Performance</h2>
+                    <div style="margin-top: 15px; display:flex; justify-content:center;">
+                        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DSxRZKEEdVY/" data-instgrm-version="14" style="background:#FFF; border:0; margin: 0 auto; max-width:540px; width:100%;"></blockquote>
+                    </div>
+                    <script async defer src="https://www.instagram.com/embed.js"></script>
+                    <div class="video-grid">
+                        <a class="video-card" href="https://instagram.com/islandroots.246_tukband" target="_blank">
+                            <div class="video-thumb">🎥</div>
+                            <div class="video-copy">
+                                <strong>Official Instagram Gallery</strong>
+                                <span>Click here to explore live performance reels and media archives.</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
         
         <div style="text-align:center; margin-top: 40px; padding-bottom: 20px;">
-            <button onclick="openLoginModal()" style="width:auto; padding:10px 20px; font-size:1rem; background: #002664;">Open Dashboard</button>
+            <button onclick="openLoginModal()" style="width:auto; padding:10px 20px; font-size:1rem; background: var(--primary-blue);">Open Dashboard / Portal</button>
         </div>
     </div>
 </div>
 
+<!-- INLINE SECURE ADMIN VIEW -->
 <div id="adminDashboardView" style="display: none;">
     <header style="background: #001f54;">
         <h1>Admin Control Panel</h1>
@@ -176,6 +245,7 @@
     <div class="container">
         <button onclick="logoutAdmin()" class="logout-btn">← Exit Dashboard</button>
         
+        <!-- Active Bookings Display -->
         <div class="card">
             <h2>Current Booking Requests</h2>
             <table id="adminTable">
@@ -197,9 +267,35 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Working Owner Option: Managed Admin Emails -->
+        <div class="card" style="border-top-color: var(--accent-gold);">
+            <h2>Owner Controls: Manage Authorized Admins</h2>
+            <p>Add the emails of additional band managers below. Once added, they can use their email with the master password (<code>roots246</code>) to gain dashboard access.</p>
+            
+            <div class="admin-action-input">
+                <input type="email" id="newAdminEmail" placeholder="e.g., manager@islandroots246.com" aria-label="New admin email">
+                <button onclick="addNewAdminEmail()">Add Admin Access</button>
+            </div>
+            <div id="adminManageFeedback" style="margin-top:10px; font-weight:bold; display:none;"></div>
+
+            <h3 style="margin-top:25px;">Authorized Admin List:</h3>
+            <table id="authorizedAdminsTable">
+                <thead>
+                    <tr>
+                        <th>Authorized Email Account</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="authorizedAdminsList">
+                    <!-- Loaded dynamically via JavaScript -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
+<!-- LOGIN POPUP MODAL -->
 <div id="loginModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeLoginModal()">&times;</span>
@@ -219,6 +315,15 @@
 </div>
 
 <script>
+// Default primary admin account setup
+const MASTER_PASSWORD = "roots246";
+const DEFAULT_ADMIN = "director@islandroots246.com";
+
+// Setup and normalize LocalStorage for Custom Admin Access Lists
+if (!localStorage.getItem('allowedAdminEmails')) {
+    localStorage.setItem('allowedAdminEmails', JSON.stringify([DEFAULT_ADMIN]));
+}
+
 // Dynamic Budget Sliders
 const range = document.getElementById('budget');
 const display = document.getElementById('budgetValue');
@@ -235,9 +340,8 @@ function handleFormSubmit(e) {
     document.getElementById('successBox').scrollIntoView({behavior:'smooth', block:'center'});
 }
 
-// Modal Toggle Functions
+// Modal Controls
 function openLoginModal() {
-    // Session Guard Check
     if (sessionStorage.getItem('dashboardAccessGranted') === 'true') {
         showDashboardView();
     } else {
@@ -249,27 +353,30 @@ function closeLoginModal() {
     document.getElementById('loginError').style.display = 'none';
 }
 
-// Authentication Processing 
+// Live authentication algorithm matching default & custom local array entries
 function processLogin(e) {
     e.preventDefault();
     const user = document.getElementById('adminUser').value.trim().toLowerCase();
     const pass = document.getElementById('adminPass').value;
     const err = document.getElementById('loginError');
 
-    if (user === "director@islandroots246.com" && pass === "roots246") {
+    const allowedEmails = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
+
+    if (allowedEmails.includes(user) && pass === MASTER_PASSWORD) {
         sessionStorage.setItem('dashboardAccessGranted', 'true');
         closeLoginModal();
         showDashboardView();
     } else {
-        err.innerText = "Invalid management credentials.";
+        err.innerText = "Access Denied. Email not authorized or invalid password.";
         err.style.display = 'block';
     }
 }
 
-// View Switches
+// View Controller Actions
 function showDashboardView() {
     document.getElementById('mainSiteView').style.display = 'none';
     document.getElementById('adminDashboardView').style.display = 'block';
+    renderAdminListTable();
     window.scrollTo(0,0);
 }
 
@@ -280,7 +387,82 @@ function logoutAdmin() {
     window.scrollTo(0,0);
 }
 
-// Persistent Check on Page Reload
+// Owner Feature: Add new admin email to list
+function addNewAdminEmail() {
+    const emailInput = document.getElementById('newAdminEmail');
+    const emailVal = emailInput.value.trim().toLowerCase();
+    const feedback = document.getElementById('adminManageFeedback');
+    
+    if(!emailVal || !emailVal.includes('@')) {
+        feedback.innerText = "Please enter a valid email address.";
+        feedback.style.color = "red";
+        feedback.style.display = "block";
+        return;
+    }
+    
+    let currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
+    
+    if(currentList.includes(emailVal)) {
+        feedback.innerText = "This email is already authorized.";
+        feedback.style.color = "orange";
+        feedback.style.display = "block";
+        return;
+    }
+    
+    currentList.push(emailVal);
+    localStorage.setItem('allowedAdminEmails', JSON.stringify(currentList));
+    
+    emailInput.value = "";
+    feedback.innerText = "✓ " + emailVal + " successfully granted admin permissions!";
+    feedback.style.color = "green";
+    feedback.style.display = "block";
+    
+    renderAdminListTable();
+}
+
+// Owner Feature: Remove an email from the authorized admin list
+function removeAdminEmail(emailToRemove) {
+    if(emailToRemove === DEFAULT_ADMIN) {
+        alert("The primary master admin account cannot be deleted.");
+        return;
+    }
+    
+    if(confirm("Are you sure you want to revoke access privileges for: " + emailToRemove + "?")) {
+        let currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
+        currentList = currentList.filter(e => e !== emailToRemove);
+        localStorage.setItem('allowedAdminEmails', JSON.stringify(currentList));
+        renderAdminListTable();
+    }
+}
+
+// Render dynamic table showing who has permission to use the console
+function renderAdminListTable() {
+    const listBody = document.getElementById('authorizedAdminsList');
+    if(!listBody) return;
+    
+    const currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
+    listBody.innerHTML = "";
+    
+    currentList.forEach(email => {
+        const row = document.createElement('tr');
+        
+        const emailCell = document.createElement('td');
+        emailCell.innerHTML = "<strong>" + email + "</strong> " + (email === DEFAULT_ADMIN ? "<span class='tag'>Master</span>" : "");
+        row.appendChild(emailCell);
+        
+        const actionCell = document.createElement('td');
+        if(email !== DEFAULT_ADMIN) {
+            actionCell.innerHTML = "<button class='remove-btn' onclick='removeAdminEmail(\"" + email + "\")'>Revoke Access</button>";
+        } else {
+            actionCell.innerHTML = "<span style='color:#aaa; font-style:italic;'>Protected</span>";
+        }
+        row.appendChild(actionCell);
+        
+        listBody.appendChild(row);
+    });
+}
+
+// Session check logic on landing
 window.addEventListener('DOMContentLoaded', () => {
     if (sessionStorage.getItem('dashboardAccessGranted') === 'true') {
         showDashboardView();
