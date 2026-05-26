@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Islandroots.246 Tuk Band | Official Bookings</title>
+    
+    <!-- Auto-HTTPS Protocol Force (Fixes 'Not Secure' Flag on Client Side) -->
+    <script>
+        if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && !window.location.hostname.startsWith('127.')) {
+            window.location.href = window.location.href.replace('http:', 'https:');
+        }
+    </script>
+
     <meta name="description" content="Book Islandroots.246 Tuk Band for Barbados events, weddings, festivals and cultural performances. Contact the band email or directors directly for fast booking." />
     <meta name="keywords" content="Islandroots 246, Tuk Band, Barbados band, steel pan, event booking, cultural performance, band booking" />
     <meta name="robots" content="index, follow" />
@@ -331,8 +339,9 @@
 
         </div>
     </div>
-    <div style="text-align:center; margin-top: 20px;">
-        <a href="login.html" style="color: var(--primary-blue); text-decoration: none; font-weight: bold;">Admin login</a>
+    <div style="text-align:center; margin-top: 40px; padding-bottom: 20px;">
+        <!-- Clean Explicit lowercase routing path to handle root asset mapping on Vercel hosts -->
+        <a href="login.html" style="color: var(--primary-blue); text-decoration: none; font-weight: bold; background: white; padding: 10px 20px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">Owner / Admin Panel</a>
     </div>
 </div>
 
