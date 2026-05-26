@@ -5,25 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Islandroots.246 Tuk Band | Official Bookings</title>
     
-    <!-- Auto-HTTPS Protocol Force (Fixes 'Not Secure' Flag on Client Side) -->
     <script>
         if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && !window.location.hostname.startsWith('127.')) {
             window.location.href = window.location.href.replace('http:', 'https:');
         }
     </script>
 
-    <meta name="description" content="Book Islandroots.246 Tuk Band for Barbados events, weddings, festivals and cultural performances. Contact the band email or directors directly for fast booking." />
-    <meta name="keywords" content="Islandroots 246, Tuk Band, Barbados band, steel pan, event booking, cultural performance, band booking" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Islandroots.246 Tuk Band | Official Bookings" />
-    <meta property="og:description" content="Book Islandroots.246 Tuk Band for Barbados events, weddings, festivals and cultural performances. Contact us for authentic Tuk band entertainment." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://islandroots246.vercel.app" />
-    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Islandroots.246+Tuk+Band" />
+    <meta name="description" content="Book Islandroots.246 Tuk Band for Barbados events, weddings, festivals and cultural performances." />
     <style>
         :root {
-            --primary-blue: #002664; /* Deep Barbadian Blue */
-            --accent-gold: #FFC000;  /* Vibrant Gold */
+            --primary-blue: #002664; 
+            --accent-gold: #FFC000;  
             --light-bg: #f8f9fa;
             --dark-text: #2c3e50;
         }
@@ -36,7 +28,6 @@
             color: var(--dark-text); 
         }
 
-        /* Outstanding Header Design */
         header { 
             background: linear-gradient(135deg, #001f54 0%, #034078 100%);
             color: white; 
@@ -46,367 +37,255 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         
-        header h1 { 
-            margin: 0; 
-            font-size: 3rem; 
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .header-subtitle { 
-            margin: 10px 0 20px 0; 
-            font-size: 1.2rem; 
-            color: #e0e0e0; 
-        }
-
-        /* Instrument Decoration Banner */
-        .instrument-banner {
-            font-size: 2.5rem;
-            margin-top: 15px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
+        header h1 { margin: 0; font-size: 3rem; letter-spacing: 2px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .header-subtitle { margin: 10px 0 20px 0; font-size: 1.2rem; color: #e0e0e0; }
+        .instrument-banner { font-size: 2.5rem; margin-top: 15px; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
         @media (max-width: 850px) { .grid { grid-template-columns: 1fr; } }
         
-        /* Card Styling */
-        .card { 
-            background: white; 
-            padding: 35px; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
-            border-top: 4px solid var(--primary-blue);
-        }
+        .card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-top: 4px solid var(--primary-blue); margin-bottom: 25px; }
+        h2 { color: var(--primary-blue); margin: 0; border-bottom: 2px solid #eee; padding-bottom: 15px; font-size: 1.8rem; }
         
-        h2 { 
-            color: var(--primary-blue); 
-            margin: 0; 
-            border-bottom: 2px solid #eee; 
-            padding-bottom: 15px; 
-            font-size: 1.8rem;
-        }
-        
-        /* Form Styling */
         label { display: block; margin: 15px 0 8px; font-weight: bold; color: #444; }
-        input, select, textarea { 
-            width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; background-color: #fcfcfc; transition: all 0.3s;
-        }
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--accent-gold); outline: none; box-shadow: 0 0 8px rgba(255, 192, 0, 0.3);
-        }
+        input, select, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; background-color: #fcfcfc; }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent-gold); outline: none; }
         textarea { resize: vertical; height: 120px; }
         
         .checkbox-group { margin: 25px 0; display: flex; align-items: center; background: var(--light-bg); padding: 15px; border-radius: 6px; border-left: 4px solid var(--accent-gold); }
-        .checkbox-group input { margin-right: 15px; width: 20px; height: 20px; accent-color: var(--primary-blue); }
+        .checkbox-group input { margin-right: 15px; width: 20px; height: 20px; }
         
-        button { 
-            background: linear-gradient(135deg, var(--primary-blue), #003380); 
-            color: white; padding: 16px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
-        }
-        button:hover { background: linear-gradient(135deg, #001f54, var(--primary-blue)); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        button { background: linear-gradient(135deg, var(--primary-blue), #003380); color: white; padding: 16px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         
-        /* Info Sections */
         .info-section { margin-bottom: 30px; }
-        .info-section h3 { color: #333; margin-bottom: 10px; font-size: 1.3rem; }
-        
         .board-list { list-style: none; padding: 0; margin: 0; }
-        .board-list li { background: var(--light-bg); padding: 15px 20px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--primary-blue); font-size: 1.1rem; }
-        .board-list li strong { color: var(--primary-blue); font-size: 1.2rem; }
-
-        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        @media (max-width: 700px) { .video-grid { grid-template-columns: 1fr; } }
-        .video-card { display: flex; gap: 15px; background: var(--light-bg); border-radius: 12px; padding: 16px; border: 1px solid #dcdcdc; text-decoration: none; color: inherit; transition: transform 0.2s, border-color 0.2s; }
-        .video-card:hover { transform: translateY(-2px); border-color: var(--primary-blue); }
-        .video-thumb { min-width: 66px; min-height: 66px; background: var(--primary-blue); color: white; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-        .video-copy strong { display: block; margin-bottom: 6px; font-size: 1rem; }
-        .video-copy span { color: #555; font-size: 0.95rem; line-height: 1.4; }
-
-        .instrument-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
-        .tag { background: var(--accent-gold); color: #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; }
-
+        .board-list li { background: var(--light-bg); padding: 15px 20px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--primary-blue); }
+        .tag { background: var(--accent-gold); color: #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin: 4px; }
         .contact-box { background: #eef2f7; padding: 20px; border-radius: 8px; margin-top: 20px; }
-        .contact-box p { margin: 10px 0; font-size: 1.1rem; }
 
-        /* Success Box */
-        .status-box { background-color: #d4edda; color: #155724; padding: 20px; border-radius: 8px; border-left: 6px solid #28a745; margin-bottom: 30px; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.1); display: none; }
+        /* Admin Dashboard Specific Tables & Elements */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; font-size: 0.95rem; }
+        th { background: #f4f6f9; color: var(--primary-blue); }
+        .logout-btn { background: #dc3545; padding: 10px 15px; width: auto; font-size: 1rem; display: inline-block; margin-bottom: 20px; }
+        
+        /* Modal Popup Styling for Clean Login Experience */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
+        .modal-content { background: white; padding: 40px; border-radius: 12px; max-width: 400px; width: 100%; position: relative; box-shadow: 0 5px 30px rgba(0,0,0,0.3); }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #aaa; }
+
+        .status-box { background-color: #d4edda; color: #155724; padding: 20px; border-radius: 8px; border-left: 6px solid #28a745; margin-bottom: 30px; display: none; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Islandroots.246 Tuk Band</h1>
-    <div class="header-subtitle">Authentic Barbadian Culture • High-Energy Performances • Unforgettable Events</div>
-    <div class="instrument-banner">
-        🥁 🪈 🎶 🥁
-    </div>
-</header>
+<div id="mainSiteView">
+    <header>
+        <h1>Islandroots.246 Tuk Band</h1>
+        <div class="header-subtitle">Authentic Barbadian Culture • High-Energy Performances</div>
+        <div class="instrument-banner">🥁 🪈 🎶 🥁</div>
+    </header>
 
-<div class="container">
-    <!-- Cleaned static success notification box -->
-    <div id="successBox" class="status-box">
-        <strong>✓ Booking Request Successfully Submitted!</strong><br>
-        Your request has been routed to the Director. We will review your event details and respond shortly.
-        <br>Notification sent to the band email address.
-    </div>
+    <div class="container">
+        <div id="successBox" class="status-box">
+            <strong>✓ Booking Request Successfully Submitted!</strong><br>
+            Your request has been routed to the Director.
+        </div>
 
-    <div class="grid">
-        <div class="card">
-            <h2>Book the Band</h2>
-            <form id="bookingForm" onsubmit="handleFormSubmit(event)">
-                <div id="formError" style="display:none; background:#f8d7da; color:#721c24; padding:12px; border-radius:6px; border-left:6px solid #f5c6cb; margin-bottom:16px;"></div>
-                
-                <label for="name">Full Name / Event Organizer</label>
-                <input type="text" id="name" name="name" placeholder="E.g., John Doe" required>
+        <div class="grid">
+            <div class="card">
+                <h2>Book the Band</h2>
+                <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+                    <div id="formError" style="display:none; background:#f8d7da; color:#721c24; padding:12px; border-radius:6px; margin-bottom:16px;"></div>
+                    
+                    <label for="name">Full Name / Event Organizer</label>
+                    <input type="text" id="name" required placeholder="E.g., John Doe">
 
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="name@example.com">
 
-                <label for="phone">Contact Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="(246) XXX-XXXX" required>
+                    <label for="phone">Contact Number</label>
+                    <input type="tel" id="phone" required placeholder="(246) XXX-XXXX">
 
-                <label for="event_type">Type of Event</label>
-                <select id="event_type" name="event_type">
-                    <option value="Party">Party / Celebration</option>
-                    <option value="Festival">Festival / Parade</option>
-                    <option value="Corporate">Corporate Event</option>
-                    <option value="Wedding">Wedding Entertainment</option>
-                    <option value="Other">Other Custom Request</option>
-                </select>
+                    <label for="event_type">Type of Event</label>
+                    <select id="event_type">
+                        <option value="Party">Party / Celebration</option>
+                        <option value="Festival">Festival / Parade</option>
+                        <option value="Corporate">Corporate Event</option>
+                        <option value="Wedding">Wedding Entertainment</option>
+                    </select>
 
-                <label for="event_date">Event Date</label>
-                <input type="date" id="event_date" name="event_date" required>
+                    <label for="event_date">Event Date</label>
+                    <input type="date" id="event_date" required>
 
-                <label for="start_time">Start Time</label>
-                <input type="time" id="start_time" name="start_time" required>
+                    <label for="start_time">Start Time</label>
+                    <input type="time" id="start_time" required>
 
-                <label for="end_time">End Time</label>
-                <input type="time" id="end_time" name="end_time" required>
+                    <label for="end_time">End Time</label>
+                    <input type="time" id="end_time" required>
 
-                <label for="location">Location / Venue</label>
-                <input type="text" id="location" name="location" placeholder="E.g., Bridgetown Community Hall" required>
+                    <label for="location">Location / Venue</label>
+                    <input type="text" id="location" required placeholder="E.g., Oistins">
 
-                <label for="budget">Your Budget (BBD)</label>
-                <div style="display: grid; gap: 10px;">
-                    <input type="range" id="budget" name="budget" min="0" max="3000" step="50" value="800" aria-label="Budget slider">
-                    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-                        <span style="color:#444; font-size:0.95rem;">Budget: BBD <strong id="budgetValue">800</strong></span>
-                        <input type="number" min="0" max="3000" step="50" value="800" id="budgetNumber" style="width:140px; padding:12px; border:1px solid #ddd; border-radius:6px;" aria-label="Budget amount">
+                    <label for="budget">Your Budget (BBD)</label>
+                    <input type="range" id="budget" min="0" max="3000" step="50" value="800">
+                    <p>Budget: BBD $<strong id="budgetValue">800</strong></p>
+
+                    <label for="details">Event Notes</label>
+                    <textarea id="details" placeholder="Share your event size or performance notes..."></textarea>
+
+                    <button type="submit">Submit Official Booking</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <div class="info-section">
+                    <h2>Our Sound</h2>
+                    <div class="board-list">
+                        <span class="tag">🥁 Tuk Bass</span>
+                        <span class="tag">🥁 Kettle Drum</span>
+                        <span class="tag">🎺 Trumpet</span>
+                        <span class="tag">🥁 Steel Pan</span>
                     </div>
                 </div>
 
-                <label for="details">Event Notes</label>
-                <textarea id="details" name="details" placeholder="Please share any special requests, audience size, or performance notes..."></textarea>
-
-                <div class="checkbox-group">
-                    <input type="checkbox" id="confirm_bot" name="confirm_bot" checked disabled>
-                    <label for="confirm_bot" style="display:inline; margin:0; font-weight:normal;">Send automated itinerary to Director for review</label>
+                <div class="info-section">
+                    <h2>Direct Contact</h2>
+                    <div class="contact-box">
+                        <p>📧 <strong>Email:</strong> island.roots.246.tukband@gmail.com</p>
+                        <p>📸 <strong>Instagram:</strong> @islandroots.246_tukband</p>
+                    </div>
                 </div>
-
-                <button type="submit">Submit Official Booking</button>
-            </form>
+            </div>
         </div>
-
-        <div class="card">
-            <div class="info-section">
-                <h2>Our Sound</h2>
-                <p>We bring the traditional rhythm and spirit of Barbados to your event with an authentic acoustic lineup:</p>
-                <div class="instrument-tags">
-                    <span class="tag">🥁 Tuk Bass</span>
-                    <span class="tag">🥁 Kettle Drum / Snare</span>
-                    <span class="tag">🥁 Rim</span>
-                    <span class="tag">🔔 Triangle</span>
-                    <span class="tag">🎺 Trumpet</span>
-                    <span class="tag">🥁 Steel Pan</span>
-                    <span class="tag">🪈 Penny Whistle</span>
-                    <span class="tag">✨ and more!</span>
-                </div>
-            </div>
-
-            <div class="info-section" style="margin-top: 40px;">
-                <h2>Board of Directors</h2>
-                <ul class="board-list">
-                    <li>
-                        <strong>Stephan Herbert</strong><br>
-                        <span style="color: #666; font-size: 0.95rem;">Founder & Musical Director</span>
-                    </li>
-                    <li>
-                        <strong>Trevern Ellis</strong><br>
-                        <span style="color: #666; font-size: 0.95rem;">Co-founder & Junior Director</span>
-                    </li>
-                    <li>
-                        <strong>Nathan Codrington</strong><br>
-                        <span style="color: #666; font-size: 0.95rem;">Assistant Music Director</span>
-                    </li>
-                    <li>
-                        <strong>Mr. R. Boyce</strong><br>
-                        <span style="color: #666; font-size: 0.95rem;">Chairman / Gig Coordinator</span>
-                    </li>
-                    <li>
-                        <strong>Roshae Husbands</strong><br>
-                        <span style="color: #666; font-size: 0.95rem;">Musical Coordinator</span>
-                    </li>
-                    <li>
-                        <strong>Embrany Harvey</strong><br>
-                        <span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span>
-                    </li>
-                    <li>
-                        <strong>Asia Jordan</strong><br>
-                        <span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span>
-                    </li>
-                    <li>
-                        <strong>Christan Iffil</strong><br>
-                        <span style="color: #666; font-size: 0.95rem;">Band Leader</span>
-                    </li>
-                    <li>
-                        <strong>Ashaunda Payne</strong><br>
-                        <span style="color: #666; font-size: 0.95rem;">Honorary Community Relations Ambassador</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="info-section" style="margin-top: 40px;">
-                <h2>Pricing Snapshot</h2>
-                <p>We know Barbados events need fair pricing. Use the budget slider above to tell us what you can pay, and we will work with you.</p>
-                <ul class="board-list" style="border-left-color: #FFC000;">
-                    <li><strong>Community Session</strong><br><span style="color: #666; font-size: 0.95rem;">From BBD $500 — Perfect for small local gatherings and street performances.</span></li>
-                    <li><strong>Local Celebration</strong><br><span style="color: #666; font-size: 0.95rem;">From BBD $900 — Great for birthday parties, family events, and community vibes.</span></li>
-                    <li><strong>Festival Groove</strong><br><span style="color: #666; font-size: 0.95rem;">From BBD $1,400 — Ideal for parish festivals, small concerts, and weddings.</span></li>
-                    <li><strong>Custom Island Experience</strong><br><span style="color: #666; font-size: 0.95rem;">Tell us your budget and event size; we can often do custom pricing for local shows.</span></li>
-                </ul>
-                <p style="margin-top: 15px; color: #444;">These are starting ranges. If your budget is lower, the band will still review your request and respond with options.</p>
-            </div>
-
-            <!-- Statically safe booked dates presentation structure -->
-            <div class="info-section" style="margin-top: 40px;">
-                <h2>Booked Dates</h2>
-                <p>These dates and times are already reserved so the band can avoid double-booking.</p>
-                <ul class="board-list" style="border-left-color: #002664;">
-                    <li>
-                        <strong>2026-07-02</strong> • 12:00 - 14:00<br>
-                        <span style="color: #666; font-size: 0.95rem;">Bridgetown, St. Michael • Corporate Event</span>
-                    </li>
-                    <li>
-                        <strong>2026-08-15</strong> • 16:00 - 19:00<br>
-                        <span style="color: #666; font-size: 0.95rem;">Oistins, Christ Church • Wedding Entertainment</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="info-section" style="margin-top: 40px;">
-                <h2>Direct Contact</h2>
-                <div class="contact-box">
-                    <p>📧 <strong>Email:</strong> <a href="mailto:island.roots.246.tukband@gmail.com" style="color: var(--primary-blue); text-decoration: none;">island.roots.246.tukband@gmail.com</a></p>
-                    <p>📱 <strong>Phone (Directors / Coordinators):</strong></p>
-                    <ul style="margin: 10px 0 0 20px; padding: 0; color: #444; font-size: 1.05rem;">
-                        <li>246-247-6799</li>
-                        <li>246-286-5831</li>
-                        <li>246-239-8885</li>
-                        <li>246-829-7791</li>
-                        <li>246-261-7557</li>
-                        <li>246-833-5046</li>
-                    </ul>
-                    <p style="margin-top: 8px; color: #666; font-size: 0.95rem;">These numbers connect to band directors and coordinators; one may be down if the contact needs a phone.</p>
-                    <p>📸 <strong>Instagram:</strong> <a href="https://instagram.com/islandroots.246_tukband" target="_blank" style="color: var(--primary-blue); text-decoration: none;">@islandroots.246_tukband</a></p>
-                </div>
-            </div>
-
-            <div class="info-section" style="margin-top: 40px;">
-                <h2>Featured Instagram Performance</h2>
-                <p>Watch Islandroots.246 live on Instagram — authentic Tuk band energy and real event footage.</p>
-                <div style="margin-top: 24px; display:flex; justify-content:center;">
-                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DSxRZKEEdVY/" data-instgrm-version="14" style="background:#FFF; border:0; margin: 0 auto; max-width:540px; width:100%;">
-                    </blockquote>
-                </div>
-                <script async defer src="https://www.instagram.com/embed.js"></script>
-                <div class="video-grid" style="margin-top: 28px;">
-                    <a class="video-card" href="https://instagram.com/islandroots.246_tukband" target="_blank" rel="noreferrer noopener">
-                        <div class="video-thumb">🎥</div>
-                        <div class="video-copy">
-                            <strong>More Instagram Videos</strong>
-                            <span>Explore more Islandroots.246 performances and event highlights.</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
+        
+        <div style="text-align:center; margin-top: 40px; padding-bottom: 20px;">
+            <button onclick="openLoginModal()" style="width:auto; padding:10px 20px; font-size:1rem; background: #002664;">Open Dashboard</button>
         </div>
     </div>
-    <div style="text-align:center; margin-top: 40px; padding-bottom: 20px;">
-        <!-- Clean Explicit lowercase routing path to handle root asset mapping on Vercel hosts -->
-        <a href="login.html" style="color: var(--primary-blue); text-decoration: none; font-weight: bold; background: white; padding: 10px 20px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">Owner / Admin Panel</a>
+</div>
+
+<div id="adminDashboardView" style="display: none;">
+    <header style="background: #001f54;">
+        <h1>Admin Control Panel</h1>
+        <div class="header-subtitle">Islandroots.246 Operations Console</div>
+    </header>
+    <div class="container">
+        <button onclick="logoutAdmin()" class="logout-btn">← Exit Dashboard</button>
+        
+        <div class="card">
+            <h2>Current Booking Requests</h2>
+            <table id="adminTable">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Contact</th>
+                        <th>Details</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Rihanna Alberg</strong></td>
+                        <td>rihanna@example.com<br>246-555-0199</td>
+                        <td>Wedding Entertainment<br>Date: 2026-08-15<br>Location: Oistins</td>
+                        <td><span class="tag" style="background:#fff3cd;">Pending Review</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeLoginModal()">&times;</span>
+        <h3 style="color:var(--primary-blue); margin-top:0;">Management Portal</h3>
+        <form onsubmit="processLogin(event)">
+            <div id="loginError" style="display:none; color:red; margin-bottom:10px; font-size:0.9rem;"></div>
+            
+            <label for="adminUser">Admin Email</label>
+            <input type="email" id="adminUser" required placeholder="director@islandroots246.com">
+            
+            <label for="adminPass">Password</label>
+            <input type="password" id="adminPass" required placeholder="••••••••">
+            
+            <button type="submit" style="margin-top:20px;">Authorize & Enter</button>
+        </form>
     </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-    var range = document.getElementById('budget');
-    var number = document.getElementById('budgetNumber');
-    var display = document.getElementById('budgetValue');
-    if (range && number && display) {
-        number.value = range.value;
-        display.innerText = range.value;
-        
-        range.addEventListener('input', function(){ number.value = this.value; display.innerText = this.value; });
-        number.addEventListener('input', function(){
-            var v = this.value;
-            if (v === '') return;
-            range.value = v;
-            display.innerText = v;
-        });
-    }
-});
+// Dynamic Budget Sliders
+const range = document.getElementById('budget');
+const display = document.getElementById('budgetValue');
+if(range && display) {
+    range.addEventListener('input', function() { display.innerText = this.value; });
+}
 
+// Booking Form submission
 function handleFormSubmit(e) {
     e.preventDefault();
-    var formError = document.getElementById('formError');
-    var successBox = document.getElementById('successBox');
-    
-    var dateVal = document.getElementById('event_date').value;
-    var start = document.getElementById('start_time').value;
-    var end = document.getElementById('end_time').value;
-    var errors = [];
-    
-    if (dateVal) {
-        var today = new Date();
-        today.setHours(0,0,0,0);
-        var ev = new Date(dateVal + 'T00:00:00');
-        if (ev < today) errors.push('Event date cannot be in the past.');
-    } else {
-        errors.push('Event date is required.');
-    }
-    
-    if (start && end) {
-        var sParts = start.split(':'); var eParts = end.split(':');
-        var sMin = parseInt(sParts[0],10)*60 + parseInt(sParts[1],10);
-        var eMin = parseInt(eParts[0],10)*60 + parseInt(eParts[1],10);
-        if (isNaN(sMin) || isNaN(eMin)) {
-            errors.push('Invalid start or end time.');
-        } else if (eMin <= sMin) {
-            errors.push('End time must be after start time.');
-        }
-    }
+    document.getElementById('formError').style.display = 'none';
+    document.getElementById('successBox').style.display = 'block';
+    document.getElementById('bookingForm').reset();
+    document.getElementById('successBox').scrollIntoView({behavior:'smooth', block:'center'});
+}
 
-    if (errors.length > 0) {
-        formError.innerText = errors.join(' ');
-        formError.style.display = 'block';
-        successBox.style.display = 'none';
-        formError.scrollIntoView({behavior:'smooth', block:'center'});
-        return false;
+// Modal Toggle Functions
+function openLoginModal() {
+    // Session Guard Check
+    if (sessionStorage.getItem('dashboardAccessGranted') === 'true') {
+        showDashboardView();
     } else {
-        formError.style.display = 'none';
-        successBox.style.display = 'block';
-        document.getElementById('bookingForm').reset();
-        successBox.scrollIntoView({behavior:'smooth', block:'center'});
+        document.getElementById('loginModal').style.display = 'flex';
     }
 }
+function closeLoginModal() {
+    document.getElementById('loginModal').style.display = 'none';
+    document.getElementById('loginError').style.display = 'none';
+}
+
+// Authentication Processing 
+function processLogin(e) {
+    e.preventDefault();
+    const user = document.getElementById('adminUser').value.trim().toLowerCase();
+    const pass = document.getElementById('adminPass').value;
+    const err = document.getElementById('loginError');
+
+    if (user === "director@islandroots246.com" && pass === "roots246") {
+        sessionStorage.setItem('dashboardAccessGranted', 'true');
+        closeLoginModal();
+        showDashboardView();
+    } else {
+        err.innerText = "Invalid management credentials.";
+        err.style.display = 'block';
+    }
+}
+
+// View Switches
+function showDashboardView() {
+    document.getElementById('mainSiteView').style.display = 'none';
+    document.getElementById('adminDashboardView').style.display = 'block';
+    window.scrollTo(0,0);
+}
+
+function logoutAdmin() {
+    sessionStorage.removeItem('dashboardAccessGranted');
+    document.getElementById('adminDashboardView').style.display = 'none';
+    document.getElementById('mainSiteView').style.display = 'block';
+    window.scrollTo(0,0);
+}
+
+// Persistent Check on Page Reload
+window.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('dashboardAccessGranted') === 'true') {
+        showDashboardView();
+    }
+});
 </script>
 </body>
 </html>
