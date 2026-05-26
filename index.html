@@ -15,7 +15,6 @@
     <!-- EmailJS SDK Integration -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-        // Put your EmailJS Public Key here
         (function() {
             emailjs.init("YOUR_PUBLIC_KEY");
         })();
@@ -55,12 +54,16 @@
         .instrument-banner { font-size: 2.5rem; margin-top: 15px; }
 
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+        .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
         @media (max-width: 850px) { .grid { grid-template-columns: 1fr; } }
         
         .card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-top: 4px solid var(--primary-blue); margin-bottom: 25px; }
-        h2 { color: var(--primary-blue); margin: 20px 0 15px 0; border-bottom: 2px solid #eee; padding-bottom: 15px; font-size: 1.8rem; }
-        h2:first-child { margin-top: 0; }
+        
+        /* Direct targeting to ensure sections inside the sidebar layout separate beautifully */
+        .sidebar-section { margin-bottom: 35px; display: block; clear: both; }
+        .sidebar-section:last-child { margin-bottom: 0; }
+        
+        h2 { color: var(--primary-blue); margin: 0 0 15px 0; border-bottom: 2px solid #eee; padding-bottom: 15px; font-size: 1.8rem; }
         
         label { display: block; margin: 15px 0 8px; font-weight: bold; color: #444; }
         input, select, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; background-color: #fcfcfc; transition: all 0.3s; }
@@ -73,14 +76,14 @@
         button { background: linear-gradient(135deg, var(--primary-blue), #003380); color: white; padding: 16px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         button:hover { background: linear-gradient(135deg, #001f54, var(--primary-blue)); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         
-        .board-list { list-style: none; padding: 0; margin: 0; }
-        .board-list li { background: var(--light-bg); padding: 15px 20px; border-radius: 6px; margin-bottom: 10px; border-left: 4px solid var(--primary-blue); font-size: 1.1rem; }
-        .board-list li strong { color: var(--primary-blue); font-size: 1.2rem; }
+        .board-list { list-style: none; padding: 0; margin: 0; display: block; }
+        .board-list li { background: var(--light-bg); padding: 15px 20px; border-radius: 6px; margin-bottom: 12px; border-left: 4px solid var(--primary-blue); font-size: 1.1rem; display: block; }
+        .board-list li strong { color: var(--primary-blue); font-size: 1.2rem; display: inline-block; margin-bottom: 2px; }
         
         .tag { background: var(--accent-gold); color: #000; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin: 4px; }
-        .contact-box { background: #eef2f7; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .contact-box { background: #eef2f7; padding: 25px; border-radius: 8px; margin-top: 15px; display: block; }
 
-        /* Admin Layout Elements */
+        /* Admin Dashboard UI Setup */
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { border: 1px solid #ddd; padding: 12px; text-align: left; font-size: 0.95rem; }
         th { background: #f4f6f9; color: var(--primary-blue); }
@@ -126,7 +129,7 @@
         </div>
 
         <div class="grid">
-            <!-- Form Card -->
+            <!-- Form Card Component -->
             <div class="card">
                 <h2>Book the Band</h2>
                 <form id="bookingForm" onsubmit="handleFormSubmit(event)">
@@ -176,44 +179,52 @@
                 </form>
             </div>
 
-            <!-- Sidebar Info Pane (Restored Board & Direct Contacts) -->
+            <!-- Sidebar Card Component (Explicit Individual Sections) -->
             <div class="card">
-                <h2>Our Sound</h2>
-                <div style="margin-bottom: 25px;">
-                    <span class="tag">🥁 Tuk Bass</span>
-                    <span class="tag">🥁 Snare</span>
-                    <span class="tag">🔔 Triangle</span>
-                    <span class="tag">🎺 Trumpet</span>
-                    <span class="tag">🥁 Steel Pan</span>
-                    <span class="tag">🪈 Penny Whistle</span>
+                <div class="sidebar-section">
+                    <h2>Our Sound</h2>
+                    <div style="margin-bottom: 5px;">
+                        <span class="tag">🥁 Tuk Bass</span>
+                        <span class="tag">🥁 Snare</span>
+                        <span class="tag">🔔 Triangle</span>
+                        <span class="tag">🎺 Trumpet</span>
+                        <span class="tag">🥁 Steel Pan</span>
+                        <span class="tag">🪈 Penny Whistle</span>
+                    </div>
                 </div>
 
-                <h2>Board of Directors</h2>
-                <ul class="board-list">
-                    <li><strong>Stephan Herbert</strong><br><span style="color: #666; font-size: 0.95rem;">Founder & Musical Director</span></li>
-                    <li><strong>Trevern Ellis</strong><br><span style="color: #666; font-size: 0.95rem;">Co-founder & Junior Director</span></li>
-                    <li><strong>Nathan Codrington</strong><br><span style="color: #666; font-size: 0.95rem;">Assistant Music Director</span></li>
-                    <li><strong>Mr. R. Boyce</strong><br><span style="color: #666; font-size: 0.95rem;">Chairman / Gig Coordinator</span></li>
-                    <li><strong>Roshae Husbands</strong><br><span style="color: #666; font-size: 0.95rem;">Musical Coordinator</span></li>
-                    <li><strong>Embrany Harvey</strong><br><span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span></li>
-                    <li><strong>Asia Jordan</strong><br><span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span></li>
-                    <li><strong>Christan Iffil</strong><br><span style="color: #666; font-size: 0.95rem;">Band Leader</span></li>
-                    <li><strong>Ashaunda Payne</strong><br><span style="color: #666; font-size: 0.95rem;">Honorary Community Relations Ambassador</span></li>
-                </ul>
-
-                <h2>Direct Contact</h2>
-                <div class="contact-box">
-                    <p>📧 <strong>Email:</strong> <a href="mailto:island.roots.246.tukband@gmail.com" style="color: var(--primary-blue); text-decoration: none;">island.roots.246.tukband@gmail.com</a></p>
-                    <p>📱 <strong>Phone (Coordinators):</strong></p>
-                    <ul style="margin: 10px 0 0 20px; padding: 0; color: #444; font-size: 1.05rem; list-style-type: disc;">
-                        <li>246-247-6799</li>
-                        <li>246-286-5831</li>
-                        <li>246-239-8885</li>
-                        <li>246-829-7791</li>
-                        <li>246-261-7557</li>
-                        <li>246-833-5046</li>
+                <div class="sidebar-section">
+                    <h2>Board of Directors</h2>
+                    <ul class="board-list">
+                        <li><strong>Stephan Herbert</strong><br><span style="color: #666; font-size: 0.95rem;">Founder & Musical Director</span></li>
+                        <li><strong>Trevern Ellis</strong><br><span style="color: #666; font-size: 0.95rem;">Co-founder & Junior Director</span></li>
+                        <li><strong>Nathan Codrington</strong><br><span style="color: #666; font-size: 0.95rem;">Assistant Music Director</span></li>
+                        <li><strong>Mr. R. Boyce</strong><br><span style="color: #666; font-size: 0.95rem;">Chairman / Gig Coordinator</span></li>
+                        <li><strong>Roshae Husbands</strong><br><span style="color: #666; font-size: 0.95rem;">Musical Coordinator</span></li>
+                        <li><strong>Embrany Harvey</strong><br><span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span></li>
+                        <li><strong>Asia Jordan</strong><br><span style="color: #666; font-size: 0.95rem;">Steel Pan Coordinator</span></li>
+                        <li><strong>Christan Iffil</strong><br><span style="color: #666; font-size: 0.95rem;">Band Leader</span></li>
+                        <li><strong>Ashaunda Payne</strong><br><span style="color: #666; font-size: 0.95rem;">Honorary Community Relations Ambassador</span></li>
                     </ul>
-                    <p style="margin-top: 15px;">📸 <strong>Instagram:</strong> <a href="https://instagram.com/islandroots.246_tukband" target="_blank" style="color: var(--primary-blue); text-decoration: none;">@islandroots.246_tukband</a></p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Direct Contact</h2>
+                    <div class="contact-box">
+                        <p style="margin-top:0;">📧 <strong>Email:</strong> <br><a href="mailto:island.roots.246.tukband@gmail.com" style="color: var(--primary-blue); font-weight: bold; text-decoration: none;">island.roots.246.tukband@gmail.com</a></p>
+                        
+                        <p style="margin-bottom: 5px;">📱 <strong>Phone (Coordinators):</strong></p>
+                        <ul style="margin: 0 0 0 20px; padding: 0; color: #444; font-size: 1.1rem; line-height: 1.6;">
+                            <li>246-247-6799</li>
+                            <li>246-286-5831</li>
+                            <li>246-239-8885</li>
+                            <li>246-829-7791</li>
+                            <li>246-261-7557</li>
+                            <li>246-833-5046</li>
+                        </ul>
+                        
+                        <p style="margin-bottom: 0; margin-top: 15px;">📸 <strong>Instagram:</strong> <br><a href="https://instagram.com/islandroots.246_tukband" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: bold;">@islandroots.246_tukband</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -473,6 +484,7 @@ function processLogin(e) {
     }
 }
 
+// Dynamic display configurations
 function showDashboardView() {
     document.getElementById('mainSiteView').style.display = 'none';
     document.getElementById('adminDashboardView').style.display = 'block';
@@ -480,6 +492,7 @@ function showDashboardView() {
     renderAdminListTable();
 }
 
+// Restores standard framework visibility configurations
 function logoutAdmin() {
     sessionStorage.removeItem('dashboardAccessGranted');
     document.getElementById('adminDashboardView').style.display = 'none';
