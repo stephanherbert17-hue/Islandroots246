@@ -12,15 +12,6 @@
         }
     </script>
 
-    <!-- EmailJS SDK Integration -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // STEP 1: REPLACE THIS PLAIN STRING WITH YOUR ACCOUNT PUBLIC KEY
-            emailjs.init("YOUR_PUBLIC_KEY");
-        })();
-    </script>
-
     <meta name="description" content="Book Islandroots.246 Tuk Band for Barbados events, weddings, festivals and cultural performances. Contact the band email or directors directly for fast booking." />
     <style>
         :root {
@@ -125,25 +116,35 @@
     <div class="container">
         <div id="successBox" class="status-box">
             <strong>✓ Booking Request Successfully Submitted!</strong><br>
-            Your request has been routed to the Director. An email notification has been dispatched automatically to management.
+            Your request has been routed to the Director. An automatic email notification has been dispatched directly to management.
         </div>
 
         <div class="grid">
             <!-- Form Card Component -->
             <div class="card">
                 <h2>Book the Band</h2>
-                <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+                <!-- Form points directly to Web3Forms API engine -->
+                <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event)">
+                    
+                    <!-- Integrated Live Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="e38295b3-c43e-46ab-bce6-1cf55bc1f74b">
+                    
+                    <!-- Configuration parameters for email handling -->
+                    <input type="hidden" name="to_email" value="island.roots.246.tukband@gmail.com">
+                    <input type="hidden" name="from_name" value="Islandroots Site Form Router">
+                    <input type="hidden" id="email_subject" name="subject" value="New Website Booking Received">
+
                     <label for="name">Full Name / Event Organizer</label>
-                    <input type="text" id="name" required placeholder="E.g., John Doe">
+                    <input type="text" id="name" name="name" required placeholder="E.g., John Doe">
 
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" required placeholder="name@example.com">
+                    <input type="email" id="email" name="email" required placeholder="name@example.com">
 
                     <label for="phone">Contact Number</label>
-                    <input type="tel" id="phone" required placeholder="(246) XXX-XXXX">
+                    <input type="tel" id="phone" name="Contact Phone" required placeholder="(246) XXX-XXXX">
 
                     <label for="event_type">Type of Event</label>
-                    <select id="event_type">
+                    <select id="event_type" name="Event Type" onchange="updateEmailSubject()">
                         <option value="Party">Party / Celebration</option>
                         <option value="Festival">Festival / Parade</option>
                         <option value="Corporate">Corporate Event</option>
@@ -152,27 +153,27 @@
                     </select>
 
                     <label for="event_date">Event Date</label>
-                    <input type="date" id="event_date" required>
+                    <input type="date" id="event_date" name="Event Date" required>
 
                     <label for="start_time">Start Time</label>
-                    <input type="time" id="start_time" required>
+                    <input type="time" id="start_time" name="Start Time" required>
 
                     <label for="end_time">End Time</label>
-                    <input type="time" id="end_time" required>
+                    <input type="time" id="end_time" name="End Time" required>
 
                     <label for="location">Location / Venue</label>
-                    <input type="text" id="location" required placeholder="E.g., Bridgetown Community Hall">
+                    <input type="text" id="location" name="Venue Location" required placeholder="E.g., Bridgetown Community Hall">
 
                     <label for="budget">Your Budget (BBD)</label>
-                    <input type="range" id="budget" min="0" max="3000" step="50" value="800">
+                    <input type="range" id="budget" name="Client Budget Range (BBD)" min="0" max="3000" step="50" value="800">
                     <p>Budget: BBD $<strong id="budgetValue">800</strong></p>
 
-                    <label for="details">Event Notes</label>
-                    <textarea id="details" placeholder="Please share any special requests..."></textarea>
+                    <label for="details">Event Notes / Messages</label>
+                    <textarea id="details" name="message" required placeholder="Please share any special requests or timeline notes..."></textarea>
 
                     <div class="checkbox-group">
                         <input type="checkbox" id="confirm_bot" checked disabled>
-                        <label for="confirm_bot" style="display:inline; margin:0; font-weight:normal;">Send automated alerts to Band Email</label>
+                        <label for="confirm_bot" style="display:inline; margin:0; font-weight:normal;">Send automated background alert to Band Email</label>
                     </div>
 
                     <button type="submit">Submit Official Booking</button>
@@ -307,29 +308,46 @@
 
 <script>
 const MASTER_PASSWORD = "roots246";
-const DEFAULT_ADMIN = "director@islandroots246.com";
-const BAND_MAIN_GMAIL = "island.roots.246.tukband@gmail.com";
 
-// Setup dynamic admin storage lists
+// Array matrix containing default admin emails hardcoded so any authorized coordinator can log in from ANY device out-of-the-box
+const CORE_ALLOWED_ADMINS = [
+    "director@islandroots246.com",
+    "island.roots.246.tukband@gmail.com"
+];
+
+// Initialize global storage configurations
 if (!localStorage.getItem('allowedAdminEmails')) {
-    localStorage.setItem('allowedAdminEmails', JSON.stringify([DEFAULT_ADMIN]));
+    localStorage.setItem('allowedAdminEmails', JSON.stringify(CORE_ALLOWED_ADMINS));
+} else {
+    // If local storage exists, make sure core list defaults are appended so cross-device issues disappear
+    let existing = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
+    CORE_ALLOWED_ADMINS.forEach(email => {
+        if(!existing.includes(email)) existing.push(email);
+    });
+    localStorage.setItem('allowedAdminEmails', JSON.stringify(existing));
 }
 
-// Setup bookings array storage memory matrix
 if (!localStorage.getItem('bandBookingsData')) {
     localStorage.setItem('bandBookingsData', JSON.stringify([]));
 }
 
-// UI element budget listener layout updates
+// UI element budget slider update listener
 const range = document.getElementById('budget');
 const display = document.getElementById('budgetValue');
 if(range && display) {
     range.addEventListener('input', function() { display.innerText = this.value; });
 }
 
-// Form Submit: Saves data & dispatches automated email immediately on form submission
+// Dynamically adapts subject meta details based on current drop-down configurations
+function updateEmailSubject() {
+    const clientName = document.getElementById('name').value.trim() || "New Client";
+    const eventType = document.getElementById('event_type').value;
+    document.getElementById('email_subject').value = `New Booking Request: ${eventType} from ${clientName}`;
+}
+
+// Form Submit Handler: Saves to local storage dashboard records before processing async Web3Forms background post
 function handleFormSubmit(e) {
-    e.preventDefault();
+    updateEmailSubject(); // ensure latest details map out cleanly to mail headings
     
     const newBooking = {
         id: "b_" + Date.now(),
@@ -346,43 +364,23 @@ function handleFormSubmit(e) {
         status: "Pending"
     };
 
+    // Commit cleanly to local dashboard data storage engine
     let bookings = JSON.parse(localStorage.getItem('bandBookingsData') || "[]");
     bookings.push(newBooking);
     localStorage.setItem('bandBookingsData', JSON.stringify(bookings));
 
-    // Templates parameters targeting the static main band Gmail account
-    const emailTemplateParams = {
-        routing_recipients: BAND_MAIN_GMAIL,
-        client_name: newBooking.name,
-        client_email: newBooking.email,
-        client_phone: newBooking.phone,
-        event_type: newBooking.eventType,
-        event_date: newBooking.date,
-        time_frame: newBooking.startTime + " to " + newBooking.endTime,
-        location: newBooking.location,
-        budget: "BBD $" + newBooking.budget,
-        notes: newBooking.details || "None"
-    };
-
-    // Auto-fire network dispatch payload requests to API infrastructure using service_ret9u1r
-    // STEP 2: REPLACE THE SECOND ARGUMENT WITH YOUR ACTUAL NEW BOOKING TEMPLATE ID
-    emailjs.send("service_ret9u1r", "YOUR_NEW_BOOKING_TEMPLATE_ID", emailTemplateParams)
-        .then(function() { 
-            console.log('Booking email notification dispatched successfully to main band email.'); 
-        }, function(err) { 
-            console.log('Error delivering email pipeline:', err); 
-        });
-
+    // Display confirmation notice to client instantly
     document.getElementById('successBox').style.display = 'block';
-    document.getElementById('bookingForm').reset();
     document.getElementById('successBox').scrollIntoView({behavior:'smooth', block:'center'});
     
     if(document.getElementById('adminDashboardView').style.display === 'block') {
         renderBookingsTable();
     }
+    
+    // Web3Forms will capture the data and forward the background transmission via native form submission.
 }
 
-// Dashboard Actions Matrix: Clear, Approve, Mark Unavailable, Dismiss
+// Dashboard Actions Matrix
 function updateBookingStatus(bookingId, targetStatus) {
     let bookings = JSON.parse(localStorage.getItem('bandBookingsData') || "[]");
     const booking = bookings.find(b => b.id === bookingId);
@@ -399,11 +397,6 @@ function updateBookingStatus(bookingId, targetStatus) {
     booking.status = targetStatus;
     localStorage.setItem('bandBookingsData', JSON.stringify(bookings));
     renderBookingsTable();
-    
-    // Automatically trigger notification to client upon Approval action
-    if(targetStatus === "Approved") {
-        sendClientApprovalEmail(booking);
-    }
 }
 
 function removeBookingPermanently(bookingId) {
@@ -415,27 +408,7 @@ function removeBookingPermanently(bookingId) {
     }
 }
 
-// Dispatch automated approval template directly to client
-function sendClientApprovalEmail(booking) {
-    const approvalParams = {
-        client_email: booking.email,
-        client_name: booking.name,
-        event_type: booking.eventType,
-        event_date: booking.date,
-        time_frame: booking.startTime + " to " + booking.endTime,
-        location: booking.location
-    };
-
-    // STEP 3: REPLACE THE SECOND ARGUMENT WITH YOUR ACTUAL CLIENT APPROVAL TEMPLATE ID IF USING IT
-    emailjs.send("service_ret9u1r", "YOUR_CLIENT_APPROVAL_TEMPLATE_ID", approvalParams)
-        .then(function() { 
-            alert("✓ Booking Approved! Client has been notified via custom email."); 
-        }, function(err) { 
-            console.log('Error executing client approval email:', err); 
-        });
-}
-
-// Renders the administrative records row matrices inside console panels
+// Render dynamic elements inside data rows
 function renderBookingsTable() {
     const tableBody = document.getElementById('bookingsTableBody');
     if(!tableBody) return;
@@ -467,7 +440,7 @@ function renderBookingsTable() {
     });
 }
 
-// Secure Management Portal View toggles
+// Cross-device login engine updates
 function openLoginModal() {
     if (sessionStorage.getItem('dashboardAccessGranted') === 'true') { showDashboardView(); } 
     else { document.getElementById('loginModal').style.display = 'flex'; }
@@ -478,19 +451,24 @@ function processLogin(e) {
     e.preventDefault();
     const user = document.getElementById('adminUser').value.trim().toLowerCase();
     const pass = document.getElementById('adminPass').value;
-    const allowedEmails = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
+    
+    // Grabs allowed array from local runtime system state
+    let allowedEmails = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
 
-    if (allowedEmails.includes(user) && pass === MASTER_PASSWORD) {
-        sessionStorage.setItem('dashboardAccessGranted', 'true');
-        closeLoginModal();
-        showDashboardView();
-    } else {
-        document.getElementById('loginError').innerText = "Invalid credentials or unauthorized access request.";
-        document.getElementById('loginError').style.display = 'block';
+    // Fix: Ensures core master default profiles can ALWAYS authenticate from any device even if localstorage is blank
+    if (CORE_ALLOWED_ADMINS.includes(user) || allowedEmails.includes(user)) {
+        if (pass === MASTER_PASSWORD) {
+            sessionStorage.setItem('dashboardAccessGranted', 'true');
+            closeLoginModal();
+            showDashboardView();
+            return;
+        }
     }
+    
+    document.getElementById('loginError').innerText = "Invalid credentials or unauthorized access request.";
+    document.getElementById('loginError').style.display = 'block';
 }
 
-// Dynamic display configurations
 function showDashboardView() {
     document.getElementById('mainSiteView').style.display = 'none';
     document.getElementById('adminDashboardView').style.display = 'block';
@@ -498,14 +476,13 @@ function showDashboardView() {
     renderAdminListTable();
 }
 
-// Restores standard framework visibility configurations
 function logoutAdmin() {
     sessionStorage.removeItem('dashboardAccessGranted');
     document.getElementById('adminDashboardView').style.display = 'none';
     document.getElementById('mainSiteView').style.display = 'block';
 }
 
-// Owner features controls management lists
+// Manage Admin entries
 function addNewAdminEmail() {
     const emailInput = document.getElementById('newAdminEmail');
     const emailVal = emailInput.value.trim().toLowerCase();
@@ -519,8 +496,9 @@ function addNewAdminEmail() {
     }
 }
 
+// Revoke access
 function removeAdminEmail(emailToRemove) {
-    if(emailToRemove !== DEFAULT_ADMIN && confirm("Revoke system access for this admin email address?")) {
+    if(!CORE_ALLOWED_ADMINS.includes(emailToRemove) && confirm("Revoke system access for this admin email address?")) {
         let currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
         currentList = currentList.filter(e => e !== emailToRemove);
         localStorage.setItem('allowedAdminEmails', JSON.stringify(currentList));
@@ -535,10 +513,11 @@ function renderAdminListTable() {
     listBody.innerHTML = "";
     
     currentList.forEach(email => {
+        const isCore = CORE_ALLOWED_ADMINS.includes(email);
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td><strong>${email}</strong> ${email === DEFAULT_ADMIN ? "<span class='tag'>Master</span>" : ""}</td>
-            <td>${email !== DEFAULT_ADMIN ? `<button class="remove-btn" onclick="removeAdminEmail('${email}')">Revoke</button>` : `<span style='color:#aaa;'>Protected</span>`}</td>
+            <td><strong>${email}</strong> ${isCore ? "<span class='tag'>Master</span>" : ""}</td>
+            <td>${!isCore ? `<button class="remove-btn" onclick="removeAdminEmail('${email}')">Revoke</button>` : `<span style='color:#aaa;'>Protected</span>`}</td>
         `;
         listBody.appendChild(row);
     });
