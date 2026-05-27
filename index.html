@@ -92,10 +92,6 @@
         .status-unavailable { background-color: #f8d7da; color: #721c24; }
         
         .logout-btn { background: #dc3545; padding: 10px 15px; width: auto; font-size: 1rem; display: inline-block; margin-bottom: 20px; }
-        .admin-action-input { display: flex; gap: 10px; margin-top: 15px; }
-        .admin-action-input input { flex: 1; }
-        .admin-action-input button { width: auto; padding: 0 25px; }
-        .remove-btn { background: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
         
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
         .modal-content { background: white; padding: 40px; border-radius: 12px; max-width: 400px; width: 100%; position: relative; box-shadow: 0 5px 30px rgba(0,0,0,0.3); }
@@ -123,7 +119,6 @@
             <!-- Form Card Component -->
             <div class="card">
                 <h2>Book the Band</h2>
-                <!-- Form points directly to Web3Forms API engine -->
                 <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event)">
                     
                     <!-- Integrated Live Web3Forms Access Key -->
@@ -264,29 +259,6 @@
                 </table>
             </div>
         </div>
-
-        <!-- Authorized Admin Managers -->
-        <div class="card" style="border-top-color: var(--accent-gold);">
-            <h2>Owner Controls: Manage Authorized Admins</h2>
-            <div class="admin-action-input">
-                <input type="email" id="newAdminEmail" placeholder="manager@islandroots246.com">
-                <button onclick="addNewAdminEmail()">Add Admin Email</button>
-            </div>
-            <div id="adminManageFeedback" style="margin-top:10px; font-weight:bold; display:none;"></div>
-
-            <h3 style="margin-top:25px;">Authorized Admin List:</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Authorized Email Account</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="authorizedAdminsList">
-                    <!-- Loaded dynamically -->
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>
 
@@ -298,7 +270,7 @@
         <form onsubmit="processLogin(event)">
             <div id="loginError" style="display:none; color:red; margin-bottom:10px; font-size:0.9rem;"></div>
             <label for="adminUser">Admin Email</label>
-            <input type="email" id="adminUser" required placeholder="director@islandroots246.com">
+            <input type="email" id="adminUser" required placeholder="your.name@gmail.com">
             <label for="adminPass">Password</label>
             <input type="password" id="adminPass" required placeholder="••••••••">
             <button type="submit" style="margin-top:20px;">Authorize & Enter</button>
@@ -309,24 +281,7 @@
 <script>
 const MASTER_PASSWORD = "roots246";
 
-// Array matrix containing default admin emails hardcoded so any authorized coordinator can log in from ANY device out-of-the-box
-const CORE_ALLOWED_ADMINS = [
-    "director@islandroots246.com",
-    "island.roots.246.tukband@gmail.com"
-];
-
-// Initialize global storage configurations
-if (!localStorage.getItem('allowedAdminEmails')) {
-    localStorage.setItem('allowedAdminEmails', JSON.stringify(CORE_ALLOWED_ADMINS));
-} else {
-    // If local storage exists, make sure core list defaults are appended so cross-device issues disappear
-    let existing = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
-    CORE_ALLOWED_ADMINS.forEach(email => {
-        if(!existing.includes(email)) existing.push(email);
-    });
-    localStorage.setItem('allowedAdminEmails', JSON.stringify(existing));
-}
-
+// Initialize data storage safely
 if (!localStorage.getItem('bandBookingsData')) {
     localStorage.setItem('bandBookingsData', JSON.stringify([]));
 }
@@ -338,16 +293,16 @@ if(range && display) {
     range.addEventListener('input', function() { display.innerText = this.value; });
 }
 
-// Dynamically adapts subject meta details based on current drop-down configurations
+// Dynamically adapts subject details
 function updateEmailSubject() {
     const clientName = document.getElementById('name').value.trim() || "New Client";
     const eventType = document.getElementById('event_type').value;
     document.getElementById('email_subject').value = `New Booking Request: ${eventType} from ${clientName}`;
 }
 
-// Form Submit Handler: Saves to local storage dashboard records before processing async Web3Forms background post
+// Form Submit Handler
 function handleFormSubmit(e) {
-    updateEmailSubject(); // ensure latest details map out cleanly to mail headings
+    updateEmailSubject();
     
     const newBooking = {
         id: "b_" + Date.now(),
@@ -364,20 +319,16 @@ function handleFormSubmit(e) {
         status: "Pending"
     };
 
-    // Commit cleanly to local dashboard data storage engine
     let bookings = JSON.parse(localStorage.getItem('bandBookingsData') || "[]");
     bookings.push(newBooking);
     localStorage.setItem('bandBookingsData', JSON.stringify(bookings));
 
-    // Display confirmation notice to client instantly
     document.getElementById('successBox').style.display = 'block';
     document.getElementById('successBox').scrollIntoView({behavior:'smooth', block:'center'});
     
     if(document.getElementById('adminDashboardView').style.display === 'block') {
         renderBookingsTable();
     }
-    
-    // Web3Forms will capture the data and forward the background transmission via native form submission.
 }
 
 // Dashboard Actions Matrix
@@ -408,7 +359,7 @@ function removeBookingPermanently(bookingId) {
     }
 }
 
-// Render dynamic elements inside data rows
+// Render booking elements inside dashboard
 function renderBookingsTable() {
     const tableBody = document.getElementById('bookingsTableBody');
     if(!tableBody) return;
@@ -440,7 +391,7 @@ function renderBookingsTable() {
     });
 }
 
-// Cross-device login engine updates
+// Global Device Authorization Login Fix
 function openLoginModal() {
     if (sessionStorage.getItem('dashboardAccessGranted') === 'true') { showDashboardView(); } 
     else { document.getElementById('loginModal').style.display = 'flex'; }
@@ -449,23 +400,18 @@ function closeLoginModal() { document.getElementById('loginModal').style.display
 
 function processLogin(e) {
     e.preventDefault();
-    const user = document.getElementById('adminUser').value.trim().toLowerCase();
+    const userEmail = document.getElementById('adminUser').value.trim().toLowerCase();
     const pass = document.getElementById('adminPass').value;
     
-    // Grabs allowed array from local runtime system state
-    let allowedEmails = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
-
-    // Fix: Ensures core master default profiles can ALWAYS authenticate from any device even if localstorage is blank
-    if (CORE_ALLOWED_ADMINS.includes(user) || allowedEmails.includes(user)) {
-        if (pass === MASTER_PASSWORD) {
-            sessionStorage.setItem('dashboardAccessGranted', 'true');
-            closeLoginModal();
-            showDashboardView();
-            return;
-        }
+    // Check if it is a valid email string structure and the correct code password
+    if (userEmail.includes('@') && userEmail.includes('.') && pass === MASTER_PASSWORD) {
+        sessionStorage.setItem('dashboardAccessGranted', 'true');
+        closeLoginModal();
+        showDashboardView();
+        return;
     }
     
-    document.getElementById('loginError').innerText = "Invalid credentials or unauthorized access request.";
+    document.getElementById('loginError').innerText = "Invalid password. Access Denied.";
     document.getElementById('loginError').style.display = 'block';
 }
 
@@ -473,54 +419,12 @@ function showDashboardView() {
     document.getElementById('mainSiteView').style.display = 'none';
     document.getElementById('adminDashboardView').style.display = 'block';
     renderBookingsTable();
-    renderAdminListTable();
 }
 
 function logoutAdmin() {
     sessionStorage.removeItem('dashboardAccessGranted');
     document.getElementById('adminDashboardView').style.display = 'none';
     document.getElementById('mainSiteView').style.display = 'block';
-}
-
-// Manage Admin entries
-function addNewAdminEmail() {
-    const emailInput = document.getElementById('newAdminEmail');
-    const emailVal = emailInput.value.trim().toLowerCase();
-    let currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
-    
-    if(emailVal && emailVal.includes('@') && !currentList.includes(emailVal)) {
-        currentList.push(emailVal);
-        localStorage.setItem('allowedAdminEmails', JSON.stringify(currentList));
-        emailInput.value = "";
-        renderAdminListTable();
-    }
-}
-
-// Revoke access
-function removeAdminEmail(emailToRemove) {
-    if(!CORE_ALLOWED_ADMINS.includes(emailToRemove) && confirm("Revoke system access for this admin email address?")) {
-        let currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
-        currentList = currentList.filter(e => e !== emailToRemove);
-        localStorage.setItem('allowedAdminEmails', JSON.stringify(currentList));
-        renderAdminListTable();
-    }
-}
-
-function renderAdminListTable() {
-    const listBody = document.getElementById('authorizedAdminsList');
-    if(!listBody) return;
-    const currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
-    listBody.innerHTML = "";
-    
-    currentList.forEach(email => {
-        const isCore = CORE_ALLOWED_ADMINS.includes(email);
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td><strong>${email}</strong> ${isCore ? "<span class='tag'>Master</span>" : ""}</td>
-            <td>${!isCore ? `<button class="remove-btn" onclick="removeAdminEmail('${email}')">Revoke</button>` : `<span style='color:#aaa;'>Protected</span>`}</td>
-        `;
-        listBody.appendChild(row);
-    });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
