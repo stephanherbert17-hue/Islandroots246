@@ -92,6 +92,10 @@
         .status-unavailable { background-color: #f8d7da; color: #721c24; }
         
         .logout-btn { background: #dc3545; padding: 10px 15px; width: auto; font-size: 1rem; display: inline-block; margin-bottom: 20px; }
+        .admin-action-input { display: flex; gap: 10px; margin-top: 15px; }
+        .admin-action-input input { flex: 1; }
+        .admin-action-input button { width: auto; padding: 0 25px; }
+        .remove-btn { background: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
         
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
         .modal-content { background: white; padding: 40px; border-radius: 12px; max-width: 400px; width: 100%; position: relative; box-shadow: 0 5px 30px rgba(0,0,0,0.3); }
@@ -121,10 +125,7 @@
                 <h2>Book the Band</h2>
                 <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event)">
                     
-                    <!-- Integrated Live Web3Forms Access Key -->
                     <input type="hidden" name="access_key" value="e38295b3-c43e-46ab-bce6-1cf55bc1f74b">
-                    
-                    <!-- Configuration parameters for email handling -->
                     <input type="hidden" name="to_email" value="island.roots.246.tukband@gmail.com">
                     <input type="hidden" name="from_name" value="Islandroots Site Form Router">
                     <input type="hidden" id="email_subject" name="subject" value="New Website Booking Received">
@@ -259,6 +260,29 @@
                 </table>
             </div>
         </div>
+
+        <!-- Authorized Admin Managers Panel -->
+        <div class="card" style="border-top-color: var(--accent-gold);">
+            <h2>Owner Controls: Manage Authorized Admins</h2>
+            <p style="font-size: 0.95rem; color: #666;">Add team member emails here to track authorized directory profiles locally on this machine.</p>
+            <div class="admin-action-input">
+                <input type="email" id="newAdminEmail" placeholder="manager@islandroots246.com">
+                <button onclick="addNewAdminEmail()">Add Admin Email</button>
+            </div>
+
+            <h3 style="margin-top:25px;">Authorized Admin List (This Device):</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Authorized Email Account</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="authorizedAdminsList">
+                    <!-- Loaded dynamically -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -281,7 +305,17 @@
 <script>
 const MASTER_PASSWORD = "roots246";
 
-// Initialize data storage safely
+// Core hardcoded system administrators
+const CORE_ALLOWED_ADMINS = [
+    "director@islandroots246.com",
+    "island.roots.246.tukband@gmail.com"
+];
+
+// Initialize dynamic admin tracking array safely on local machine
+if (!localStorage.getItem('allowedAdminEmails')) {
+    localStorage.setItem('allowedAdminEmails', JSON.stringify(CORE_ALLOWED_ADMINS));
+}
+
 if (!localStorage.getItem('bandBookingsData')) {
     localStorage.setItem('bandBookingsData', JSON.stringify([]));
 }
@@ -293,14 +327,12 @@ if(range && display) {
     range.addEventListener('input', function() { display.innerText = this.value; });
 }
 
-// Dynamically adapts subject details
 function updateEmailSubject() {
     const clientName = document.getElementById('name').value.trim() || "New Client";
     const eventType = document.getElementById('event_type').value;
     document.getElementById('email_subject').value = `New Booking Request: ${eventType} from ${clientName}`;
 }
 
-// Form Submit Handler
 function handleFormSubmit(e) {
     updateEmailSubject();
     
@@ -331,7 +363,6 @@ function handleFormSubmit(e) {
     }
 }
 
-// Dashboard Actions Matrix
 function updateBookingStatus(bookingId, targetStatus) {
     let bookings = JSON.parse(localStorage.getItem('bandBookingsData') || "[]");
     const booking = bookings.find(b => b.id === bookingId);
@@ -359,7 +390,6 @@ function removeBookingPermanently(bookingId) {
     }
 }
 
-// Render booking elements inside dashboard
 function renderBookingsTable() {
     const tableBody = document.getElementById('bookingsTableBody');
     if(!tableBody) return;
@@ -391,19 +421,20 @@ function renderBookingsTable() {
     });
 }
 
-// Global Device Authorization Login Fix
 function openLoginModal() {
     if (sessionStorage.getItem('dashboardAccessGranted') === 'true') { showDashboardView(); } 
     else { document.getElementById('loginModal').style.display = 'flex'; }
 }
 function closeLoginModal() { document.getElementById('loginModal').style.display = 'none'; }
 
+// Global Device Authorization Login Engine Fix
 function processLogin(e) {
     e.preventDefault();
     const userEmail = document.getElementById('adminUser').value.trim().toLowerCase();
     const pass = document.getElementById('adminPass').value;
     
-    // Check if it is a valid email string structure and the correct code password
+    // VALIDATION FIX: Allows ANY admin email to log in from ANY phone/PC globally, 
+    // provided they enter a valid email structure and the matching master password 'roots246'.
     if (userEmail.includes('@') && userEmail.includes('.') && pass === MASTER_PASSWORD) {
         sessionStorage.setItem('dashboardAccessGranted', 'true');
         closeLoginModal();
@@ -411,7 +442,7 @@ function processLogin(e) {
         return;
     }
     
-    document.getElementById('loginError').innerText = "Invalid password. Access Denied.";
+    document.getElementById('loginError').innerText = "Invalid credentials or unauthorized access request.";
     document.getElementById('loginError').style.display = 'block';
 }
 
@@ -419,12 +450,53 @@ function showDashboardView() {
     document.getElementById('mainSiteView').style.display = 'none';
     document.getElementById('adminDashboardView').style.display = 'block';
     renderBookingsTable();
+    renderAdminListTable();
 }
 
 function logoutAdmin() {
     sessionStorage.removeItem('dashboardAccessGranted');
     document.getElementById('adminDashboardView').style.display = 'none';
     document.getElementById('mainSiteView').style.display = 'block';
+}
+
+// Manage Admin functions (Keeps the UI layout fully active)
+function addNewAdminEmail() {
+    const emailInput = document.getElementById('newAdminEmail');
+    const emailVal = emailInput.value.trim().toLowerCase();
+    let currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
+    
+    if(emailVal && emailVal.includes('@') && !currentList.includes(emailVal)) {
+        currentList.push(emailVal);
+        localStorage.setItem('allowedAdminEmails', JSON.stringify(currentList));
+        emailInput.value = "";
+        renderAdminListTable();
+    }
+}
+
+function removeAdminEmail(emailToRemove) {
+    if(!CORE_ALLOWED_ADMINS.includes(emailToRemove) && confirm("Remove this admin profile entry from local list view?")) {
+        let currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
+        currentList = currentList.filter(e => e !== emailToRemove);
+        localStorage.setItem('allowedAdminEmails', JSON.stringify(currentList));
+        renderAdminListTable();
+    }
+}
+
+function renderAdminListTable() {
+    const listBody = document.getElementById('authorizedAdminsList');
+    if(!listBody) return;
+    const currentList = JSON.parse(localStorage.getItem('allowedAdminEmails') || "[]");
+    listBody.innerHTML = "";
+    
+    currentList.forEach(email => {
+        const isCore = CORE_ALLOWED_ADMINS.includes(email);
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><strong>${email}</strong> ${isCore ? "<span class='tag'>Master</span>" : ""}</td>
+            <td>${!isCore ? `<button class="remove-btn" onclick="removeAdminEmail('${email}')">Remove</button>` : `<span style='color:#aaa;'>Protected</span>`}</td>
+        `;
+        listBody.appendChild(row);
+    });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
