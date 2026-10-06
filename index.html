@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISLANDROOTZ MUSICAL ENTERTAINMENT Barbados | Official Live Cultural Booking</title>
+    <title>ISLANDROOTZ MUSICAL ENTERTAINMENT | Official Bookings</title>
     
     <!-- Auto-HTTPS Protocol Force -->
     <script>
@@ -12,444 +12,269 @@
         }
     </script>
 
-    <meta name="description" content="Book ISLANDROOTZ MUSICAL ENTERTAINMENT Barbados for authentic Tuk Band, Concert Band, Steel Pan, Mother Sally, and Live Dancers. Premier luxury Barbadian cultural entertainment." />
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        bajan: {
-                            blue: '#002664',
-                            navy: '#001438',
-                            dark: '#000a1c',
-                            gold: '#FFC000',
-                            goldHover: '#e0a800',
-                            teal: '#00F0FF',
-                            sand: '#F8F6F0'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif']
-                    },
-                    boxShadow: {
-                        'glow-gold': '0 0 25px rgba(255, 192, 0, 0.35)',
-                        'glow-teal': '0 0 25px rgba(0, 240, 255, 0.25)',
-                        'glass': '0 8px 32px 0 rgba(0, 15, 45, 0.4)'
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts & Lucide Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-
+    <meta name="description" content="Book ISLANDROOTZ MUSICAL ENTERTAINMENT for Tuk Band, Concert Band, Live Dancers, and cultural performances. Professional Barbadian musical entertainment." />
     <style>
-        body {
-            background-color: #000a1c;
-            color: #f1f5f9;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
+        :root {
+            --primary-blue: #002664; 
+            --accent-gold: #FFC000;  
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --success-green: #28a745;
+            --danger-red: #dc3545;
+            --wa-green: #25D366;
         }
 
-        .glass-card {
-            background: rgba(0, 38, 100, 0.3);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            background-color: #f0f2f5; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--dark-text); 
+            padding-bottom: 60px; /* Space for cookie banner */
         }
 
-        .glass-card-light {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        header { 
+            background: linear-gradient(135deg, #001f54 0%, #003380 100%);
+            color: white; 
+            padding: 60px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--accent-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+        
+        header h1 { margin: 0; font-size: 2.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
+        .header-subtitle { margin: 15px 0 20px 0; font-size: 1.2rem; color: #e0e0e0; font-weight: 300; letter-spacing: 1px; }
 
-        .bajan-gradient-text {
-            background: linear-gradient(135deg, #FFC000 0%, #00F0FF 50%, #FFFFFF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: start; }
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 2rem; } }
+        
+        .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--primary-blue); margin-bottom: 30px; }
+        
+        h2 { color: var(--primary-blue); margin: 0 0 20px 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px;}
+        h3 { color: #444; font-size: 1.2rem; margin-bottom: 10px; }
+        
+        .form-row { display: flex; gap: 20px; margin-bottom: 15px; }
+        .form-col { flex: 1; }
+        @media (max-width: 600px) { .form-row { flex-direction: column; gap: 0; } }
 
-        .bajan-gold-gradient {
-            background: linear-gradient(135deg, #FFC000 0%, #FFA000 100%);
+        label { display: block; margin: 15px 0 8px; font-weight: 600; color: #333; font-size: 0.95rem; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="time"], select, textarea { 
+            width: 100%; padding: 14px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 1rem; background-color: #fdfdfd; transition: all 0.3s; 
         }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent-gold); outline: none; box-shadow: 0 0 0 3px rgba(255, 192, 0, 0.2); }
+        textarea { resize: vertical; height: 100px; }
+        
+        .radio-group { display: flex; gap: 20px; margin-top: 10px; margin-bottom: 20px;}
+        .radio-group label { display: flex; align-items: center; font-weight: normal; margin: 0; cursor: pointer; }
+        .radio-group input { margin-right: 8px; width: 18px; height: 18px; accent-color: var(--primary-blue); }
 
-        .bajan-blue-gradient {
-            background: linear-gradient(135deg, #002664 0%, #001438 100%);
-        }
+        .dynamic-panel { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 15px; border: 1px solid #e9ecef; }
+        .info-text { font-size: 0.9rem; color: #555; line-height: 1.5; margin-top: 0; margin-bottom: 15px; background: #fff; padding: 15px; border-left: 4px solid var(--accent-gold); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);}
 
-        /* Animated Trident Background Canvas */
-        #bgCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-        }
+        button.submit-btn { background: var(--primary-blue); color: white; padding: 18px 20px; border: none; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; margin-top: 20px; }
+        button.submit-btn:hover { background: #001538; box-shadow: 0 5px 15px rgba(0,38,100,0.3); transform: translateY(-2px); }
+        
+        /* Contact Sidebar Styles */
+        .contact-card { background: #fff; border-radius: 12px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid var(--accent-gold); }
+        .contact-person { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #eee; }
+        .contact-person:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .contact-person h4 { margin: 0 0 5px 0; color: var(--primary-blue); font-size: 1.3rem; }
+        .contact-person p.role { margin: 0 0 10px 0; color: #666; font-size: 0.95rem; font-weight: bold; text-transform: uppercase; }
+        .contact-person p.phone { margin: 0 0 15px 0; font-size: 1.1rem; font-weight: 500; }
+        
+        .wa-btn { display: inline-flex; align-items: center; justify-content: center; background: var(--wa-green); color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 0.95rem; transition: 0.2s; width: 100%; box-sizing: border-box;}
+        .wa-btn:hover { background: #1ebe57; transform: translateY(-1px); }
+        .wa-icon { margin-right: 8px; font-size: 1.2rem; }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #001438;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #002664;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 192, 0, 0.3);
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FFC000;
-        }
+        .team-list { list-style: none; padding: 0; margin: 0; }
+        .team-list li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; }
+        .team-list li:last-child { border-bottom: none; }
+        .team-role { color: #666; font-size: 0.85rem; display: block; }
+        .team-name { font-weight: bold; color: var(--primary-blue); }
+        
+        .status-box { background-color: #d4edda; color: #155724; padding: 20px; border-radius: 8px; border-left: 6px solid #28a745; margin-bottom: 30px; display: none; }
+        
+        /* Cookie & Terms */
+        #cookieBanner { position: fixed; bottom: 0; left: 0; width: 100%; background: #001f54; color: white; padding: 15px 20px; text-align: center; z-index: 9999; box-sizing: border-box; display: flex; justify-content: center; align-items: center; gap: 20px; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); }
+        @media (max-width: 600px) { #cookieBanner { flex-direction: column; text-align: left; gap: 10px; padding: 15px;} }
+        
+        .admin-link { text-align: center; margin-top: 40px; }
+        .admin-link button { background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 15px; border-radius: 4px; cursor: pointer; transition: 0.2s; }
+        .admin-link button:hover { background: #eee; }
 
-        .addon-chip {
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .addon-chip.selected {
-            border-color: #FFC000;
-            background: rgba(255, 192, 0, 0.18);
-            box-shadow: 0 0 15px rgba(255, 192, 0, 0.3);
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.04); }
-        }
-        .pulse-glow {
-            animation: pulseGlow 5s infinite ease-in-out;
-        }
+        /* Admin UI */
+        #adminDashboardView { display: none; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; font-size: 0.95rem; }
+        th { background: var(--primary-blue); color: white; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
+        .modal-content { background: white; padding: 40px; border-radius: 12px; max-width: 400px; width: 100%; position: relative; }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #aaa; }
     </style>
 </head>
-<body class="relative min-h-screen flex flex-col justify-between">
+<body>
 
-    <canvas id="bgCanvas"></canvas>
-
-    <header class="sticky top-0 z-40 glass-card border-b border-white/10 px-4 lg:px-8 py-3.5 transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 rounded-xl bajan-gold-gradient flex items-center justify-center text-bajan-navy font-black text-xl shadow-glow-gold transition-transform group-hover:scale-105">
-                    <i data-lucide="music" class="w-6 h-6 stroke-[2.5]"></i>
-                </div>
-                <div>
-                    <span class="font-display font-extrabold text-lg lg:text-2xl tracking-wider text-white flex items-center gap-1.5">
-                        ISLANDROOTZ <span class="text-bajan-gold">.246</span>
-                    </span>
-                    <span class="block text-[10px] tracking-[0.22em] text-bajan-teal font-bold uppercase">Musical Entertainment Barbados</span>
-                </div>
-            </a>
-
-            <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm tracking-wide text-slate-300">
-                <a href="#about" class="hover:text-bajan-gold transition-colors flex items-center gap-1.5"><i data-lucide="award" class="w-4 h-4 text-bajan-gold"></i> Cultural Packages</a>
-                <a href="#builder" class="hover:text-bajan-gold transition-colors flex items-center gap-1.5"><i data-lucide="calendar-check" class="w-4 h-4 text-bajan-teal"></i> Official Booking Form</a>
-                <a href="#direct-whatsapp" class="hover:text-bajan-gold transition-colors flex items-center gap-1.5"><i data-lucide="message-square" class="w-4 h-4 text-emerald-400"></i> Direct WhatsApp</a>
-                <a href="#contacts" class="hover:text-bajan-gold transition-colors flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4"></i> Leadership</a>
-            </nav>
-
-            <!-- Action Utility Buttons -->
-            <div class="flex items-center gap-2.5">
-                <button onclick="copySourceCodeModal()" class="px-3.5 py-2 rounded-full glass-card-light hover:bg-white/10 text-bajan-gold font-bold text-xs flex items-center gap-1.5 border border-bajan-gold/30 transition-all" title="Copy Website Code">
-                    <i data-lucide="code-2" class="w-4 h-4"></i>
-                    <span class="hidden sm:inline">Copy Website Code</span>
-                </button>
-
-                <a href="#builder" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bajan-gold-gradient text-bajan-navy font-black text-sm shadow-glow-gold hover:opacity-95 hover:scale-105 transition-all">
-                    <span>Reserve Date</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-
-                <button onclick="openLoginModal()" class="p-2.5 rounded-full glass-card-light hover:bg-white/10 text-slate-300 hover:text-white transition-all" title="Operations Console">
-                    <i data-lucide="shield-lock" class="w-5 h-5 text-bajan-teal"></i>
-                </button>
-            </div>
-        </div>
+<div id="mainSiteView">
+    <header>
+        <h1>ISLANDROOTZ MUSICAL ENTERTAINMENT</h1>
+        <div class="header-subtitle">Premier Barbadian Tuk Band, Concert Band & Live Dance Performances</div>
     </header>
 
-    <section class="relative min-h-[85vh] flex items-center justify-center pt-10 pb-16 px-4 overflow-hidden z-10">
-        <!-- Floating Ambient Glow Elements -->
-        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-bajan-blue/35 rounded-full blur-[150px] pointer-events-none pulse-glow"></div>
-        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-bajan-teal/15 rounded-full blur-[110px] pointer-events-none"></div>
-
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <!-- Barbados Cultural Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-bajan-gold/40 text-bajan-gold text-xs font-bold tracking-widest uppercase mb-6 shadow-glow-gold">
-                <span class="text-base">🇧🇧</span>
-                <span>Barbados Premier Cultural Entertainment & Live Bands</span>
-            </div>
-
-            <!-- Headline -->
-            <h1 class="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] text-white mb-6">
-                Authentic Bajan Culture. <br>
-                <span class="bajan-gradient-text">Unrivaled Live Energy.</span>
-            </h1>
-
-            <p class="max-w-2xl mx-auto text-slate-300 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-10">
-                From high-energy <strong class="text-bajan-gold font-semibold">Tuk Band rhythms</strong> & <strong class="text-bajan-teal font-semibold">Mother Sally Dancers</strong> to lush <strong class="text-white font-semibold">Steel Pan Melodies</strong> and full <strong class="text-bajan-gold font-semibold">Concert Band Ensembles</strong>. Premier entertainment tailored for all 11 Barbados Parishes & worldwide galas.
-            </p>
-
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-12">
-                <a href="#builder" class="w-full sm:w-auto px-8 py-4 rounded-2xl bajan-gold-gradient text-bajan-navy font-black text-base tracking-wide shadow-glow-gold hover:scale-105 transition-all flex items-center justify-center gap-3">
-                    <i data-lucide="file-text" class="w-5 h-5"></i>
-                    <span>Fill Official Booking Form</span>
-                </a>
-                <a href="#direct-whatsapp" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass-card text-emerald-300 font-bold text-base hover:bg-emerald-950/40 hover:border-emerald-500/50 transition-all flex items-center justify-center gap-3 border border-emerald-500/30">
-                    <i data-lucide="message-circle" class="w-5 h-5 text-emerald-400"></i>
-                    <span>WhatsApp Directors Direct</span>
-                </a>
-            </div>
-
-            <!-- Quick Stats Bar -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
-                <div class="glass-card-light p-4 rounded-2xl border border-white/10">
-                    <div class="text-bajan-gold font-display font-black text-2xl">100%</div>
-                    <div class="text-xs text-slate-300">Authentic Bajan Rhythms</div>
-                </div>
-                <div class="glass-card-light p-4 rounded-2xl border border-white/10">
-                    <div class="text-bajan-teal font-display font-black text-2xl">11 Parishes</div>
-                    <div class="text-xs text-slate-300">Island-wide Coverage</div>
-                </div>
-                <div class="glass-card-light p-4 rounded-2xl border border-white/10">
-                    <div class="text-white font-display font-black text-2xl">Full Custom</div>
-                    <div class="text-xs text-slate-300">Flexible Budgeting</div>
-                </div>
-                <div class="glass-card-light p-4 rounded-2xl border border-white/10">
-                    <div class="text-emerald-400 font-display font-black text-2xl">Direct Contact</div>
-                    <div class="text-xs text-slate-300">Stephan & Ryan Boyce</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-16 px-4 relative z-10 max-w-7xl mx-auto border-t border-white/10">
-        <div class="text-center mb-12">
-            <span class="text-bajan-teal text-xs font-extrabold uppercase tracking-[0.3em]">Performance Lineups</span>
-            <h2 class="font-display font-black text-3xl sm:text-5xl text-white mt-1">Signature Cultural Ensembles</h2>
-            <p class="text-slate-400 mt-2 max-w-xl mx-auto text-sm sm:text-base">Choose from iconic traditional Barbadian entertainment packages or build your own custom combination.</p>
+    <div class="container">
+        <div id="successBox" class="status-box">
+            <strong>✓ Booking Request Successfully Submitted!</strong><br>
+            Your details have been sent directly to our management team. We will be in touch shortly to consult on your event specifics.
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Package 1 -->
-            <div class="glass-card p-8 rounded-3xl border border-white/15 hover:border-bajan-gold/50 transition-all flex flex-col justify-between group">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bajan-gold-gradient flex items-center justify-center text-bajan-navy font-black text-2xl mb-6 shadow-glow-gold group-hover:scale-110 transition-transform">
-                        🥁
+        <div class="grid">
+            <!-- Booking Form -->
+            <div class="card">
+                <h2>Official Booking Request</h2>
+                <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event)">
+                    <input type="hidden" name="access_key" value="e38295b3-c43e-46ab-bce6-1cf55bc1f74b">
+                    <input type="hidden" name="to_email" value="islandrootz.entertaiment@gmail.com">
+                    <input type="hidden" name="from_name" value="ISLANDROOTZ Website">
+                    <input type="hidden" id="email_subject" name="subject" value="New Booking Inquiry">
+
+                    <!-- 1. Client Details -->
+                    <h3>1. Contact Information</h3>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="name">Full Name / Organizer *</label>
+                            <input type="text" id="name" name="Client Name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-col">
+                            <label for="company">Company / Organization</label>
+                            <input type="text" id="company" name="Company" placeholder="Leave blank if personal event">
+                        </div>
                     </div>
-                    <div class="inline-block px-3 py-1 rounded-full bg-bajan-gold/10 text-bajan-gold font-bold text-[11px] uppercase mb-2">Heritage Pride</div>
-                    <h3 class="font-display font-extrabold text-2xl text-white">Traditional Tuk Band</h3>
-                    <p class="text-xs text-slate-300 mt-3 leading-relaxed">
-                        The heartbeat of Barbadian culture. Authentic Bass Tuk Drum, Snare Drum, Triangle, and Penny Whistle rhythm section designed to get any crowd moving.
-                    </p>
-                    <ul class="mt-6 space-y-2.5 text-xs text-slate-200">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-bajan-gold"></i> 4 to 6 Piece Core Tuk Musicians</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-bajan-gold"></i> Optional Mother Sally / Mudduh Sally</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-bajan-gold"></i> Stilt Walkers & Live Cultural Dancers</li>
-                    </ul>
-                </div>
-                <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-                    <div>
-                        <div class="text-[10px] text-slate-400 uppercase">Starting Tier</div>
-                        <div class="text-lg font-black text-bajan-gold">BBD $800 - $1,500</div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="Email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-col">
+                            <label for="phone">Primary Phone Number *</label>
+                            <input type="tel" id="phone" name="Phone" required placeholder="+1 (246) XXX-XXXX">
+                        </div>
                     </div>
-                    <a href="#builder" onclick="selectPresetTier('Tuk Band Ensemble', 1200)" class="px-4 py-2 rounded-xl glass-card-light hover:bg-bajan-gold hover:text-bajan-navy text-white text-xs font-bold transition-all">Select Tier</a>
-                </div>
-            </div>
 
-            <!-- Package 2 -->
-            <div class="glass-card p-8 rounded-3xl border border-bajan-teal/40 hover:border-bajan-teal transition-all flex flex-col justify-between relative group shadow-glow-teal">
-                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-bajan-teal text-bajan-navy font-black text-[10px] uppercase tracking-widest">
-                    Most Popular
-                </div>
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-bajan-teal text-bajan-navy flex items-center justify-center font-black text-2xl mb-6 shadow-glow-teal group-hover:scale-110 transition-transform">
-                        🔔
+                    <!-- 2. Location Setup -->
+                    <h3 style="margin-top: 20px;">2. Event Location</h3>
+                    <label>Is this event in Barbados or International?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="Location_Type" value="Barbados" checked onchange="toggleLocation()"> Barbados</label>
+                        <label><input type="radio" name="Location_Type" value="International" onchange="toggleLocation()"> International</label>
                     </div>
-                    <div class="inline-block px-3 py-1 rounded-full bg-bajan-teal/10 text-bajan-teal font-bold text-[11px] uppercase mb-2">Tropical Elegance</div>
-                    <h3 class="font-display font-extrabold text-2xl text-white">Steel Pan Solo & Combo</h3>
-                    <p class="text-xs text-slate-300 mt-3 leading-relaxed">
-                        Lush Caribbean steel drum melodies perfect for cocktail receptions, beach weddings, corporate mixers, and upscale villa events.
-                    </p>
-                    <ul class="mt-6 space-y-2.5 text-xs text-slate-200">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-bajan-teal"></i> Solo Steel Pan or Pan Trio Combo</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-bajan-teal"></i> Versatile Repertoire (Soca, Reggae, Pop)</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-bajan-teal"></i> Compact Setup for Any Venue</li>
-                    </ul>
-                </div>
-                <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-                    <div>
-                        <div class="text-[10px] text-slate-400 uppercase">Starting Tier</div>
-                        <div class="text-lg font-black text-bajan-teal">BBD $600 - $1,800</div>
+
+                    <div id="bb_parish_group">
+                        <label for="parish">Select Parish *</label>
+                        <select id="parish" name="Barbados Parish">
+                            <option value="St. Michael">St. Michael</option>
+                            <option value="Christ Church">Christ Church</option>
+                            <option value="St. James">St. James</option>
+                            <option value="St. Philip">St. Philip</option>
+                            <option value="St. George">St. George</option>
+                            <option value="St. Peter">St. Peter</option>
+                            <option value="St. Thomas">St. Thomas</option>
+                            <option value="St. John">St. John</option>
+                            <option value="St. Joseph">St. Joseph</option>
+                            <option value="St. Lucy">St. Lucy</option>
+                            <option value="St. Andrew">St. Andrew</option>
+                        </select>
                     </div>
-                    <a href="#builder" onclick="selectPresetTier('Steel Pan Ensemble', 1000)" class="px-4 py-2 rounded-xl bg-bajan-teal text-bajan-navy text-xs font-bold transition-all hover:scale-105">Select Tier</a>
-                </div>
-            </div>
 
-            <!-- Package 3 -->
-            <div class="glass-card p-8 rounded-3xl border border-white/15 hover:border-bajan-gold/50 transition-all flex flex-col justify-between group">
-                <div>
-                    <div class="w-14 h-14 rounded-2xl bg-bajan-blue text-bajan-gold border border-bajan-gold/30 flex items-center justify-center font-black text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        🎺
+                    <div id="intl_group" style="display: none;">
+                        <label for="intl_location">Country / City / Region *</label>
+                        <input type="text" id="intl_location" name="International Location" placeholder="E.g., Toronto, Canada">
                     </div>
-                    <div class="inline-block px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 font-bold text-[11px] uppercase mb-2">Full Stage Show</div>
-                    <h3 class="font-display font-extrabold text-2xl text-white">Grand Concert Band</h3>
-                    <p class="text-xs text-slate-300 mt-3 leading-relaxed">
-                        A full orchestral horn section, rhythm drivers, bass, keyboards, and vocal arrangements engineered for major festivals and galas.
-                    </p>
-                    <ul class="mt-6 space-y-2.5 text-xs text-slate-200">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-bajan-gold"></i> Full Horn Section (Trumpets, Trombones, Sax)</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-bajan-gold"></i> Custom Event Theme Repertoire</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-bajan-gold"></i> High Impact Stage Performance</li>
-                    </ul>
-                </div>
-                <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-                    <div>
-                        <div class="text-[10px] text-slate-400 uppercase">Starting Tier</div>
-                        <div class="text-lg font-black text-white">BBD $2,500 - $6,000+</div>
+
+                    <label for="venue_address">Specific Venue Name & Address *</label>
+                    <input type="text" id="venue_address" name="Venue Details" required placeholder="E.g., Hilton Resort, Needhams Point">
+
+                    <!-- 3. Event Details -->
+                    <h3 style="margin-top: 20px;">3. Event & Package Details</h3>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="performance_group">Service Requested *</label>
+                            <select id="performance_group" name="Service Requested" onchange="toggleEnsembleOptions()" required>
+                                <option value="Tuk Band">Tuk Band Experience</option>
+                                <option value="Concert Band">Concert Band Experience</option>
+                                <option value="Standalone Dancers">Standalone Dancers / Choreography</option>
+                            </select>
+                        </div>
+                        <div class="form-col">
+                            <label for="event_type">Type of Event *</label>
+                            <select id="event_type" name="Event Type">
+                                <option value="Party / Celebration">Party / Celebration</option>
+                                <option value="Festival / Parade">Festival / Parade</option>
+                                <option value="Corporate Event">Corporate Event</option>
+                                <option value="Wedding">Wedding Entertainment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
                     </div>
-                    <a href="#builder" onclick="selectPresetTier('Concert Band Ensemble', 3500)" class="px-4 py-2 rounded-xl glass-card-light hover:bg-bajan-gold hover:text-bajan-navy text-white text-xs font-bold transition-all">Select Tier</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="direct-whatsapp" class="py-12 px-4 relative z-10 max-w-7xl mx-auto">
-        <div class="glass-card p-8 rounded-3xl border border-emerald-500/30 bg-gradient-to-r from-emerald-950/40 via-bajan-navy/60 to-bajan-dark/80 relative overflow-hidden">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-                <div class="space-y-3 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold">
-                        <i data-lucide="message-square" class="w-4 h-4"></i>
-                        <span>Need Immediate Confirmation?</span>
+                    <div id="tukBandOptions" class="dynamic-panel">
+                        <label for="tuk_package">Tuk Band Setup</label>
+                        <select id="tuk_package" name="Tuk Package Setup">
+                            <option value="Tuk Band Only">Standard Tuk Band</option>
+                            <option value="Tuk Band + Mudduh Sally">Tuk Band + Mother Sally (Mudduh Sally)</option>
+                            <option value="Tuk Band + Steel Pan">Tuk Band + Steel Pan</option>
+                            <option value="Full Tuk Experience (Tuk + Pan + Sally)">Full Cultural Experience (Tuk + Pan + Sally)</option>
+                        </select>
                     </div>
-                    <h3 class="font-display font-black text-2xl sm:text-3xl text-white">Direct WhatsApp Booking Chat</h3>
-                    <p class="text-slate-300 text-xs sm:text-sm max-w-xl">
-                        Skip the wait and connect directly with Band Directors Stephan Herbert or Ryan Boyce on WhatsApp with pre-formatted event inquiry templates.
-                    </p>
-                </div>
 
-                <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
-                    <a href="https://wa.me/12462476799?text=Hello%20ISLANDROOTZ%20Entertainment!%20I%20am%20interested%20in%20booking%20a%20performance%20in%20Barbados.%20Please%20send%20details." target="_blank" class="px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-lg">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
-                        <span>WhatsApp Stephan (247-6799)</span>
-                    </a>
+                    <div id="concertBandOptions" class="dynamic-panel" style="display: none;">
+                        <div class="info-text">
+                            <strong>Concert Band Instrumentation:</strong> Trumpet, Keyboard, Drums, Bass Guitar, Riddim Guitar, Steel Pan, and Voice (Singers).<br>
+                            <em>* Built-in choreography is included in the Concert Band experience.</em>
+                        </div>
+                        <label for="event_theme">Event Theme / Vibe *</label>
+                        <input type="text" id="event_theme" name="Event Theme" placeholder="E.g., Elegant Gala, High-Energy Party, Tropical Chic...">
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">
+                            <strong>Note:</strong> Exact musical genres are specially curated by the band based on your theme and will be confirmed directly with you upon booking.
+                        </p>
+                    </div>
 
-                    <a href="https://wa.me/12462865831?text=Hello%20ISLANDROOTZ%20Entertainment!%20I%20would%20like%20to%20request%20a%20custom%20band%20quote." target="_blank" class="px-6 py-4 rounded-2xl bg-emerald-700 hover:bg-emerald-600 text-white font-extrabold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-lg">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
-                        <span>WhatsApp Boyce (286-5831)</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div id="dancersOptions" class="dynamic-panel" style="display: none;">
+                        <div class="info-text">
+                            Book our professional dance troupe for a standalone choreographed performance, tailored specifically to your event without booking the full band.
+                        </div>
+                        <label for="dancer_details">Performance Request Details</label>
+                        <input type="text" id="dancer_details" name="Dancer Details" placeholder="E.g., Number of dancers preferred, style of event...">
+                    </div>
 
-    <section id="builder" class="py-16 px-4 relative z-10 max-w-5xl mx-auto">
-        <div class="text-center mb-10">
-            <span class="text-bajan-gold text-xs font-extrabold uppercase tracking-[0.3em]">Official Performance Request</span>
-            <h2 class="font-display font-black text-3xl sm:text-5xl text-white mt-1">Event Booking & Quote Engine</h2>
-            <p class="text-slate-400 mt-2 max-w-xl mx-auto text-sm sm:text-base">Please fill in all mandatory event specifications below. Your request will be directly transmitted to band management.</p>
-        </div>
+                    <!-- 4. Budget & Scheduling -->
+                    <h3 style="margin-top: 20px;">4. Scheduling & Budget</h3>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="event_date">Event Date *</label>
+                            <input type="date" id="event_date" name="Date" required>
+                        </div>
+                        <div class="form-col">
+                            <label>Time (Start - End) *</label>
+                            <div style="display:flex; gap:10px;">
+                                <input type="time" name="Start Time" required style="flex:1;">
+                                <input type="time" name="End Time" required style="flex:1;">
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="glass-card rounded-3xl p-6 sm:p-10 border border-white/20 shadow-2xl relative">
-            <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event)">
-                
-                <!-- Web3Forms API Configuration -->
-                <input type="hidden" name="access_key" value="e38295b3-c43e-46ab-bce6-1cf55bc1f74b">
-                <input type="hidden" name="to_email" value="islandrootz.entertaiment@gmail.com">
-                <input type="hidden" name="from_name" value="ISLANDROOTZ Website Booking Router">
-                <input type="hidden" id="email_subject" name="subject" value="New Website Booking Request">
-                <input type="hidden" id="selected_addons_field" name="Configured Addons" value="None">
+                    <label for="budget_tier">Budget Package / Pricing *</label>
+                    <select id="budget_tier" name="Budget Choice" required>
+                        <option value="Essential ($800 - $1500 BBD)">Essential Tier ($800 - $1500 BBD)</option>
+                        <option value="Premium ($1500 - $3000 BBD)">Premium Tier ($1500 - $3000 BBD)</option>
+                        <option value="Grand Event ($3000+ BBD)">Grand Event ($3000+ BBD)</option>
+                        <option value="Open to Negotiation / Custom Quote">Open to Negotiation / Request Custom Quote</option>
+                    </select>
 
-                <div class="space-y-8">
+                    <label for="details">Additional Notes / Special Requests</label>
+                    <textarea id="details" name="Message" placeholder="Tell us more about how we can make your event perfect..."></textarea>
+
+                    <!-- Terms Checkbox -->
+                    <label style="display: flex; align-items: flex-start; font-weight: normal; font-size: 0.9rem; margin-top: 20px; background: #fdfdfd; padding: 15px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer;">
+                        <input type="checkbox" required style="width: 20px; height: 20px; margin-right: 12px; margin-top: 0; accent-color: var(--primary-blue);">
+                        <span>
                     
-                    <!-- SECTION 1: PERSONAL & CONTACT INFORMATION -->
-                    <div>
-                        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-white/10">
-                            <span class="w-7 h-7 rounded-lg bajan-gold-gradient text-bajan-navy flex items-center justify-center font-black text-xs">1</span>
-                            <h3 class="font-display font-bold text-lg text-white uppercase tracking-wider">Contact & Organizer Information (Required)</h3>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name / Primary Organizer *</label>
-                                <input type="text" id="name" name="Organizer Full Name" required placeholder="E.g., Sarah Simmons" class="w-full p-3.5 rounded-xl bg-bajan-navy/90 border border-white/15 text-white placeholder-slate-500 text-sm focus:border-bajan-gold focus:outline-none">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">Email Address *</label>
-                                <input type="email" id="email" name="Email Address" required placeholder="E.g., sarah@example.com" class="w-full p-3.5 rounded-xl bg-bajan-navy/90 border border-white/15 text-white placeholder-slate-500 text-sm focus:border-bajan-gold focus:outline-none">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">Primary Phone Number *</label>
-                                <input type="tel" id="phone" name="Primary Phone Number" required placeholder="E.g., (246) 234-5678" class="w-full p-3.5 rounded-xl bg-bajan-navy/90 border border-white/15 text-white placeholder-slate-500 text-sm focus:border-bajan-gold focus:outline-none">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">WhatsApp Contact Number *</label>
-                                <input type="tel" id="whatsapp_phone" name="WhatsApp Number" required placeholder="E.g., +1 (246) 234-5678" class="w-full p-3.5 rounded-xl bg-bajan-navy/90 border border-white/15 text-white placeholder-slate-500 text-sm focus:border-bajan-gold focus:outline-none">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">Alternative Contact Phone (Optional)</label>
-                                <input type="tel" id="alt_phone" name="Alt Phone Number" placeholder="E.g., (246) 820-0000" class="w-full p-3.5 rounded-xl bg-bajan-navy/90 border border-white/15 text-white placeholder-slate-500 text-sm focus:border-bajan-gold focus:outline-none">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">Company / Organization Name (Optional)</label>
-                                <input type="text" id="company" name="Company Organization" placeholder="E.g., Barbadian Tourism Corp" class="w-full p-3.5 rounded-xl bg-bajan-navy/90 border border-white/15 text-white placeholder-slate-500 text-sm focus:border-bajan-gold focus:outline-none">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SECTION 2: EVENT LOCATION & TIMELINE (PARISH SELECTOR) -->
-                    <div>
-                        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-white/10">
-                            <span class="w-7 h-7 rounded-lg bajan-gold-gradient text-bajan-navy flex items-center justify-center font-black text-xs">2</span>
-                            <h3 class="font-display font-bold text-lg text-white uppercase tracking-wider">Barbados Event Location & Schedule</h3>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">Barbados Parish Location *</label>
-                                <select id="parish" name="Barbados Parish" required class="w-full p-3.5 rounded-xl bg-bajan-navy/90 border border-white/15 text-white text-sm focus:border-bajan-gold focus:outline-none">
-                                    <option value="" disabled selected>Select Barbados Parish...</option>
-                                    <option value="St. Michael">St. Michael (Bridgetown, Black Rock, etc.)</option>
-                                    <option value="Christ Church">Christ Church (Hastings, Oistins, Rockley)</option>
-                                    <option value="St. James">St. James (Holetown, Paynes Bay)</option>
-                                    <option value="St. George">St. George (Gun Hill, Lower Estate)</option>
-                                    <option value="St. Philip">St. Philip (Six Roads, Crane)</option>
-                                    <option value="St. Peter">St. Peter (Speightstown, Mullins)</option>
-                                    <option value="St. Thomas">St. Thomas (Welchman Hall, Warrens)</option>
-                                    <option value="St. John">St. John (Bathsheba Borders, St. John Parish Church)</option>
-                                    <option value="St. Joseph">St. Joseph (Bathsheba, Cattlewash)</option>
-                                    <option value="St. Lucy">St. Lucy (North Point, Moontown)</option>
-                                    <option value="St. Andrew">St. Andrew (Chalky Mount, Belleplaine)</option>
-                                    <option value="International / Overseas">Overseas / International Performance</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-300 mb-1">Occasion / Event Category *</label>
-                                <select id="event_type" name="Event Category" required onchange="updateEmailSubject()" class="w-full p-3.5 rounded-xl bg-bajan-navy/90 border border-white/15 text-white text-sm focus:border-bajan-gold focus:outline-none">
-                                    <option value="Wedding Entertainment">Wedding Entertainment</option>
-                                    <option value="Corporate Gala / Event">Corporate Gala / Event</option>
-                                    <option value="Birthday / Anniversary Lime">Birthday / Anniversary Lime</option>
-                                    <option value="Festival / Parade Showcase">Festival / Parade Showcase</option>
-                                    <option value="Beach / Cruise Event">Beach / Catamaran Cruise Event</option>
-                                    <option value="Custom Cultural Show">Custom Cultural Showcase</option>
-                                </select>
-                            </div>
-
-                            <div>
