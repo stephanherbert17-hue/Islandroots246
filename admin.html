@@ -1,6 +1,14 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0;url=index.html#admin"><title>IslandRootz246 Admin</title></head>
-<body style="background:#061619;color:#fff;font-family:system-ui;text-align:center;padding:50px">
-Redirecting to the integrated IslandRootz246 Director Portal...
-<script>location.replace("index.html#admin");</script>
-</body></html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>IslandRootz246 • Admin</title></head>
+<body style="margin:0;background:#061619;color:#fff;font-family:system-ui,sans-serif">
+<script>
+if(localStorage.getItem("IR_ADMIN_SESSION_V6")!=="1"){
+location.replace("admin-login.html");
+}else{
+location.replace("index.html#admin");
+}
+</script>
+<div style="padding:40px;text-align:center">Opening IslandRootz246 Director Portal…</div>
+</body>
+</html>
