@@ -1,359 +1,540 @@
+<!-- =========================
+     FILE 3: admin.html
+     ========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>IslandRootz246 | Management</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#080808;
-color:#fff;
-min-height:100vh
-}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
 :root{
---gold:#d8ad4c;
---gold2:#f4d98b;
---green:#008c45;
---red:#c8102e;
+ --bg:#060807;
+ --panel:#0d1210;
+ --panel2:#111714;
+ --gold:#d9b45a;
+ --gold2:#f2d98c;
+ --text:#f2f2ed;
+ --muted:#858d87;
+ --line:#222a25;
+ --green:#158a59;
+ --red:#b72c3b;
+ --blue:#2874c7;
 }
 
-.login{
-min-height:100vh;
-display:grid;
-place-items:center;
-padding:20px;
-background:
-radial-gradient(circle at top,#17352d,#080808 55%);
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+ background:var(--bg);
+ color:var(--text);
+ font-family:"DM Sans",sans-serif;
 }
 
-.login-box{
-width:min(420px,100%);
-padding:35px;
-border:1px solid rgba(216,173,76,.3);
-border-radius:18px;
-background:#111;
-box-shadow:0 20px 80px rgba(0,0,0,.5)
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+
+.sidebar{
+ position:fixed;
+ left:0;
+ top:0;
+ bottom:0;
+ width:260px;
+ background:#080b09;
+ border-right:1px solid var(--line);
+ padding:25px 16px;
+ z-index:10;
 }
 
 .logo{
-text-align:center;
-font-size:1.4rem;
-font-weight:900;
-color:var(--gold2);
-margin-bottom:25px
+ padding:0 14px 30px;
+ display:flex;
+ align-items:center;
+ gap:10px;
 }
 
-.field{margin-bottom:16px}
-label{
-display:block;
-font-size:.8rem;
-font-weight:bold;
-color:#bbb;
-margin-bottom:7px
-}
-
-input,select,textarea{
-width:100%;
-background:#080808;
-border:1px solid #303030;
-border-radius:7px;
-padding:12px;
-color:white
-}
-
-.btn{
-border:0;
-border-radius:7px;
-padding:12px 18px;
-font-weight:bold
-}
-.primary{
-background:linear-gradient(135deg,var(--gold),var(--gold2));
-color:#080808
-}
-.danger{background:#64111c;color:white}
-.dark{background:#222;color:white}
-
-.dashboard{display:none}
-
-.sidebar{
-position:fixed;
-left:0;
-top:0;
-bottom:0;
-width:250px;
-background:#0c0c0c;
-border-right:1px solid #222;
-padding:25px 15px;
-z-index:20
+.mark{
+ width:38px;height:38px;
+ border:1px solid var(--gold);
+ border-radius:50%;
+ display:grid;
+ place-items:center;
+ color:var(--gold2);
+ font-size:.7rem;
+ font-weight:900;
 }
 
 .brand{
-font-weight:900;
-color:var(--gold2);
-padding:0 12px 25px
+ font-weight:900;
+ letter-spacing:1px;
+ font-size:.9rem;
+}
+.brand span{color:var(--gold2)}
+
+.nav{
+ display:flex;
+ flex-direction:column;
+ gap:4px;
 }
 
-.menu-item{
-display:block;
-width:100%;
-border:0;
-background:transparent;
-color:#aaa;
-text-align:left;
-padding:13px;
-border-radius:7px;
-margin-bottom:4px
+.nav button{
+ border:0;
+ background:transparent;
+ color:#7f8881;
+ text-align:left;
+ padding:13px 14px;
+ border-radius:4px;
+ transition:.2s;
 }
 
-.menu-item:hover,.menu-item.active{
-background:rgba(216,173,76,.1);
-color:var(--gold2)
+.nav button:hover,
+.nav button.active{
+ background:rgba(217,180,90,.08);
+ color:var(--gold2);
+}
+
+.bottom{
+ position:absolute;
+ bottom:25px;
+ left:16px;
+ right:16px;
+}
+
+.logout{
+ width:100%;
+ border:1px solid #282f2b;
+ background:#111;
+ color:#aaa;
+ padding:11px;
 }
 
 .main{
-margin-left:250px;
-padding:30px
+ margin-left:260px;
+ min-height:100vh;
+ padding:30px 35px;
 }
 
-.top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-margin-bottom:30px
+.topbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:20px;
+ padding-bottom:25px;
+ border-bottom:1px solid var(--line);
+ margin-bottom:28px;
 }
 
-h1{font-size:2rem}
-h2{margin-bottom:15px}
-.muted{color:#999}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-margin-bottom:25px
+.kicker{
+ color:var(--gold2);
+ font-size:.62rem;
+ font-weight:900;
+ letter-spacing:3px;
+ text-transform:uppercase;
 }
 
-.stat{
-background:#111;
-border:1px solid #242424;
-border-radius:13px;
-padding:22px
+h1{
+ font-family:"Playfair Display",serif;
+ font-size:2.5rem;
+ margin-top:5px;
 }
 
-.stat small{color:#999}
-.stat strong{
-display:block;
-font-size:2rem;
-color:var(--gold2);
-margin-top:5px
+.subtitle{
+ color:var(--muted);
+ font-size:.75rem;
+ margin-top:4px;
 }
 
-.panel{
-background:#111;
-border:1px solid #242424;
-border-radius:13px;
-padding:25px;
-margin-bottom:20px
-}
-
-table{
-width:100%;
-border-collapse:collapse
-}
-
-th,td{
-padding:13px 10px;
-border-bottom:1px solid #252525;
-text-align:left;
-font-size:.85rem
-}
-
-th{color:var(--gold2)}
-td{color:#ccc}
-
-.status{
-display:inline-block;
-padding:5px 9px;
-border-radius:999px;
-background:#222;
-font-size:.7rem
-}
-
-.status.New{color:#f4d98b}
-.status.Accepted{color:#72d991}
-.status.Declined{color:#ff7373}
-.status.Completed{color:#8ec8ff}
-
-.action-row{
-display:flex;
-gap:7px;
-flex-wrap:wrap
-}
-
-.small{
-padding:7px 10px;
-font-size:.72rem
+.user{
+ text-align:right;
+ color:var(--gold2);
+ font-size:.72rem;
 }
 
 .section{display:none}
 .section.active{display:block}
 
+.stats{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:14px;
+ margin-bottom:22px;
+}
+
+.stat{
+ background:var(--panel);
+ border:1px solid var(--line);
+ padding:22px;
+}
+
+.stat small{
+ color:#717971;
+ text-transform:uppercase;
+ font-size:.6rem;
+ letter-spacing:1.5px;
+}
+
+.stat strong{
+ display:block;
+ color:var(--gold2);
+ font-size:2.4rem;
+ margin-top:7px;
+}
+
+.panel{
+ background:var(--panel);
+ border:1px solid var(--line);
+ padding:25px;
+ margin-bottom:18px;
+}
+
+.panel-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:15px;
+ margin-bottom:20px;
+}
+
+h2{
+ font-size:1.1rem;
+}
+
+.muted{
+ color:var(--muted);
+ font-size:.75rem;
+}
+
+.table-wrap{overflow:auto}
+
+table{
+ width:100%;
+ border-collapse:collapse;
+ min-width:850px;
+}
+
+th{
+ text-align:left;
+ color:var(--gold2);
+ font-size:.62rem;
+ letter-spacing:1px;
+ text-transform:uppercase;
+ padding:13px 10px;
+ border-bottom:1px solid var(--line);
+}
+
+td{
+ color:#c1c7c2;
+ font-size:.72rem;
+ padding:15px 10px;
+ border-bottom:1px solid #1c221f;
+}
+
+.status{
+ display:inline-block;
+ padding:5px 9px;
+ border-radius:999px;
+ background:#1a211d;
+ color:var(--gold2);
+ font-size:.58rem;
+}
+
+.status.Accepted{color:#72d9a1}
+.status.Declined{color:#ff7d87}
+.status.Completed{color:#8ec9ff}
+
+.actions{
+ display:flex;
+ gap:5px;
+ flex-wrap:wrap;
+}
+
+.small{
+ padding:7px 9px;
+ border:1px solid #303833;
+ background:#171b19;
+ color:#bbb;
+ font-size:.6rem;
+ border-radius:3px;
+}
+
+.accept{border-color:#286943;color:#7edda4}
+.decline{border-color:#6e2831;color:#ff8b94}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:14px;
+}
+
+.card{
+ background:#0a0e0c;
+ border:1px solid var(--line);
+ padding:20px;
+}
+
+.card h3{
+ color:var(--gold2);
+ font-size:.95rem;
+ margin-bottom:7px;
+}
+
+.card p{
+ color:#7f8781;
+ font-size:.7rem;
+ line-height:1.7;
+}
+
+.field{margin-bottom:15px}
+
+label{
+ display:block;
+ color:#9ea69f;
+ font-size:.62rem;
+ text-transform:uppercase;
+ font-weight:900;
+ letter-spacing:1px;
+ margin-bottom:6px;
+}
+
+input,textarea,select{
+ width:100%;
+ padding:11px;
+ background:#070909;
+ color:white;
+ border:1px solid #252d28;
+ border-radius:3px;
+ outline:none;
+}
+
+textarea{min-height:100px;resize:vertical}
+
+input:focus,textarea:focus,select:focus{
+ border-color:var(--gold);
+}
+
+.btn{
+ border:0;
+ padding:11px 16px;
+ border-radius:3px;
+ font-weight:800;
+ font-size:.7rem;
+}
+
+.gold{
+ background:linear-gradient(135deg,#c89f43,#f2d98c);
+ color:#080909;
+}
+
+.dark{
+ background:#171c19;
+ color:#bbb;
+ border:1px solid #303833;
+}
+
+.danger{
+ background:#3c151b;
+ color:#ff9299;
+ border:1px solid #682630;
+}
+
 .team{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
 }
 
 .team-card{
-background:#0d0d0d;
-border:1px solid #282828;
-border-radius:12px;
-padding:20px
+ background:#0a0e0c;
+ border:1px solid var(--line);
+ padding:20px;
 }
 
-.team-card h3{color:var(--gold2)}
-.team-card p{color:#999;font-size:.8rem;margin:6px 0 15px}
-
-.activity{
-max-height:300px;
-overflow:auto
+.role{
+ color:var(--gold2);
+ font-size:.58rem;
+ letter-spacing:1px;
+ text-transform:uppercase;
+ font-weight:900;
 }
 
-.activity div{
-padding:12px;
-border-bottom:1px solid #222;
-color:#aaa;
-font-size:.8rem
+.team-card h3{
+ margin:7px 0;
+ font-size:.95rem;
 }
 
-@media(max-width:900px){
-.sidebar{
-position:relative;
-width:100%;
-height:auto
-}
-.main{margin-left:0}
-.stats{grid-template-columns:1fr 1fr}
-.team{grid-template-columns:1fr}
+.team-card p{
+ color:#747d76;
+ font-size:.7rem;
+ line-height:1.7;
 }
 
-@media(max-width:600px){
-.stats{grid-template-columns:1fr}
-.main{padding:18px}
-.top{align-items:flex-start;flex-direction:column}
-table{font-size:.7rem}
+.log{
+ max-height:340px;
+ overflow:auto;
+}
+
+.log-item{
+ padding:12px 0;
+ border-bottom:1px solid #1d241f;
+ color:#858d87;
+ font-size:.68rem;
+}
+
+.log-item strong{
+ color:#b9c0ba;
+ display:block;
+}
+
+.form-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:15px;
+}
+
+.full{grid-column:1/-1}
+
+.theme-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
+}
+
+.theme{
+ min-height:120px;
+ border:1px solid var(--line);
+ background:#0a0e0c;
+ padding:20px;
+ color:white;
+ text-align:left;
+}
+
+.theme:hover{border-color:var(--gold)}
+.theme strong{
+ color:var(--gold2);
+ display:block;
+ margin-bottom:5px;
+}
+
+.theme span{
+ color:#777f79;
+ font-size:.65rem;
+}
+
+.spotlight{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:20px;
+}
+
+@media(max-width:1000px){
+ .stats{grid-template-columns:1fr 1fr}
+ .grid,.team,.theme-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:800px){
+ .sidebar{
+  position:relative;
+  width:100%;
+  height:auto;
+  padding-bottom:80px;
+ }
+ .bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:20px}
+ .nav{display:grid;grid-template-columns:1fr 1fr}
+ .main{margin-left:0;padding:22px}
+ .topbar{align-items:flex-start;flex-direction:column}
+ .user{text-align:left}
+ .stats,.grid,.team,.theme-grid,.spotlight,.form-grid{grid-template-columns:1fr}
+ .full{grid-column:auto}
 }
 </style>
 </head>
 
 <body>
 
-<div class="login" id="loginScreen">
-<div class="login-box">
-<div class="logo">ISLANDROOTZ246 MANAGEMENT</div>
-
-<form id="loginForm">
-
-<div class="field">
-<label>Username</label>
-<input id="username" required autocomplete="username">
-</div>
-
-<div class="field">
-<label>Password</label>
-<input id="password" type="password" required autocomplete="current-password">
-</div>
-
-<button class="btn primary" style="width:100%">Sign In</button>
-
-</form>
-
-<p id="loginError" style="color:#ff7373;margin-top:15px;text-align:center"></p>
-</div>
-</div>
-
-<div class="dashboard" id="dashboard">
-
 <aside class="sidebar">
 
-<div class="brand">ISLANDROOTZ246<br>MANAGEMENT</div>
+<div class="logo">
+<div class="mark">IR</div>
+<div class="brand">ISLAND<span>ROOTZ</span>246</div>
+</div>
 
-<button class="menu-item active" data-section="overview">📊 Dashboard</button>
-<button class="menu-item" data-section="bookings">📋 Bookings</button>
-<button class="menu-item" data-section="calendar">📅 Calendar</button>
-<button class="menu-item" data-section="directors">👥 Directors</button>
-<button class="menu-item" data-section="services">🎵 Services</button>
-<button class="menu-item" data-section="themes">🎨 Themes</button>
-<button class="menu-item" data-section="spotlight">⭐ Business Spotlight</button>
-<button class="menu-item" data-section="settings">⚙️ Settings</button>
-<button class="menu-item" onclick="logout()">🚪 Logout</button>
+<div class="nav">
+
+<button class="active" data-section="dashboard">◈ Dashboard</button>
+<button data-section="bookings">▣ Bookings</button>
+<button data-section="calendar">◫ Calendar</button>
+<button data-section="directors">♙ Directors</button>
+<button data-section="services">♫ Services</button>
+<button data-section="themes">◉ Website Themes</button>
+<button data-section="spotlight">★ Business Spotlight</button>
+<button data-section="content">✎ Website Content</button>
+<button data-section="settings">⚙ Settings</button>
+
+</div>
+
+<div class="bottom">
+<button class="logout" onclick="logout()">Sign Out</button>
+</div>
 
 </aside>
 
 <main class="main">
 
-<div class="top">
+<div class="topbar">
 <div>
+<div class="kicker">IslandRootz246 Management</div>
 <h1 id="pageTitle">Dashboard</h1>
-<p class="muted">IslandRootz246 management control centre</p>
+<div class="subtitle">Company operations and booking control centre</div>
 </div>
 
-<div>
-<span id="userLabel" class="muted"></span>
+<div class="user">
+<div>AUTHORISED USER</div>
+<span id="loggedUser">Owner</span>
 </div>
 </div>
 
-<section class="section active" id="overview">
+<!-- DASHBOARD -->
+<section class="section active" id="dashboard">
 
 <div class="stats">
-<div class="stat">
-<small>Total Bookings</small>
-<strong id="totalBookings">0</strong>
-</div>
-
-<div class="stat">
-<small>New Requests</small>
-<strong id="newBookings">0</strong>
-</div>
-
-<div class="stat">
-<small>Accepted</small>
-<strong id="acceptedBookings">0</strong>
-</div>
-
-<div class="stat">
-<small>Completed</small>
-<strong id="completedBookings">0</strong>
-</div>
+<div class="stat"><small>Total Requests</small><strong id="total">0</strong></div>
+<div class="stat"><small>New</small><strong id="newCount">0</strong></div>
+<div class="stat"><small>Accepted</small><strong id="accepted">0</strong></div>
+<div class="stat"><small>Completed</small><strong id="completed">0</strong></div>
 </div>
 
 <div class="panel">
-<h2>Recent Bookings</h2>
-<div id="recentBookings"></div>
+<div class="panel-head">
+<h2>Recent Booking Requests</h2>
+<button class="btn dark" onclick="openSection('bookings')">View All</button>
+</div>
+<div id="recent"></div>
 </div>
 
 <div class="panel">
-<h2>Activity Log</h2>
-<div class="activity" id="activity"></div>
+<div class="panel-head">
+<h2>Management Activity</h2>
+</div>
+<div class="log" id="activity"></div>
 </div>
 
 </section>
 
+<!-- BOOKINGS -->
 <section class="section" id="bookings">
 
 <div class="panel">
 
+<div class="panel-head">
+<div>
 <h2>Booking Management</h2>
+<p class="muted">Review, accept, decline and complete booking requests.</p>
+</div>
+</div>
 
-<div style="overflow:auto">
+<div class="table-wrap">
 <table>
 <thead>
 <tr>
@@ -362,6 +543,7 @@ table{font-size:.7rem}
 <th>Event</th>
 <th>Date</th>
 <th>Location</th>
+<th>Services</th>
 <th>Status</th>
 <th>Actions</th>
 </tr>
@@ -375,63 +557,74 @@ table{font-size:.7rem}
 
 </section>
 
+<!-- CALENDAR -->
 <section class="section" id="calendar">
 
 <div class="panel">
-<h2>Upcoming Calendar</h2>
+<h2>Upcoming Event Calendar</h2>
+<p class="muted" style="margin:7px 0 20px">
+All submitted events are organised below by date.
+</p>
+
 <div id="calendarList"></div>
 </div>
 
 </section>
 
+<!-- DIRECTORS -->
 <section class="section" id="directors">
 
 <div class="panel">
 
-<h2>Current Directors</h2>
+<div class="panel-head">
+<div>
+<h2>Director Management</h2>
+<p class="muted">Current public IslandRootz246 leadership.</p>
+</div>
+</div>
 
 <div class="team">
 
 <div class="team-card">
+<div class="role">Founder / Executive Director</div>
 <h3>Stephan Herbert</h3>
-<p>Founder / Executive Director</p>
-<button class="btn dark small">Owner Access</button>
+<p>Owner-level management access.</p>
 </div>
 
 <div class="team-card">
+<div class="role">Co-Founder / Deputy Executive Director</div>
 <h3>Trevern Innis</h3>
-<p>Co-Founder / Deputy Executive Director</p>
-<button class="btn dark small">Director</button>
+<p>Deputy executive management.</p>
 </div>
 
 <div class="team-card">
+<div class="role">Senior Director / Tuk Band Leader</div>
 <h3>Christian Iffil</h3>
-<p>Senior Director / Tuk Band Leader</p>
-<button class="btn dark small">Director</button>
+<p>Tuk Band leadership.</p>
 </div>
 
 <div class="team-card">
+<div class="role">Senior Director</div>
 <h3>Azereio Rose</h3>
-<p>Senior Director</p>
-<button class="btn dark small">Director</button>
+<p>Senior management.</p>
 </div>
 
 <div class="team-card">
+<div class="role">Senior Director / Chairwoman</div>
 <h3>Chloe Grazette</h3>
-<p>Senior Director / Chairwoman of the Board</p>
-<button class="btn dark small">Director</button>
+<p>Board leadership.</p>
 </div>
 
 <div class="team-card">
+<div class="role">Senior Director / Deputy Chairwoman</div>
 <h3>Embrany Harvey</h3>
-<p>Senior Director / Deputy Chairwoman</p>
-<button class="btn dark small">Director</button>
+<p>Board support.</p>
 </div>
 
 <div class="team-card">
+<div class="role">Junior Director / Choreography / Cultural Officer</div>
 <h3>Sarah Holder</h3>
-<p>Junior Director / Choreography / Cultural Officer</p>
-<button class="btn dark small">Director</button>
+<p>Choreography and cultural coordination.</p>
 </div>
 
 </div>
@@ -439,83 +632,125 @@ table{font-size:.7rem}
 
 <div class="panel">
 
-<h2>Admin Access</h2>
-
-<p class="muted" style="margin-bottom:15px">
-In a production version, director access should be connected to server-side authentication.
-Do not store real passwords in this HTML file.
+<h2>Director Access</h2>
+<p class="muted" style="margin:8px 0 20px">
+Add authorised director email addresses. Access should be connected to a
+real authentication provider before this is used for sensitive production data.
 </p>
 
+<div class="form-grid">
 <div class="field">
 <label>Director Email</label>
 <input id="directorEmail" type="email" placeholder="director@example.com">
 </div>
 
-<button class="btn primary" onclick="addDirector()">Add Director Access</button>
+<div style="display:flex;align-items:end">
+<button class="btn gold" onclick="addDirector()">Add Access</button>
+</div>
+</div>
 
-<div id="directorAccessList" style="margin-top:20px"></div>
+<div id="directorList"></div>
 
 </div>
 
 </section>
 
+<!-- SERVICES -->
 <section class="section" id="services">
 
 <div class="panel">
+<div class="panel-head">
+<div>
+<h2>Service Catalogue</h2>
+<p class="muted">Services available through the public booking builder.</p>
+</div>
+</div>
 
-<h2>Services</h2>
+<div class="grid">
 
-<div class="team">
-
-<div class="team-card"><h3>Tuk Band</h3><p>Traditional Barbadian Tuk</p></div>
-<div class="team-card"><h3>Concert Band</h3><p>Live concert entertainment</p></div>
-<div class="team-card"><h3>Keyboardist</h3><p>Solo keyboard</p></div>
-<div class="team-card"><h3>Steel Panist</h3><p>Steel pan performance</p></div>
-<div class="team-card"><h3>Choreography</h3><p>Performance choreography</p></div>
-<div class="team-card"><h3>Cultural Entertainment</h3><p>Barbadian cultural entertainment</p></div>
-<div class="team-card"><h3>Custom Entertainment</h3><p>Client-designed experience</p></div>
+<div class="card"><h3>Concert Band</h3><p>Full live concert-band entertainment.</p></div>
+<div class="card"><h3>Tuk Band</h3><p>Traditional Barbadian Tuk performance.</p></div>
+<div class="card"><h3>Keyboardist</h3><p>Individual keyboard performance.</p></div>
+<div class="card"><h3>Steel Panist</h3><p>Individual steel pan performance.</p></div>
+<div class="card"><h3>Drummer</h3><p>Individual percussion.</p></div>
+<div class="card"><h3>Saxophonist</h3><p>Individual saxophone.</p></div>
+<div class="card"><h3>Clarinetist</h3><p>Individual clarinet.</p></div>
+<div class="card"><h3>Vocalist</h3><p>Vocal entertainment.</p></div>
+<div class="card"><h3>Choreography</h3><p>Choreography for productions and events.</p></div>
+<div class="card"><h3>Cultural Entertainment</h3><p>Barbadian cultural entertainment.</p></div>
+<div class="card"><h3>Dance Performance</h3><p>Performance-based dance entertainment.</p></div>
+<div class="card"><h3>Custom Entertainment</h3><p>Custom client concepts.</p></div>
 
 </div>
 </div>
 
 </section>
 
+<!-- THEMES -->
 <section class="section" id="themes">
 
 <div class="panel">
 
-<h2>Website Theme</h2>
-
-<p class="muted" style="margin-bottom:20px">
-Choose the theme that will be used by the public website.
+<h2>Website Theme Manager</h2>
+<p class="muted" style="margin:7px 0 22px">
+Change the visual season/identity displayed on the public website.
 </p>
 
-<div class="action-row">
+<div class="theme-grid">
 
-<button class="btn primary" onclick="setTheme('Barbados')">🇧🇧 Barbados</button>
-<button class="btn dark" onclick="setTheme('Christmas')">🎄 Christmas</button>
-<button class="btn dark" onclick="setTheme('Easter')">✝️ Easter</button>
-<button class="btn dark" onclick="setTheme('Summer')">☀️ Summer</button>
-<button class="btn dark" onclick="setTheme('Independence')">🇧🇧 Independence</button>
-<button class="btn dark" onclick="setTheme('Christian')">✝️ Christian</button>
+<button class="theme" onclick="setTheme('Barbados')">
+<strong>🇧🇧 Barbados</strong>
+<span>Premium Barbadian identity</span>
+</button>
+
+<button class="theme" onclick="setTheme('Christmas')">
+<strong>Christmas</strong>
+<span>Festive seasonal presentation</span>
+</button>
+
+<button class="theme" onclick="setTheme('Easter')">
+<strong>Easter</strong>
+<span>Seasonal presentation</span>
+</button>
+
+<button class="theme" onclick="setTheme('Summer')">
+<strong>Summer</strong>
+<span>Summer event presentation</span>
+</button>
+
+<button class="theme" onclick="setTheme('Independence')">
+<strong>Independence / Republic</strong>
+<span>National celebration presentation</span>
+</button>
+
+<button class="theme" onclick="setTheme('Christian')">
+<strong>Christian</strong>
+<span>Faith-based event presentation</span>
+</button>
 
 </div>
 
-<p id="currentTheme" class="muted" style="margin-top:20px"></p>
+<p id="themeStatus" class="muted" style="margin-top:20px"></p>
 
 </div>
 
 </section>
 
+<!-- SPOTLIGHT -->
 <section class="section" id="spotlight">
 
 <div class="panel">
 
 <h2>Business Spotlight</h2>
+<p class="muted" style="margin:7px 0 22px">
+Publish a selected business, organisation or creative partner on the public website.
+</p>
+
+<div class="form-grid">
 
 <div class="field">
 <label>Business Name</label>
-<input id="spotName" placeholder="Business name">
+<input id="spotName">
 </div>
 
 <div class="field">
@@ -528,33 +763,75 @@ Choose the theme that will be used by the public website.
 <input id="spotInstagram" placeholder="@username">
 </div>
 
-<div class="field">
-<label>Write-up</label>
-<textarea id="spotDescription" placeholder="Business description"></textarea>
+<div class="field full">
+<label>Business Write-up</label>
+<textarea id="spotDescription"></textarea>
 </div>
 
-<button class="btn primary" onclick="saveSpotlight()">Publish Spotlight</button>
+</div>
 
-<div id="spotlightPreview" style="margin-top:25px"></div>
+<button class="btn gold" onclick="saveSpotlight()">Publish Spotlight</button>
+
+<div id="spotPreview" style="margin-top:25px"></div>
 
 </div>
 
 </section>
 
+<!-- CONTENT -->
+<section class="section" id="content">
+
+<div class="panel">
+
+<h2>Website Content Control</h2>
+
+<p class="muted" style="margin:7px 0 20px">
+Edit selected public-facing text from management.
+</p>
+
+<div class="field">
+<label>Hero Eyebrow</label>
+<input id="heroEyebrow">
+</div>
+
+<div class="field">
+<label>Hero Heading</label>
+<input id="heroHeading">
+</div>
+
+<div class="field">
+<label>Hero Description</label>
+<textarea id="heroDescription"></textarea>
+</div>
+
+<div class="field">
+<label>Booking Section Description</label>
+<textarea id="bookingDescription"></textarea>
+</div>
+
+<button class="btn gold" onclick="saveContent()">Save Website Content</button>
+
+</div>
+
+</section>
+
+<!-- SETTINGS -->
 <section class="section" id="settings">
 
 <div class="panel">
 
-<h2>Website Settings</h2>
+<h2>Business Settings</h2>
+
+<div class="form-grid">
+
+<div class="field">
+<label>Business Name</label>
+<input value="IslandRootz246 Musical Entertainment">
+</div>
 
 <div class="field">
 <label>Business Email</label>
 <input value="islandrootz.entertaiment@gmail.com">
-</div>
-
-<div class="field">
-<label>Founder</label>
-<input value="Stephan Herbert">
 </div>
 
 <div class="field">
@@ -567,20 +844,31 @@ Choose the theme that will be used by the public website.
 <input value="https://www.instagram.com/islandrootz.musical.ent">
 </div>
 
-<button class="btn primary" onclick="alert('Settings saved locally for this browser.')">
-Save Settings
-</button>
+<div class="field">
+<label>Founder</label>
+<input value="Stephan Herbert">
+</div>
+
+<div class="field">
+<label>Payment Methods</label>
+<input value="Cash + Cheques">
+</div>
+
+</div>
+
+<button class="btn gold" onclick="alert('Business settings saved locally.')">Save Settings</button>
 
 </div>
 
 <div class="panel">
 
-<h2>Security</h2>
+<h2>Important Security Notice</h2>
 
-<p class="muted">
-This HTML dashboard is only a frontend prototype. A truly secure multi-director
-admin system requires server-side authentication, database permissions and protected
-API endpoints.
+<p class="muted" style="line-height:1.9">
+This three-file version provides the management interface and frontend workflow,
+but real secure administration should use server-side authentication, a database,
+role permissions and protected API endpoints. Do not rely on frontend credentials
+for sensitive production access.
 </p>
 
 </div>
@@ -588,193 +876,210 @@ API endpoints.
 </section>
 
 </main>
-</div>
 
 <script>
-const OWNER_USER="islandrootzadmin";
-const OWNER_PASS="Rootz246Admin!";
 
-let bookings=JSON.parse(localStorage.getItem("islandrootzBookings")||"[]");
-
-function logActivity(text){
-  let logs=JSON.parse(localStorage.getItem("islandrootzActivity")||"[]");
-
-  logs.unshift({
-    text,
-    time:new Date().toLocaleString()
-  });
-
-  localStorage.setItem("islandrootzActivity",JSON.stringify(logs.slice(0,100)));
+if(sessionStorage.getItem("islandrootzAdmin")!=="true"){
+ window.location.href="admin-login.html";
 }
 
-document.getElementById("loginForm").addEventListener("submit",function(e){
-  e.preventDefault();
+document.getElementById("loggedUser").textContent=
+ sessionStorage.getItem("islandrootzUser")||"Owner";
 
-  const u=document.getElementById("username").value;
-  const p=document.getElementById("password").value;
+let bookings=
+ JSON.parse(localStorage.getItem("islandrootzBookings")||"[]");
 
-  if(u===OWNER_USER && p===OWNER_PASS){
-    sessionStorage.setItem("islandrootzAdmin","true");
-    sessionStorage.setItem("islandrootzUser",u);
+function openSection(name){
 
-    logActivity("Owner signed into management panel.");
+ document.querySelectorAll(".nav button").forEach(b=>{
+   b.classList.toggle("active",b.dataset.section===name);
+ });
 
-    showDashboard();
-  }else{
-    document.getElementById("loginError").textContent="Invalid management credentials.";
-  }
+ document.querySelectorAll(".section").forEach(s=>{
+   s.classList.toggle("active",s.id===name);
+ });
+
+ const button=document.querySelector(`[data-section="${name}"]`);
+
+ if(button){
+   document.getElementById("pageTitle").textContent=
+   button.textContent.trim();
+ }
+
+ renderAll();
+}
+
+document.querySelectorAll(".nav button[data-section]").forEach(button=>{
+ button.addEventListener("click",()=>{
+   openSection(button.dataset.section);
+ });
 });
 
-function showDashboard(){
-  document.getElementById("loginScreen").style.display="none";
-  document.getElementById("dashboard").style.display="block";
+function log(text){
 
-  document.getElementById("userLabel").textContent=
-    sessionStorage.getItem("islandrootzUser")||"Management";
+ let logs=
+ JSON.parse(localStorage.getItem("islandrootzActivity")||"[]");
 
-  renderAll();
+ logs.unshift({
+  text,
+  time:new Date().toLocaleString()
+ });
+
+ localStorage.setItem(
+  "islandrootzActivity",
+  JSON.stringify(logs.slice(0,100))
+ );
 }
-
-function logout(){
-  logActivity("Management user signed out.");
-  sessionStorage.clear();
-  location.reload();
-}
-
-if(sessionStorage.getItem("islandrootzAdmin")==="true"){
-  showDashboard();
-}
-
-document.querySelectorAll(".menu-item[data-section]").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    const section=btn.dataset.section;
-
-    document.querySelectorAll(".menu-item").forEach(x=>x.classList.remove("active"));
-    btn.classList.add("active");
-
-    document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));
-    document.getElementById(section).classList.add("active");
-
-    document.getElementById("pageTitle").textContent=btn.textContent.trim();
-  });
-});
 
 function renderAll(){
-  bookings=JSON.parse(localStorage.getItem("islandrootzBookings")||"[]");
 
-  document.getElementById("totalBookings").textContent=bookings.length;
-  document.getElementById("newBookings").textContent=
-    bookings.filter(x=>x.status==="New").length;
-  document.getElementById("acceptedBookings").textContent=
-    bookings.filter(x=>x.status==="Accepted").length;
-  document.getElementById("completedBookings").textContent=
-    bookings.filter(x=>x.status==="Completed").length;
+ bookings=
+ JSON.parse(localStorage.getItem("islandrootzBookings")||"[]");
 
-  renderBookings();
-  renderCalendar();
-  renderActivity();
-  renderDirectorAccess();
-  renderSpotlight();
-  document.getElementById("currentTheme").textContent=
-    "Current theme: "+(localStorage.getItem("islandrootzTheme")||"Barbados");
+ document.getElementById("total").textContent=bookings.length;
+
+ document.getElementById("newCount").textContent=
+ bookings.filter(x=>x.status==="New").length;
+
+ document.getElementById("accepted").textContent=
+ bookings.filter(x=>x.status==="Accepted").length;
+
+ document.getElementById("completed").textContent=
+ bookings.filter(x=>x.status==="Completed").length;
+
+ renderRecent();
+ renderBookings();
+ renderCalendar();
+ renderActivity();
+ renderDirectors();
+ renderSpotlight();
+ renderTheme();
+ renderContent();
 }
 
-function saveBookings(){
-  localStorage.setItem("islandrootzBookings",JSON.stringify(bookings));
+function renderRecent(){
+
+ const el=document.getElementById("recent");
+
+ const list=[...bookings].reverse().slice(0,5);
+
+ if(!list.length){
+  el.innerHTML='<p class="muted">No booking requests yet.</p>';
+  return;
+ }
+
+ el.innerHTML=list.map(b=>`
+ <div style="padding:15px 0;border-bottom:1px solid #1e251f">
+ <strong>${safe(b.name)}</strong>
+ <div class="muted">${safe(b.eventType)} · ${safe(b.date)} · ${safe(b.location)}</div>
+ <div style="margin-top:7px">
+ <span class="status ${safe(b.status)}">${safe(b.status)}</span>
+ </div>
+ </div>
+ `).join("");
 }
 
 function renderBookings(){
 
-  const table=document.getElementById("bookingTable");
+ const table=document.getElementById("bookingTable");
 
-  table.innerHTML="";
+ if(!bookings.length){
+  table.innerHTML=
+  `<tr><td colspan="8">No booking requests yet.</td></tr>`;
+  return;
+ }
 
-  if(!bookings.length){
-    table.innerHTML='<tr><td colspan="7">No booking requests yet.</td></tr>';
-    return;
-  }
+ table.innerHTML=[...bookings]
+ .reverse()
+ .map((b)=>{
+  const index=bookings.indexOf(b);
 
-  [...bookings].reverse().forEach((b,index)=>{
+  return `
+  <tr>
+  <td>${safe(b.id)}</td>
+  <td>${safe(b.name)}<br><small>${safe(b.email)}</small></td>
+  <td>${safe(b.eventType)}</td>
+  <td>${safe(b.date)}<br>${safe(b.time)}</td>
+  <td>${safe(b.location)}</td>
+  <td>${safe((b.services||[]).join(", "))}</td>
+  <td><span class="status ${safe(b.status)}">${safe(b.status)}</span></td>
 
-    const realIndex=bookings.indexOf(b);
+  <td>
+  <div class="actions">
 
-    const tr=document.createElement("tr");
+  <button class="small accept"
+  onclick="changeStatus(${index},'Accepted')">
+  Accept
+  </button>
 
-    tr.innerHTML=`
-<td>${b.id}</td>
-<td>${escapeHtml(b.name)}</td>
-<td>${escapeHtml(b.eventType)}</td>
-<td>${b.date}</td>
-<td>${escapeHtml(b.location)}</td>
-<td><span class="status ${b.status}">${b.status}</span></td>
+  <button class="small decline"
+  onclick="changeStatus(${index},'Declined')">
+  Decline
+  </button>
 
-<td>
-<div class="action-row">
+  <button class="small"
+  onclick="changeStatus(${index},'Completed')">
+  Complete
+  </button>
 
-<button class="btn primary small" onclick="updateBooking(${realIndex},'Accepted')">
-Accept
-</button>
+  <button class="small"
+  onclick="viewBooking(${index})">
+  View
+  </button>
 
-<button class="btn danger small" onclick="updateBooking(${realIndex},'Declined')">
-Decline
-</button>
-
-<button class="btn dark small" onclick="updateBooking(${realIndex},'Completed')">
-Complete
-</button>
-
-<button class="btn dark small" onclick="viewBooking(${realIndex})">
-View
-</button>
-
-</div>
-</td>
-`;
-
-    table.appendChild(tr);
-  });
+  </div>
+  </td>
+  </tr>
+  `;
+ }).join("");
 }
 
-function updateBooking(index,status){
+function changeStatus(index,status){
 
-  bookings[index].status=status;
-  saveBookings();
+ bookings[index].status=status;
 
-  logActivity(
-    `Booking ${bookings[index].id} changed to ${status}.`
-  );
+ localStorage.setItem(
+  "islandrootzBookings",
+  JSON.stringify(bookings)
+ );
 
-  renderAll();
+ log(
+ `Booking ${bookings[index].id} marked ${status}.`
+ );
 
-  alert(`Booking ${bookings[index].id} marked ${status}.`);
+ renderAll();
 }
 
 function viewBooking(index){
 
-  const b=bookings[index];
+ const b=bookings[index];
 
-  alert(`
-BOOKING: ${b.id}
+ alert(`
+ISLANDROOTZ246 BOOKING
+
+ID: ${b.id}
 
 CLIENT
 ${b.name}
 ${b.email}
 ${b.phone}
+${b.organisation||""}
 
 EVENT
 ${b.eventType}
 ${b.date}
 ${b.time}
 ${b.location}
+Guests: ${b.guests||"Not specified"}
 
 SERVICES
-${b.services}
-
-BUDGET
-${b.currency} ${b.budget||"Not specified"}
+${(b.services||[]).join(", ")}
 
 DURATION
 ${b.duration}
+
+BUDGET
+${b.currency} ${b.budget||"Not specified"}
 
 SONG REQUESTS
 ${b.songs||"None"}
@@ -789,211 +1094,259 @@ ${b.status}
 
 function renderCalendar(){
 
-  const el=document.getElementById("calendarList");
+ const el=document.getElementById("calendarList");
 
-  const sorted=[...bookings]
-    .filter(x=>x.date)
-    .sort((a,b)=>a.date.localeCompare(b.date));
+ const list=[...bookings]
+ .filter(x=>x.date)
+ .sort((a,b)=>a.date.localeCompare(b.date));
 
-  if(!sorted.length){
-    el.innerHTML='<p class="muted">No upcoming events.</p>';
-    return;
-  }
+ if(!list.length){
+  el.innerHTML='<p class="muted">No events scheduled.</p>';
+  return;
+ }
 
-  el.innerHTML=sorted.map(b=>`
-<div style="padding:15px;border-bottom:1px solid #222">
-<strong style="color:var(--gold2)">
-${b.date} ${b.time||""}
-</strong>
+ el.innerHTML=list.map(b=>`
+ <div style="padding:18px 0;border-bottom:1px solid #1d241f">
 
-<div style="margin-top:4px">
-${escapeHtml(b.name)} — ${escapeHtml(b.eventType)}
-</div>
+ <div style="color:var(--gold2);font-weight:800;font-size:.8rem">
+ ${safe(b.date)} ${safe(b.time)}
+ </div>
 
-<div class="muted">
-${escapeHtml(b.location)} · ${escapeHtml(b.services)}
-</div>
-</div>
-`).join("");
+ <div style="margin-top:5px">
+ ${safe(b.name)} — ${safe(b.eventType)}
+ </div>
+
+ <div class="muted">
+ ${safe(b.location)} · ${safe((b.services||[]).join(", "))}
+ </div>
+
+ <div style="margin-top:8px">
+ <span class="status ${safe(b.status)}">${safe(b.status)}</span>
+ </div>
+
+ </div>
+ `).join("");
 }
 
 function renderActivity(){
 
-  const logs=JSON.parse(localStorage.getItem("islandrootzActivity")||"[]");
+ const el=document.getElementById("activity");
 
-  const el=document.getElementById("activity");
+ const logs=
+ JSON.parse(localStorage.getItem("islandrootzActivity")||"[]");
 
-  if(!logs.length){
-    el.innerHTML='<div>No activity yet.</div>';
-    return;
-  }
+ if(!logs.length){
+  el.innerHTML='<div class="log-item">No activity yet.</div>';
+  return;
+ }
 
-  el.innerHTML=logs.map(x=>`
-<div>
-<strong>${escapeHtml(x.text)}</strong><br>
-<small>${escapeHtml(x.time)}</small>
-</div>
-`).join("");
+ el.innerHTML=logs.map(x=>`
+ <div class="log-item">
+ <strong>${safe(x.text)}</strong>
+ ${safe(x.time)}
+ </div>
+ `).join("");
 }
 
 function addDirector(){
 
-  const email=document.getElementById("directorEmail").value.trim();
+ const email=document.getElementById("directorEmail").value.trim();
 
-  if(!email){
-    alert("Enter a director email.");
-    return;
-  }
+ if(!email){
+  alert("Enter an email address.");
+  return;
+ }
 
-  let directors=
-    JSON.parse(localStorage.getItem("islandrootzDirectors")||"[]");
+ let list=
+ JSON.parse(localStorage.getItem("islandrootzDirectorEmails")||"[]");
 
-  if(directors.includes(email)){
-    alert("That email is already listed.");
-    return;
-  }
+ if(list.includes(email)){
+  alert("This email already has access listed.");
+  return;
+ }
 
-  directors.push(email);
+ list.push(email);
 
-  localStorage.setItem(
-    "islandrootzDirectors",
-    JSON.stringify(directors)
-  );
+ localStorage.setItem(
+  "islandrootzDirectorEmails",
+  JSON.stringify(list)
+ );
 
-  logActivity(`Director access added for ${email}.`);
+ log(`Director access added for ${email}.`);
 
-  document.getElementById("directorEmail").value="";
+ document.getElementById("directorEmail").value="";
 
-  renderDirectorAccess();
+ renderDirectors();
 }
 
-function renderDirectorAccess(){
+function renderDirectors(){
 
-  const el=document.getElementById("directorAccessList");
+ const el=document.getElementById("directorList");
 
-  const directors=
-    JSON.parse(localStorage.getItem("islandrootzDirectors")||"[]");
+ const list=
+ JSON.parse(localStorage.getItem("islandrootzDirectorEmails")||"[]");
 
-  if(!directors.length){
-    el.innerHTML='<p class="muted">No additional director emails added.</p>';
-    return;
-  }
+ if(!list.length){
+  el.innerHTML='<p class="muted" style="margin-top:18px">No additional access emails.</p>';
+  return;
+ }
 
-  el.innerHTML=directors.map((email,index)=>`
-<div style="
-display:flex;
-justify-content:space-between;
-gap:10px;
-align-items:center;
-padding:12px;
-border-bottom:1px solid #222">
+ el.innerHTML=list.map((email,index)=>`
+ <div style="
+ margin-top:10px;
+ padding:13px;
+ border:1px solid #222a25;
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ align-items:center">
 
-<span>${escapeHtml(email)}</span>
+ <span style="font-size:.72rem">${safe(email)}</span>
 
-<button class="btn danger small"
-onclick="removeDirector(${index})">
-Revoke
-</button>
+ <button class="btn danger"
+ onclick="revokeDirector(${index})">
+ Revoke
+ </button>
 
-</div>
-`).join("");
+ </div>
+ `).join("");
 }
 
-function removeDirector(index){
+function revokeDirector(index){
 
-  let directors=
-    JSON.parse(localStorage.getItem("islandrootzDirectors")||"[]");
+ let list=
+ JSON.parse(localStorage.getItem("islandrootzDirectorEmails")||"[]");
 
-  const email=directors[index];
+ const email=list[index];
 
-  directors.splice(index,1);
+ list.splice(index,1);
 
-  localStorage.setItem(
-    "islandrootzDirectors",
-    JSON.stringify(directors)
-  );
+ localStorage.setItem(
+  "islandrootzDirectorEmails",
+  JSON.stringify(list)
+ );
 
-  logActivity(`Director access revoked for ${email}.`);
+ log(`Director access revoked for ${email}.`);
 
-  renderDirectorAccess();
+ renderDirectors();
 }
 
 function setTheme(theme){
 
-  localStorage.setItem("islandrootzTheme",theme);
+ localStorage.setItem("islandrootzTheme",theme);
 
-  document.getElementById("currentTheme").textContent=
-    "Current theme: "+theme;
+ log(`Website theme changed to ${theme}.`);
 
-  logActivity(`Website theme changed to ${theme}.`);
+ renderTheme();
 
-  alert(`${theme} theme selected.`);
+ alert(theme+" theme selected.");
+}
+
+function renderTheme(){
+
+ const theme=
+ localStorage.getItem("islandrootzTheme")||"Barbados";
+
+ document.getElementById("themeStatus").textContent=
+ "Current public theme: "+theme;
 }
 
 function saveSpotlight(){
 
-  const data={
-    name:document.getElementById("spotName").value,
-    website:document.getElementById("spotWebsite").value,
-    instagram:document.getElementById("spotInstagram").value,
-    description:document.getElementById("spotDescription").value
-  };
+ const data={
+  name:document.getElementById("spotName").value,
+  website:document.getElementById("spotWebsite").value,
+  instagram:document.getElementById("spotInstagram").value,
+  description:document.getElementById("spotDescription").value
+ };
 
-  localStorage.setItem(
-    "islandrootzSpotlight",
-    JSON.stringify(data)
-  );
+ localStorage.setItem(
+  "islandrootzSpotlight",
+  JSON.stringify(data)
+ );
 
-  logActivity(`Business Spotlight updated for ${data.name}.`);
+ log(`Business Spotlight updated for ${data.name}.`);
 
-  renderSpotlight();
-
-  alert("Business Spotlight saved.");
+ renderSpotlight();
 }
 
 function renderSpotlight(){
 
-  const el=document.getElementById("spotlightPreview");
+ const data=
+ JSON.parse(localStorage.getItem("islandrootzSpotlight")||"null");
 
-  const data=
-    JSON.parse(localStorage.getItem("islandrootzSpotlight")||"null");
+ if(!data)return;
 
-  if(!data){
-    el.innerHTML='<p class="muted">No spotlight currently published.</p>';
-    return;
-  }
+ document.getElementById("spotName").value=data.name||"";
+ document.getElementById("spotWebsite").value=data.website||"";
+ document.getElementById("spotInstagram").value=data.instagram||"";
+ document.getElementById("spotDescription").value=data.description||"";
 
-  el.innerHTML=`
-<div class="team-card">
-<h3>${escapeHtml(data.name)}</h3>
-<p>${escapeHtml(data.description)}</p>
-
-${data.website?
-`<a href="${escapeAttr(data.website)}" target="_blank" style="color:var(--gold2)">Website</a>`
-:""}
-
-${data.instagram?
-`<br><span class="muted">${escapeHtml(data.instagram)}</span>`
-:""}
-
-</div>
-`;
+ document.getElementById("spotPreview").innerHTML=`
+ <div class="card">
+ <h3>${safe(data.name)}</h3>
+ <p>${safe(data.description)}</p>
+ <p style="margin-top:10px">
+ ${safe(data.website)}
+ ${safe(data.instagram)}
+ </p>
+ </div>
+ `;
 }
 
-function escapeHtml(value){
-  return String(value||"")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;");
+function saveContent(){
+
+ const content={
+  heroEyebrow:document.getElementById("heroEyebrow").value,
+  heroHeading:document.getElementById("heroHeading").value,
+  heroDescription:document.getElementById("heroDescription").value,
+  bookingDescription:document.getElementById("bookingDescription").value
+ };
+
+ localStorage.setItem(
+  "islandrootzContent",
+  JSON.stringify(content)
+ );
+
+ log("Public website content updated.");
+
+ alert("Website content saved.");
 }
 
-function escapeAttr(value){
-  return String(value||"")
-    .replace(/"/g,"%22")
-    .replace(/</g,"%3C")
-    .replace(/>/g,"%3E");
+function renderContent(){
+
+ const data=
+ JSON.parse(localStorage.getItem("islandrootzContent")||"null");
+
+ if(!data)return;
+
+ document.getElementById("heroEyebrow").value=data.heroEyebrow||"";
+ document.getElementById("heroHeading").value=data.heroHeading||"";
+ document.getElementById("heroDescription").value=data.heroDescription||"";
+ document.getElementById("bookingDescription").value=data.bookingDescription||"";
 }
+
+function safe(value){
+
+ return String(value||"")
+ .replace(/&/g,"&amp;")
+ .replace(/</g,"&lt;")
+ .replace(/>/g,"&gt;")
+ .replace(/"/g,"&quot;")
+ .replace(/'/g,"&#039;");
+}
+
+function logout(){
+
+ log("Management user signed out.");
+
+ sessionStorage.clear();
+
+ window.location.href="admin-login.html";
+}
+
+renderAll();
+
 </script>
 
 </body>
