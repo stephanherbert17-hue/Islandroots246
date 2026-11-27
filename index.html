@@ -1,1088 +1,226 @@
-<!-- =========================
-     FILE 1: index.html
-     ========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IslandRootz246 | Musical Entertainment</title>
-<meta name="description" content="IslandRootz246 Musical Entertainment — live music, concert band, Tuk, individual musicians, choreography and cultural entertainment in Barbados.">
-
+<meta name="theme-color" content="#071b1f">
+<title>IslandRootz246 Musical Entertainment</title>
+<meta name="description" content="IslandRootz246 Musical Entertainment — premium musical and cultural entertainment in Barbados. Tuk, Concert Band, solo steel pan, keyboard and trumpet, choreography and custom entertainment experiences.">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
-
 :root{
- --bg:#060809;
- --surface:#0d1110;
- --surface2:#111714;
- --gold:#d9b45a;
- --gold2:#f2d98c;
- --cream:#f8f4e9;
- --muted:#9ca49e;
- --line:rgba(242,217,140,.16);
- --green:#0d8b55;
- --red:#c92538;
- --blue:#2874c7;
+ --bg:#071b1f;--panel:#0d292d;--panel2:#103438;--text:#f7f4ea;--muted:#a9c0bd;
+ --gold:#d9b45b;--gold2:#f0d487;--aqua:#55d2c5;--line:rgba(255,255,255,.11);
+ --shadow:0 24px 70px rgba(0,0,0,.32);--radius:24px;
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
- background:var(--bg);
- color:var(--cream);
- font-family:"DM Sans",sans-serif;
- overflow-x:hidden;
-}
-body:before{
- content:"";
- position:fixed;
- inset:0;
- pointer-events:none;
- background:
- radial-gradient(circle at 10% 10%,rgba(13,139,85,.09),transparent 30%),
- radial-gradient(circle at 90% 25%,rgba(217,180,90,.08),transparent 30%);
- z-index:-1;
-}
+body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 80% 0%,rgba(217,180,91,.11),transparent 30%),linear-gradient(180deg,#061619 0%,#071b1f 45%,#081f22 100%);color:var(--text);line-height:1.6}
 a{text-decoration:none;color:inherit}
-button,input,textarea,select{font:inherit}
+button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-.container{width:min(1240px,92%);margin:auto}
-
-header{
- position:fixed;
- top:0;
- left:0;
- right:0;
- z-index:1000;
- background:rgba(6,8,9,.72);
- backdrop-filter:blur(22px);
- border-bottom:1px solid rgba(255,255,255,.07);
-}
-.nav{
- min-height:82px;
- display:flex;
- align-items:center;
- justify-content:space-between;
-}
-.brand{
- display:flex;
- align-items:center;
- gap:12px;
- font-weight:800;
- letter-spacing:1.5px;
-}
-.brand-mark{
- width:38px;height:38px;
- display:grid;place-items:center;
- border:1px solid var(--gold);
- border-radius:50%;
- color:var(--gold2);
- font-size:.8rem;
-}
-.brand-name{color:white}
-.brand-name span{color:var(--gold2)}
-
-nav{display:flex;gap:27px;align-items:center}
-nav a{
- color:#bfc5bf;
- font-size:.82rem;
- font-weight:600;
- transition:.2s;
-}
-nav a:hover{color:var(--gold2)}
-
-.nav-cta{
- padding:11px 18px;
- border:1px solid rgba(217,180,90,.5);
- border-radius:999px;
- color:var(--gold2)!important;
-}
-.menu{display:none;background:none;border:0;color:white;font-size:1.6rem}
-
-.hero{
- min-height:100vh;
- padding-top:82px;
- display:flex;
- align-items:center;
- position:relative;
-}
-.hero-grid{
- display:grid;
- grid-template-columns:1.15fr .85fr;
- gap:70px;
- align-items:center;
- padding:85px 0;
-}
-.eyebrow{
- display:inline-flex;
- align-items:center;
- gap:10px;
- color:var(--gold2);
- font-size:.72rem;
- font-weight:800;
- letter-spacing:3px;
- text-transform:uppercase;
- margin-bottom:25px;
-}
-.eyebrow:before{
- content:"";
- width:34px;
- height:1px;
- background:var(--gold);
-}
-h1{
- font-family:"Playfair Display",serif;
- font-size:clamp(3.6rem,8vw,7.6rem);
- line-height:.88;
- letter-spacing:-4px;
- max-width:800px;
-}
-h1 span{
- color:var(--gold2);
- font-style:italic;
-}
-.hero-copy{
- margin:28px 0;
- color:#aeb6b0;
- max-width:650px;
- font-size:1.04rem;
- line-height:1.9;
-}
+.container{width:min(1180px,92%);margin:auto}
+.topbar{border-bottom:1px solid var(--line);background:rgba(4,16,18,.82);backdrop-filter:blur(18px);position:sticky;top:0;z-index:50}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.04em}
+.logo{width:43px;height:43px;border:1px solid rgba(217,180,91,.65);border-radius:14px;display:grid;place-items:center;color:var(--gold2);font-size:18px;background:linear-gradient(145deg,rgba(217,180,91,.2),rgba(85,210,197,.06))}
+.brand small{display:block;color:var(--gold);font-size:9px;letter-spacing:.2em}
+.brand strong{font-size:15px}
+.navlinks{display:flex;gap:25px;color:#d5e2df;font-size:14px}
+.navlinks a:hover{color:var(--gold2)}
+.navcta,.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:12px 20px;font-weight:800}
+.navcta,.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#071719;box-shadow:0 10px 30px rgba(217,180,91,.18)}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:rgba(217,180,91,.55)}
+.hero{padding:100px 0 78px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;right:-220px;top:-220px;background:radial-gradient(circle,rgba(85,210,197,.18),transparent 68%)}
+.eyebrow{color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.23em;text-transform:uppercase;margin-bottom:17px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(45px,7vw,88px);line-height:.96;max-width:820px;letter-spacing:-.045em}
+.hero h1 span{color:var(--gold2)}
+.hero p{max-width:650px;color:var(--muted);font-size:18px;margin:25px 0 32px}
 .actions{display:flex;gap:13px;flex-wrap:wrap}
-.btn{
- display:inline-flex;
- justify-content:center;
- align-items:center;
- gap:8px;
- padding:14px 22px;
- border-radius:6px;
- border:1px solid transparent;
- font-size:.8rem;
- font-weight:800;
- transition:.2s;
-}
-.btn:hover{transform:translateY(-2px)}
-.btn-gold{
- background:linear-gradient(135deg,#c89f43,#f2d98c);
- color:#090a09;
-}
-.btn-outline{
- border-color:rgba(255,255,255,.2);
- background:rgba(255,255,255,.025);
- color:white;
-}
-
-.hero-card{
- position:relative;
- min-height:520px;
- border:1px solid var(--line);
- border-radius:4px;
- overflow:hidden;
- background:
- linear-gradient(145deg,rgba(13,139,85,.12),rgba(217,180,90,.04)),
- #0d1110;
-}
-.hero-card:before{
- content:"";
- position:absolute;
- width:280px;height:280px;
- border-radius:50%;
- border:1px solid rgba(217,180,90,.28);
- top:-120px;right:-100px;
-}
-.hero-card:after{
- content:"";
- position:absolute;
- width:180px;height:180px;
- border-radius:50%;
- border:1px solid rgba(255,255,255,.08);
- bottom:-70px;left:-70px;
-}
-.card-inner{
- position:absolute;
- inset:22px;
- border:1px solid rgba(255,255,255,.07);
- padding:32px;
- display:flex;
- flex-direction:column;
- justify-content:space-between;
-}
-.big-note{
- font-size:8rem;
- line-height:1;
- color:rgba(217,180,90,.1);
- font-family:serif;
-}
-.hero-card h3{
- font-family:"Playfair Display",serif;
- font-size:2.2rem;
- color:var(--gold2);
-}
-.hero-card p{color:#9ea69f;margin-top:8px}
-.instrument-line{
- display:flex;
- gap:7px;
- flex-wrap:wrap;
- margin-top:22px;
-}
-.instrument-line span{
- border:1px solid rgba(255,255,255,.1);
- padding:6px 10px;
- font-size:.68rem;
- color:#bfc5bf;
-}
-
-.trust{
- border-top:1px solid rgba(255,255,255,.06);
- border-bottom:1px solid rgba(255,255,255,.06);
- background:rgba(255,255,255,.018);
-}
-.trust-grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
-}
-.trust-item{
- padding:25px 18px;
- text-align:center;
- border-right:1px solid rgba(255,255,255,.06);
-}
-.trust-item:last-child{border:0}
-.trust-item strong{
- display:block;
- color:var(--gold2);
- font-size:.78rem;
- letter-spacing:1.5px;
-}
-.trust-item span{font-size:.73rem;color:#777f79}
-
-section{padding:110px 0}
-.section-head{max-width:760px;margin-bottom:48px}
-.kicker{
- color:var(--gold2);
- font-size:.68rem;
- font-weight:900;
- letter-spacing:3px;
- text-transform:uppercase;
-}
-h2{
- font-family:"Playfair Display",serif;
- font-size:clamp(2.5rem,5vw,4.3rem);
- line-height:.95;
- margin:12px 0 18px;
-}
-.section-head p{color:#929a94;line-height:1.9}
-
-.split{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:70px;
- align-items:start;
-}
-.large-copy{
- color:#aeb6b0;
- line-height:2;
- font-size:1rem;
-}
-.quote{
- margin-top:25px;
- padding:22px 25px;
- border-left:2px solid var(--gold);
- background:rgba(217,180,90,.035);
- color:#d9ddd8;
- font-family:"Playfair Display",serif;
- font-size:1.15rem;
-}
-
-.feature-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:18px;
-}
-.feature{
- min-height:230px;
- padding:28px;
- background:linear-gradient(145deg,#0e1311,#0a0d0c);
- border:1px solid rgba(255,255,255,.075);
- transition:.25s;
- position:relative;
- overflow:hidden;
-}
-.feature:hover{
- transform:translateY(-5px);
- border-color:rgba(217,180,90,.4);
-}
-.feature-number{
- position:absolute;
- right:20px;top:12px;
- font-size:4rem;
- font-weight:900;
- color:rgba(217,180,90,.06);
-}
-.feature-icon{font-size:1.7rem;margin-bottom:22px}
-.feature h3{color:#eee;font-size:1.05rem;margin-bottom:9px}
-.feature p{color:#858d87;font-size:.86rem;line-height:1.8}
-
-.services{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:12px;
-}
-.service{
- min-height:150px;
- padding:22px;
- border:1px solid rgba(255,255,255,.07);
- background:#0c100f;
- transition:.2s;
-}
-.service:hover{
- border-color:rgba(217,180,90,.38);
- background:#101613;
-}
-.service .tag{
- color:var(--gold2);
- font-size:.63rem;
- letter-spacing:2px;
- text-transform:uppercase;
-}
-.service h3{margin:9px 0;color:white;font-size:.98rem}
-.service p{color:#7f8782;font-size:.77rem;line-height:1.6}
-
-.custom{
- background:
- linear-gradient(105deg,rgba(13,139,85,.13),rgba(217,180,90,.07) 50%,rgba(200,37,56,.06));
- border-top:1px solid rgba(217,180,90,.13);
- border-bottom:1px solid rgba(217,180,90,.13);
-}
-.custom-box{
- display:grid;
- grid-template-columns:1fr auto;
- gap:40px;
- align-items:center;
-}
-.custom h2{margin-bottom:8px}
-.custom p{color:#969e98;max-width:700px}
-
-.team{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:15px;
-}
-.member{
- padding:25px;
- border:1px solid rgba(255,255,255,.07);
- background:#0c100f;
-}
-.member-role{
- color:var(--gold2);
- font-size:.62rem;
- letter-spacing:1.5px;
- text-transform:uppercase;
- font-weight:900;
-}
-.member h3{margin:8px 0 6px;font-size:1.05rem}
-.member p{color:#808983;font-size:.78rem}
-
-.booking-wrap{
- max-width:1100px;
- margin:auto;
- background:#0c100f;
- border:1px solid rgba(217,180,90,.18);
- padding:38px;
-}
-.booking-top{
- display:flex;
- justify-content:space-between;
- gap:30px;
- align-items:flex-start;
- margin-bottom:30px;
-}
-.booking-top p{color:#838b85;font-size:.82rem;max-width:600px}
-.form-grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:18px;
-}
-.field{display:flex;flex-direction:column;gap:7px}
-.full{grid-column:1/-1}
-label{
- color:#b9c0bb;
- font-size:.7rem;
- font-weight:800;
- text-transform:uppercase;
- letter-spacing:1px;
-}
-input,textarea,select{
- background:#070909;
- border:1px solid #242b27;
- color:white;
- padding:13px;
- border-radius:4px;
- outline:none;
-}
-input:focus,textarea:focus,select:focus{
- border-color:rgba(217,180,90,.7);
-}
-textarea{min-height:115px;resize:vertical}
-.check-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:8px;
-}
-.check{
- padding:11px;
- border:1px solid #242b27;
- background:#080b0a;
- color:#aab1ac;
- font-size:.76rem;
- display:flex;
- gap:8px;
- align-items:center;
-}
+.hero-meta{display:grid;grid-template-columns:repeat(3,1fr);max-width:820px;margin-top:62px;border-top:1px solid var(--line);padding-top:25px}
+.meta{padding-right:20px}.meta:not(:last-child){border-right:1px solid var(--line)}
+.meta b{display:block;color:var(--gold2);font-size:20px}.meta span{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.section{padding:86px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:34px}
+.kicker{color:var(--gold);font-weight:900;letter-spacing:.2em;font-size:10px;text-transform:uppercase}
+h2{font-family:Georgia,serif;font-size:clamp(34px,5vw,54px);line-height:1;margin-top:8px}
+.section-head p{max-width:480px;color:var(--muted)}
+.grid{display:grid;gap:17px}
+.services{grid-template-columns:repeat(3,1fr)}
+.card{background:linear-gradient(160deg,rgba(16,52,56,.88),rgba(8,29,32,.88));border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);border-color:rgba(217,180,91,.3);transition:.2s}
+.card .num{color:var(--gold);font-weight:900;font-size:11px;letter-spacing:.15em}
+.card h3{font-size:21px;margin:20px 0 8px}.card p{color:var(--muted);font-size:14px}
+.icon{width:46px;height:46px;border-radius:14px;border:1px solid rgba(217,180,91,.28);display:grid;place-items:center;color:var(--gold2);font-weight:900}
+.builder{background:linear-gradient(135deg,#0d292d,#07191c);border:1px solid var(--line);border-radius:30px;padding:34px}
+.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
+.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}
+label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#c7d8d5;font-weight:800}
+input,select,textarea{width:100%;border:1px solid var(--line);background:#06181b;color:var(--text);border-radius:13px;padding:13px 14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:rgba(217,180,91,.65)}
+textarea{min-height:110px;resize:vertical}
+.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:3px}
+.check{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.025);border:1px solid var(--line);padding:10px 12px;border-radius:12px}
 .check input{width:auto}
-.terms{
- margin:20px 0;
- color:#707872;
- font-size:.7rem;
- line-height:1.7;
+.check span{font-size:13px}
+.note{font-size:12px;color:var(--muted);margin-top:13px}
+.team{grid-template-columns:repeat(4,1fr)}
+.person{min-height:190px}.person h3{margin-top:13px}.role{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.11em;font-weight:900}.person p{margin-top:8px}
+.spotlight{grid-template-columns:repeat(3,1fr)}
+.spot{min-height:210px;display:flex;flex-direction:column;justify-content:space-between}
+.spot .tag{color:var(--aqua);font-size:10px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.contactbox{padding:34px;border-radius:28px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(16,52,56,.9),rgba(7,25,28,.9))}
+.contactbox a{color:var(--gold2)}
+footer{border-top:1px solid var(--line);padding:35px 0;color:var(--muted);font-size:12px}
+.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.toast{position:fixed;right:20px;bottom:20px;background:#f7f4ea;color:#071719;padding:14px 18px;border-radius:14px;font-weight:800;display:none;z-index:100}
+.empty{color:var(--muted);padding:22px;border:1px dashed var(--line);border-radius:18px}
+@media(max-width:850px){
+ .navlinks{display:none}.services,.team,.spotlight{grid-template-columns:1fr 1fr}.hero{padding-top:75px}.section-head{display:block}.section-head p{margin-top:15px}
 }
-
-.notice{
- display:none;
- padding:18px;
- margin-bottom:20px;
- border:1px solid rgba(13,139,85,.35);
- background:rgba(13,139,85,.08);
- color:#b9d7c7;
-}
-
-.contact-grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:18px;
-}
-.contact-card{
- padding:30px;
- border:1px solid rgba(255,255,255,.07);
- background:#0c100f;
-}
-.contact-card h3{color:var(--gold2);margin-bottom:15px}
-.contact-card p{color:#888f89;margin:7px 0;font-size:.82rem}
-.contact-card a{color:#d9d9d9}
-
-footer{
- border-top:1px solid rgba(255,255,255,.07);
- padding:35px 0;
- color:#666d68;
- font-size:.7rem;
-}
-.footer-flex{
- display:flex;
- justify-content:space-between;
- gap:20px;
- flex-wrap:wrap;
-}
-.footer-brand{color:var(--gold2);font-weight:900}
-
-@media(max-width:950px){
- .hero-grid,.split,.custom-box{grid-template-columns:1fr}
- .hero-card{min-height:420px}
- .services{grid-template-columns:1fr 1fr}
- .feature-grid{grid-template-columns:1fr 1fr}
- .team{grid-template-columns:1fr 1fr}
-}
-@media(max-width:700px){
- nav{display:none}
- .menu{display:block}
- .nav.open nav{
-  display:flex;
-  position:absolute;
-  top:82px;left:0;right:0;
-  background:#070909;
-  padding:22px;
-  flex-direction:column;
-  border-bottom:1px solid #222;
- }
- .trust-grid{grid-template-columns:1fr 1fr}
- .trust-item{border-bottom:1px solid rgba(255,255,255,.06)}
- .feature-grid,.team,.services,.contact-grid,.form-grid{grid-template-columns:1fr}
- .full{grid-column:auto}
- .check-grid{grid-template-columns:1fr 1fr}
- .booking-wrap{padding:22px}
- h1{font-size:3.8rem}
- .hero-grid{padding:55px 0}
-}
-@media(max-width:420px){
- .check-grid{grid-template-columns:1fr}
- .trust-grid{grid-template-columns:1fr}
+@media(max-width:600px){
+ .services,.team,.spotlight,.formgrid,.contact{grid-template-columns:1fr}.field.full{grid-column:auto}.hero-meta{grid-template-columns:1fr;gap:17px}.meta:not(:last-child){border-right:0;border-bottom:1px solid var(--line);padding-bottom:15px}
+ .builder,.card,.contactbox{padding:22px}.hero h1{font-size:52px}
 }
 </style>
 </head>
-
 <body>
-
-<header>
-<div class="container nav" id="nav">
-<a href="#" class="brand">
-<span class="brand-mark">IR</span>
-<span class="brand-name">ISLAND<span>ROOTZ</span>246</span>
+<header class="topbar">
+<nav class="nav container">
+<a class="brand" href="#">
+<div class="logo">IR</div><div><small>BARBADOS</small><strong>ISLANDROOTZ246</strong></div>
 </a>
-
-<nav>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#team">Leadership</a>
-<a href="#booking" class="nav-cta">Request a Booking</a>
-</nav>
-
-<button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+<div class="navlinks">
+<a href="#services">Services</a><a href="#experience">Book</a><a href="#team">Directors</a><a href="#spotlight">Spotlight</a><a href="#contact">Contact</a>
 </div>
+<a class="navcta" href="#experience">Build Your Experience</a>
+</nav>
 </header>
 
 <main>
-
 <section class="hero">
-<div class="container hero-grid">
-
-<div>
-<div class="eyebrow">Musical Entertainment • Barbados</div>
-
-<h1>
-Where the<br>
-<span>music</span> lives.
-</h1>
-
-<p class="hero-copy">
-IslandRootz246 Musical Entertainment creates live musical experiences
-for events that deserve more than background noise — from full
-concert-band performances and Tuk to individual musicians,
-choreography and cultural entertainment.
-</p>
-
-<div class="actions">
-<a href="#booking" class="btn btn-gold">Build Your Experience →</a>
-<a href="#services" class="btn btn-outline">Explore Services</a>
-</div>
-</div>
-
-<div class="hero-card">
-<div class="card-inner">
-<div>
-<div class="big-note">♪</div>
-<h3>Made in Barbados.</h3>
-<p>Music. Performance. Culture. Professional entertainment.</p>
-</div>
-
-<div>
-<div class="instrument-line">
-<span>CONCERT BAND</span>
-<span>TUK</span>
-<span>KEYBOARD</span>
-<span>STEEL PAN</span>
-<span>CHOREOGRAPHY</span>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<div class="trust">
-<div class="container trust-grid">
-<div class="trust-item"><strong>LIVE MUSIC</strong><span>Built around your event</span></div>
-<div class="trust-item"><strong>CUSTOM BOOKINGS</strong><span>No forced packages</span></div>
-<div class="trust-item"><strong>BARBADIAN ROOTS</strong><span>Culture with modern presentation</span></div>
-<div class="trust-item"><strong>EVENT READY</strong><span>Private & public occasions</span></div>
-</div>
-</div>
-
-<section id="about">
 <div class="container">
-<div class="section-head">
-<div class="kicker">The IslandRootz Standard</div>
-<h2>Entertainment with<br>intention.</h2>
-</div>
-
-<div class="split">
-<div class="large-copy">
-<p>
-IslandRootz246 Musical Entertainment is a Barbados-based entertainment
-company providing live music and performance services for clients,
-organisations, events and occasions.
-</p>
-<br>
-<p>
-We bring together musicians, ensembles and performers to create an
-experience suited to the occasion — rather than forcing every client
-into the same package.
-</p>
-<br>
-<p>
-Whether you need a complete band, a single musician, cultural
-entertainment, choreography or something completely custom,
-IslandRootz starts with what your event actually needs.
-</p>
-</div>
-
-<div class="quote">
-“Don't just book music. Build the atmosphere your guests will remember.”
-</div>
+<div class="eyebrow">Musical Entertainment • Cultural Experiences • Barbados</div>
+<h1>Sound with <span>identity.</span><br>Entertainment with presence.</h1>
+<p>IslandRootz246 creates live musical and cultural experiences for events, celebrations, ceremonies and stages — built around your occasion, your audience and your sound.</p>
+<div class="actions"><a class="btn btn-primary" href="#experience">Start a Booking</a><a class="btn btn-ghost" href="#services">Explore Services</a></div>
+<div class="hero-meta">
+<div class="meta"><b>01</b><span>Live Musical Entertainment</span></div>
+<div class="meta"><b>02</b><span>Cultural Performance</span></div>
+<div class="meta"><b>03</b><span>Custom Event Experiences</span></div>
 </div>
 </div>
 </section>
 
-<section id="services">
+<section class="section" id="services">
 <div class="container">
-
-<div class="section-head">
-<div class="kicker">What We Do</div>
-<h2>One company.<br>Many ways to perform.</h2>
-<p>
-Choose one service or combine several. Final quotations are customised
-according to the event, performers required, duration, location and
-production requirements.
-</p>
-</div>
-
-<div class="services">
-
-<div class="service"><div class="tag">Ensemble</div><h3>Concert Band</h3><p>Live band entertainment for concerts, ceremonies, celebrations and special events.</p></div>
-
-<div class="service"><div class="tag">Culture</div><h3>Tuk Band</h3><p>Barbadian Tuk and cultural performance for events requiring authentic local energy.</p></div>
-
-<div class="service"><div class="tag">Individual</div><h3>Keyboardist</h3><p>Solo keyboard performance for ceremonies, receptions and events.</p></div>
-
-<div class="service"><div class="tag">Individual</div><h3>Steel Panist</h3><p>Steel pan entertainment for atmosphere, culture and live performance.</p></div>
-
-<div class="service"><div class="tag">Individual</div><h3>Drummer</h3><p>Individual percussion performance and musical support.</p></div>
-
-<div class="service"><div class="tag">Individual</div><h3>Saxophonist</h3><p>Solo saxophone entertainment for a distinctive live sound.</p></div>
-
-<div class="service"><div class="tag">Individual</div><h3>Clarinetist</h3><p>Individual clarinet performance for selected events and arrangements.</p></div>
-
-<div class="service"><div class="tag">Individual</div><h3>Vocalist</h3><p>Vocal performance for live events and custom entertainment.</p></div>
-
-<div class="service"><div class="tag">Performance</div><h3>Choreography</h3><p>Planned choreography for performances, productions and cultural presentations.</p></div>
-
-<div class="service"><div class="tag">Culture</div><h3>Cultural Entertainment</h3><p>Entertainment incorporating Barbadian cultural identity and presentation.</p></div>
-
-<div class="service"><div class="tag">Performance</div><h3>Dance Performance</h3><p>Performance-based dance entertainment for events and productions.</p></div>
-
-<div class="service"><div class="tag">Custom</div><h3>Custom Entertainment</h3><p>Have a different idea? Tell us what you want and we will assess it.</p></div>
-
+<div class="section-head"><div><div class="kicker">What we do</div><h2>Built for the occasion.</h2></div><p>Choose one service or combine several. IslandRootz quotes each booking around the actual event instead of forcing every client into a fixed package.</p></div>
+<div class="grid services">
+<div class="card"><div class="icon">TK</div><div class="num">01 / ENSEMBLE</div><h3>Tuk Band</h3><p>Traditional Barbadian Tuk energy for cultural events, celebrations, parades and special appearances.</p></div>
+<div class="card"><div class="icon">CB</div><div class="num">02 / ENSEMBLE</div><h3>Concert Band</h3><p>Live band entertainment arranged around your event, repertoire and available performance space.</p></div>
+<div class="card"><div class="icon">♬</div><div class="num">03 / SOLO</div><h3>Solo Steel Pan</h3><p>Steel pan performance for receptions, ceremonies, cocktails, corporate events and intimate occasions.</p></div>
+<div class="card"><div class="icon">KB</div><div class="num">04 / SOLO</div><h3>Solo Keyboard</h3><p>Keyboard-led live music for elegant arrivals, ceremonies, receptions, background sets and featured moments.</p></div>
+<div class="card"><div class="icon">TR</div><div class="num">05 / SOLO</div><h3>Solo Trumpet</h3><p>Trumpet performance for entrances, ceremonies, celebrations, tributes and musical features.</p></div>
+<div class="card"><div class="icon">CU</div><div class="num">06 / CULTURE</div><h3>Choreography & Cultural Entertainment</h3><p>Movement, cultural presentation and coordinated entertainment designed to complement the musical programme.</p></div>
 </div>
 </div>
 </section>
 
-<section>
+<section class="section" id="experience">
 <div class="container">
-
-<div class="section-head">
-<div class="kicker">Why IslandRootz</div>
-<h2>Designed around<br>the occasion.</h2>
+<div class="section-head"><div><div class="kicker">Custom booking</div><h2>Build your experience.</h2></div><p>Tell us what you need. Your request becomes a booking for review; the final quote is prepared around the event.</p></div>
+<form class="builder" id="bookingForm">
+<div class="formgrid">
+<div class="field"><label>Full name</label><input id="name" required placeholder="Your name"></div>
+<div class="field"><label>Email</label><input id="email" type="email" required placeholder="you@example.com"></div>
+<div class="field"><label>Phone / WhatsApp</label><input id="phone" required placeholder="+1 (246)"></div>
+<div class="field"><label>Event type</label><select id="eventType"><option>Wedding</option><option>Birthday / Private Event</option><option>Corporate Event</option><option>School / Youth Event</option><option>Church / Religious Event</option><option>Cultural Event</option><option>Concert / Stage Show</option><option>Funeral / Memorial</option><option>Government / Community Event</option><option>Other</option></select></div>
+<div class="field"><label>Event date</label><input id="date" type="date" required></div>
+<div class="field"><label>Location</label><input id="location" required placeholder="Venue / parish"></div>
+<div class="field"><label>Approx. duration</label><select id="duration"><option>15–30 minutes</option><option>30–60 minutes</option><option>1–2 hours</option><option>2–4 hours</option><option>4+ hours</option><option>Not sure yet</option></select></div>
+<div class="field"><label>Estimated budget (BBD)</label><input id="budget" type="number" min="0" placeholder="Optional"></div>
+<div class="field full"><label>Entertainment requested</label>
+<div class="checks">
+<label class="check"><input type="checkbox" name="service" value="Tuk Band"><span>Tuk Band</span></label>
+<label class="check"><input type="checkbox" name="service" value="Concert Band"><span>Concert Band</span></label>
+<label class="check"><input type="checkbox" name="service" value="Solo Steel Pan"><span>Solo Steel Pan</span></label>
+<label class="check"><input type="checkbox" name="service" value="Solo Keyboard"><span>Solo Keyboard</span></label>
+<label class="check"><input type="checkbox" name="service" value="Solo Trumpet"><span>Solo Trumpet</span></label>
+<label class="check"><input type="checkbox" name="service" value="Choreography / Cultural Entertainment"><span>Choreography / Cultural</span></label>
+</div></div>
+<div class="field full"><label>Song requests / programme details</label><textarea id="songs" placeholder="Tell us about songs, artists, cultural pieces, entrances, special moments, dress expectations, etc."></textarea></div>
+<div class="field full"><label>Additional notes</label><textarea id="notes" placeholder="Anything else we should know?"></textarea></div>
+<div class="field full"><button class="btn btn-primary" type="submit">Submit Booking Request</button><div class="note">Submitting a request does not confirm the booking. IslandRootz246 will review the details and contact you.</div></div>
 </div>
-
-<div class="feature-grid">
-
-<div class="feature">
-<div class="feature-number">01</div>
-<div class="feature-icon">🎼</div>
-<h3>Custom Musical Direction</h3>
-<p>Song requests and musical preferences can be submitted with the booking request so arrangements can be planned around the occasion.</p>
-</div>
-
-<div class="feature">
-<div class="feature-number">02</div>
-<div class="feature-icon">🎯</div>
-<h3>Flexible Booking</h3>
-<p>Book a full ensemble, individual performer, choreography or a combination of services.</p>
-</div>
-
-<div class="feature">
-<div class="feature-number">03</div>
-<div class="feature-icon">🌴</div>
-<h3>Barbadian Identity</h3>
-<p>Our cultural offering keeps Barbados at the heart of the experience without limiting the company to cultural performances.</p>
-</div>
-
-<div class="feature">
-<div class="feature-number">04</div>
-<div class="feature-icon">✈️</div>
-<h3>Travel Consideration</h3>
-<p>Bookings can include location and travel requirements, including overseas enquiries.</p>
-</div>
-
-<div class="feature">
-<div class="feature-number">05</div>
-<div class="feature-icon">💬</div>
-<h3>Client Communication</h3>
-<p>Clients can explain exactly what they need before a final quotation is prepared.</p>
-</div>
-
-<div class="feature">
-<div class="feature-number">06</div>
-<div class="feature-icon">📋</div>
-<h3>Management Review</h3>
-<p>Booking requests are reviewed by IslandRootz management before an engagement is confirmed.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<section class="custom">
-<div class="container custom-box">
-<div>
-<div class="kicker">Your Event. Your Brief.</div>
-<h2>Don't see a package?</h2>
-<p>
-Good. We don't want to box your event in. Tell us what you are trying
-to create and submit your estimated budget.
-</p>
-</div>
-<a href="#booking" class="btn btn-gold">Start a Custom Request →</a>
-</div>
-</section>
-
-<section id="team">
-<div class="container">
-<div class="section-head">
-<div class="kicker">Management</div>
-<h2>The people behind<br>IslandRootz.</h2>
-</div>
-
-<div class="team">
-
-<div class="member">
-<div class="member-role">Founder / Executive Director</div>
-<h3>Stephan Herbert</h3>
-<p>Executive leadership, creative direction and company operations.</p>
-</div>
-
-<div class="member">
-<div class="member-role">Co-Founder / Deputy Executive Director</div>
-<h3>Trevern Innis</h3>
-<p>Deputy executive management and organisational support.</p>
-</div>
-
-<div class="member">
-<div class="member-role">Senior Director / Tuk Band Leader</div>
-<h3>Christian Iffil</h3>
-<p>Tuk Band leadership and musical coordination.</p>
-</div>
-
-<div class="member">
-<div class="member-role">Senior Director</div>
-<h3>Azereio Rose</h3>
-<p>Senior management and organisational support.</p>
-</div>
-
-<div class="member">
-<div class="member-role">Senior Director / Chairwoman of the Board</div>
-<h3>Chloe Grazette</h3>
-<p>Board leadership and organisational oversight.</p>
-</div>
-
-<div class="member">
-<div class="member-role">Senior Director / Deputy Chairwoman</div>
-<h3>Embrany Harvey</h3>
-<p>Senior management and board support.</p>
-</div>
-
-<div class="member">
-<div class="member-role">Junior Director / Choreography / Cultural Officer</div>
-<h3>Sarah Holder</h3>
-<p>Choreography and cultural entertainment coordination.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<section id="booking">
-<div class="container">
-
-<div class="section-head">
-<div class="kicker">Bookings</div>
-<h2>Build your<br>experience.</h2>
-<p>
-Submit the brief. IslandRootz management reviews availability,
-requirements and budget before providing a final quotation.
-</p>
-</div>
-
-<div class="booking-wrap">
-
-<div class="notice" id="bookingSuccess">
-<strong>Booking request prepared.</strong><br>
-Your request has been recorded. Management will review the details.
-</div>
-
-<form id="bookingForm">
-
-<div class="booking-top">
-<div>
-<h3>Event Details</h3>
-<p>Complete as much information as possible. You can still submit an enquiry if some details are not final.</p>
-</div>
-</div>
-
-<div class="form-grid">
-
-<div class="field">
-<label>Full Name *</label>
-<input id="name" required>
-</div>
-
-<div class="field">
-<label>Email *</label>
-<input id="email" type="email" required>
-</div>
-
-<div class="field">
-<label>Phone / WhatsApp *</label>
-<input id="phone" required>
-</div>
-
-<div class="field">
-<label>Organisation</label>
-<input id="organisation">
-</div>
-
-<div class="field">
-<label>Event Type</label>
-<select id="eventType">
-<option>Private Event</option>
-<option>Wedding</option>
-<option>Birthday</option>
-<option>Corporate Event</option>
-<option>School Event</option>
-<option>Church Event</option>
-<option>Concert</option>
-<option>Festival</option>
-<option>Cultural Event</option>
-<option>Government / Official Event</option>
-<option>Other</option>
-</select>
-</div>
-
-<div class="field">
-<label>Event Date *</label>
-<input id="date" type="date" required>
-</div>
-
-<div class="field">
-<label>Start Time *</label>
-<input id="time" type="time" required>
-</div>
-
-<div class="field">
-<label>Location / Venue *</label>
-<input id="location" required>
-</div>
-
-<div class="field">
-<label>Expected Guests</label>
-<input id="guests" type="number">
-</div>
-
-<div class="field">
-<label>Performance Duration</label>
-<select id="duration">
-<option>Not sure yet</option>
-<option>Up to 15 minutes</option>
-<option>15–30 minutes</option>
-<option>30–45 minutes</option>
-<option>45–60 minutes</option>
-<option>1–2 hours</option>
-<option>2+ hours</option>
-</select>
-</div>
-
-<div class="field">
-<label>Currency</label>
-<select id="currency">
-<option>BBD</option>
-<option>USD</option>
-<option>CAD</option>
-<option>GBP</option>
-<option>EUR</option>
-</select>
-</div>
-
-<div class="field">
-<label>Estimated Budget</label>
-<input id="budget" type="number" min="0" placeholder="Optional">
-</div>
-
-<div class="field full">
-<label>Services Required</label>
-
-<div class="check-grid">
-
-<label class="check"><input type="checkbox" name="service" value="Concert Band">Concert Band</label>
-<label class="check"><input type="checkbox" name="service" value="Tuk Band">Tuk Band</label>
-<label class="check"><input type="checkbox" name="service" value="Keyboardist">Keyboardist</label>
-<label class="check"><input type="checkbox" name="service" value="Steel Panist">Steel Panist</label>
-<label class="check"><input type="checkbox" name="service" value="Drummer">Drummer</label>
-<label class="check"><input type="checkbox" name="service" value="Saxophonist">Saxophonist</label>
-<label class="check"><input type="checkbox" name="service" value="Clarinetist">Clarinetist</label>
-<label class="check"><input type="checkbox" name="service" value="Vocalist">Vocalist</label>
-<label class="check"><input type="checkbox" name="service" value="Choreography">Choreography</label>
-<label class="check"><input type="checkbox" name="service" value="Cultural Entertainment">Cultural Entertainment</label>
-<label class="check"><input type="checkbox" name="service" value="Dance Performance">Dance Performance</label>
-<label class="check"><input type="checkbox" name="service" value="Custom Entertainment">Custom Entertainment</label>
-
-</div>
-</div>
-
-<div class="field full">
-<label>Song Requests / Music Preferences</label>
-<textarea id="songs" placeholder="Songs, artists, genres, musical atmosphere, special requests..."></textarea>
-</div>
-
-<div class="field full">
-<label>Tell Us About Your Event</label>
-<textarea id="message" placeholder="What are you trying to create? Include special requirements, programme details, travel needs, etc."></textarea>
-</div>
-
-</div>
-
-<div class="terms">
-By submitting this form, you understand that this is a booking request and not an automatic confirmation. IslandRootz246 management will review the request and provide availability and a final quotation. Payment arrangements are confirmed separately.
-</div>
-
-<button class="btn btn-gold" type="submit">Submit Booking Request →</button>
-
 </form>
 </div>
-</div>
 </section>
 
-<section id="contact">
+<section class="section" id="team">
 <div class="container">
-
-<div class="section-head">
-<div class="kicker">Contact</div>
-<h2>Let's create<br>something memorable.</h2>
-</div>
-
-<div class="contact-grid">
-
-<div class="contact-card">
-<h3>IslandRootz246</h3>
-<p>Musical Entertainment</p>
-<p>Email: <a href="mailto:islandrootz.entertaiment@gmail.com">islandrootz.entertaiment@gmail.com</a></p>
-<p>Phone: <a href="tel:+12462476799">+1 (246) 247-6799</a></p>
-<p>Instagram: <a href="https://www.instagram.com/islandrootz.musical.ent" target="_blank">@islandrootz.musical.ent</a></p>
-</div>
-
-<div class="contact-card">
-<h3>Management</h3>
-<p>Founder / Executive Director — Stephan Herbert</p>
-<p>Co-Founder / Deputy Executive Director — Trevern Innis</p>
-<p>Senior Director / Tuk Band Leader — Christian Iffil</p>
-<p>Senior Director — Azereio Rose</p>
-<p>Senior Director / Chairwoman — Chloe Grazette</p>
-<p>Senior Director / Deputy Chairwoman — Embrany Harvey</p>
-<p>Junior Director / Choreography / Cultural Officer — Sarah Holder</p>
-</div>
-
-</div>
+<div class="section-head"><div><div class="kicker">Leadership</div><h2>The people behind Rootz.</h2></div><p>IslandRootz246 is led by a growing team responsible for musical direction, operations, culture and event delivery.</p></div>
+<div class="grid team" id="teamGrid"></div>
 </div>
 </section>
 
+<section class="section" id="spotlight">
+<div class="container">
+<div class="section-head"><div><div class="kicker">Business Spotlight</div><h2>Rootz in the community.</h2></div><p>Featured businesses and partners can be displayed here through the administration panel.</p></div>
+<div class="grid spotlight" id="spotlightGrid"></div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="section-head"><div><div class="kicker">Contact</div><h2>Let's make it happen.</h2></div></div>
+<div class="contact">
+<div class="contactbox"><div class="kicker">Bookings</div><h3 style="font-size:26px;margin:10px 0">IslandRootz246 Musical Entertainment</h3><p style="color:var(--muted)">For bookings, collaborations and custom entertainment requests.</p><p style="margin-top:18px"><a href="mailto:islandrootz.entertaiment@gmail.com">islandrootz.entertaiment@gmail.com</a><br><a href="tel:+12462476799">+1 (246) 247-6799</a></p></div>
+<div class="contactbox"><div class="kicker">Social</div><h3 style="font-size:26px;margin:10px 0">Follow the movement.</h3><p style="color:var(--muted)">Stay connected with IslandRootz246 Musical Entertainment.</p><p style="margin-top:18px"><a href="https://www.instagram.com/islandrootz.musical.ent" target="_blank" rel="noopener">@islandrootz.musical.ent</a></p></div>
+</div>
+</div>
+</section>
 </main>
 
-<footer>
-<div class="container footer-flex">
-<div>
-<div class="footer-brand">ISLANDROOTZ246 MUSICAL ENTERTAINMENT</div>
-<div>Music • Performance • Culture • Choreography</div>
-</div>
-<div>© 2026 IslandRootz246. All rights reserved.</div>
-</div>
-</footer>
+<footer><div class="container footerin"><span>© <span id="year"></span> IslandRootz246 Musical Entertainment. All rights reserved.</span><span>Barbados • Musical Entertainment • Cultural Experiences</span></div></footer>
+<div class="toast" id="toast"></div>
 
 <script>
-const BUSINESS_EMAIL="islandrootz.entertaiment@gmail.com";
-
-document.getElementById("bookingForm").addEventListener("submit",function(e){
+const DEFAULT = {
+directors:[
+{name:"Stephan Herbert",role:"Founder / Executive Director",phone:"+1 (246) 247-6799"},
+{name:"Trevern Innis",role:"Co-Founder / Deputy Executive Director",phone:""},
+{name:"Christian Iffil",role:"Senior Director / Tuk Band Leader",phone:""},
+{name:"Azereio Rose",role:"Senior Director",phone:"+1 (246) 250-3762"},
+{name:"Chloe Grazette",role:"Senior Director / Chairwoman of the Board",phone:""},
+{name:"Embrany Harvey",role:"Senior Director / Deputy Chairwoman",phone:""},
+{name:"Sarah Holder",role:"Junior Director / Choreography / Cultural Officer",phone:""}],
+spotlights:[],
+theme:"barbados"
+};
+function getData(){try{return JSON.parse(localStorage.getItem("IR_DATA_V4"))||DEFAULT}catch(e){return DEFAULT}}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function render(){
+ const d=getData();
+ document.getElementById("teamGrid").innerHTML=d.directors.map((x,i)=>`<article class="card person"><div class="num">${String(i+1).padStart(2,"0")} / DIRECTOR</div><h3>${esc(x.name)}</h3><div class="role">${esc(x.role)}</div>${x.phone?`<p>${esc(x.phone)}</p>`:""}</article>`).join("");
+ const spots=d.spotlights.filter(x=>x.active!==false);
+ document.getElementById("spotlightGrid").innerHTML=spots.length?spots.map(x=>`<article class="card spot"><div><div class="tag">Featured Business</div><h3>${esc(x.name)}</h3><p>${esc(x.description||"Featured by IslandRootz246.")}</p></div><div>${x.instagram?`<a class="btn btn-ghost" target="_blank" href="${esc(x.instagram)}">Instagram</a>`:""}</div></article>`).join(""):`<div class="empty">No businesses are currently featured. Check back soon.</div>`;
+ document.getElementById("year").textContent=new Date().getFullYear();
+}
+document.getElementById("bookingForm").addEventListener("submit",e=>{
  e.preventDefault();
-
- const services=[...document.querySelectorAll('input[name="service"]:checked')]
- .map(x=>x.value);
-
- const id="IR-"+Date.now();
-
- const booking={
-  id,
-  status:"New",
-  submitted:new Date().toISOString(),
-  name:document.getElementById("name").value,
-  email:document.getElementById("email").value,
-  phone:document.getElementById("phone").value,
-  organisation:document.getElementById("organisation").value,
-  eventType:document.getElementById("eventType").value,
-  date:document.getElementById("date").value,
-  time:document.getElementById("time").value,
-  location:document.getElementById("location").value,
-  guests:document.getElementById("guests").value,
-  duration:document.getElementById("duration").value,
-  currency:document.getElementById("currency").value,
-  budget:document.getElementById("budget").value,
-  services,
-  songs:document.getElementById("songs").value,
-  message:document.getElementById("message").value
- };
-
- const existing=JSON.parse(localStorage.getItem("islandrootzBookings")||"[]");
- existing.push(booking);
- localStorage.setItem("islandrootzBookings",JSON.stringify(existing));
-
- const body=`
-ISLANDROOTZ246 BOOKING REQUEST
-Booking ID: ${id}
-
-CLIENT
-Name: ${booking.name}
-Email: ${booking.email}
-Phone: ${booking.phone}
-Organisation: ${booking.organisation}
-
-EVENT
-Type: ${booking.eventType}
-Date: ${booking.date}
-Time: ${booking.time}
-Location: ${booking.location}
-Guests: ${booking.guests}
-Duration: ${booking.duration}
-
-SERVICES
-${services.join(", ")||"Not specified"}
-
-BUDGET
-${booking.currency} ${booking.budget||"Not specified"}
-
-SONG REQUESTS
-${booking.songs||"None"}
-
-EVENT DETAILS
-${booking.message||"None"}
-
-STATUS: NEW
-`;
-
- document.getElementById("bookingForm").style.display="none";
- document.getElementById("bookingSuccess").style.display="block";
-
- window.location.href=
- "mailto:"+BUSINESS_EMAIL+
- "?subject="+encodeURIComponent("IslandRootz246 Booking Request "+id)+
- "&body="+encodeURIComponent(body);
+ const services=[...document.querySelectorAll('input[name="service"]:checked')].map(x=>x.value);
+ if(!services.length){alert("Please select at least one entertainment service.");return}
+ const booking={id:"IR-"+Date.now(),createdAt:new Date().toISOString(),status:"New",name:name.value,email:email.value,phone:phone.value,eventType:eventType.value,date:date.value,location:location.value,duration:duration.value,budget:budget.value,songs:songs.value,notes:notes.value,services};
+ const all=JSON.parse(localStorage.getItem("IR_BOOKINGS_V4")||"[]");all.unshift(booking);localStorage.setItem("IR_BOOKINGS_V4",JSON.stringify(all));
+ const subject=encodeURIComponent("New IslandRootz246 Booking Request "+booking.id);
+ const body=encodeURIComponent(`Booking ID: ${booking.id}\nName: ${booking.name}\nEmail: ${booking.email}\nPhone: ${booking.phone}\nEvent: ${booking.eventType}\nDate: ${booking.date}\nLocation: ${booking.location}\nDuration: ${booking.duration}\nBudget: ${booking.budget||"Not provided"} BBD\nServices: ${services.join(", ")}\nSong/programme details: ${booking.songs||"None"}\nNotes: ${booking.notes||"None"}`);
+ window.location.href=`mailto:islandrootz.entertaiment@gmail.com?subject=${subject}&body=${body}`;
+ const t=document.getElementById("toast");t.textContent="Booking request saved. Your email app will open to send the request.";t.style.display="block";setTimeout(()=>t.style.display="none",5000);
+ e.target.reset();
 });
+render();
 </script>
-
 </body>
 </html>
