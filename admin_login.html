@@ -1,26 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>IslandRootz246 • Director Portal</title>
-<style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 20%,rgba(88,212,199,.1),transparent 35%),radial-gradient(circle at 80% 0%,rgba(216,180,90,.12),transparent 35%),#061619;color:#f8f3e5;font-family:system-ui,sans-serif}
-.card{width:min(430px,92%);padding:34px;border:1px solid rgba(255,255,255,.1);border-radius:26px;background:rgba(10,35,39,.82);box-shadow:0 30px 90px rgba(0,0,0,.45);backdrop-filter:blur(18px)}
-.mark{width:48px;height:48px;border:1px solid rgba(216,180,90,.6);border-radius:15px;display:grid;place-items:center;color:#f2d98a;font-weight:900}.k{margin-top:25px;color:#d8b45a;font-size:10px;letter-spacing:.22em;font-weight:900;text-transform:uppercase}.h{font:700 34px Georgia,serif;margin:7px 0}.p{color:#9fb7b4;font-size:12px;line-height:1.7;margin-bottom:25px}
-label{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#bfd0cd;font-weight:900;margin:14px 0 7px}
-input{width:100%;padding:13px;background:#051619;color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:11px;outline:0}input:focus{border-color:#d8b45a}
-button{width:100%;margin-top:18px;padding:13px;border:0;border-radius:999px;background:linear-gradient(135deg,#d8b45a,#f2d98a);font-weight:900;color:#061619;cursor:pointer}
-.back{display:block;text-align:center;margin-top:18px;color:#8fa9a5;font-size:11px}.note{margin-top:20px;font-size:9px;color:#718d89;line-height:1.6}
-</style></head>
-<body>
-<div class="card">
-<div class="mark">IR</div><div class="k">IslandRootz246</div><div class="h">Director Portal</div>
-<div class="p">Administration for bookings, directors, business spotlight, website content and live seasonal themes.</div>
-<form id="login"><label>Username</label><input id="u" autocomplete="username" required><label>Password</label><input id="p" type="password" autocomplete="current-password" required><button>Enter Administration</button></form>
-<a class="back" href="index.html">← Return to IslandRootz246</a>
-<div class="note">Static-site mode. The live public website is controlled from the integrated Director Portal at <b>index.html#admin</b>.</div>
-</div>
-<script>
-document.getElementById("login").onsubmit=e=>{e.preventDefault();if(u.value==="islandrootzadmin"&&p.value==="Rootz246Admin!"){localStorage.setItem("IR_ADMIN_SESSION_V6","1");location.href="index.html#admin"}else alert("Incorrect admin login.")};
-</script>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>IslandRootz246 Admin Login</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 20%,rgba(47,196,178,.2),transparent 30%),radial-gradient(circle at 80% 70%,rgba(217,181,90,.16),transparent 30%),#071517;color:#f6f1e6;font-family:Inter,system-ui,sans-serif}.box{width:min(420px,88%);padding:34px;border:1px solid rgba(255,255,255,.1);border-radius:25px;background:rgba(255,255,255,.055);backdrop-filter:blur(15px);box-shadow:0 25px 80px rgba(0,0,0,.4)}h1{margin:0 0 8px}.gold{color:#d9b55a}.muted{color:#aebfba}label{display:block;font-size:13px;font-weight:800;margin:17px 0 7px}input{width:100%;box-sizing:border-box;padding:13px;border-radius:11px;border:1px solid rgba(255,255,255,.12);background:#091d1f;color:white}.btn{width:100%;margin-top:20px;padding:13px;border:0;border-radius:999px;background:#d9b55a;color:#111;font-weight:900;cursor:pointer}.note{font-size:12px;color:#8fa19c;margin-top:17px;line-height:1.5}</style></head>
+<body><div class="box"><div style="font-weight:1000;letter-spacing:1px">ISLAND<span class="gold">ROOTZ</span>246</div><h1>Admin Control Centre</h1><p class="muted">Manage the website, bookings, services, team, business spotlight and visual themes.</p>
+<form onsubmit="login(event)"><label>Username</label><input id="u" autocomplete="username" required><label>Password</label><input id="p" type="password" autocomplete="current-password" required><button class="btn">Enter Admin Panel</button></form>
+<p class="note">Demo/static login gate for the current HTML build. For real multi-user secure authentication, connect the panel to a backend/auth provider.</p></div>
+<script>function login(e){e.preventDefault();if(u.value==="islandrootzadmin"&&p.value==="Rootz246Admin!"){sessionStorage.setItem("ir246_admin","1");location.href="admin.html"}else alert("Incorrect login details.")}</script>
 </body></html>
