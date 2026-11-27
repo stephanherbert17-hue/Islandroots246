@@ -1,227 +1,29 @@
-<!-- =========================
-     FILE 2: admin-login.html
-     ========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>IslandRootz246 | Management Login</title>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IslandRootz246 • Admin Login</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
- min-height:100vh;
- display:grid;
- place-items:center;
- padding:25px;
- background:
- radial-gradient(circle at 15% 15%,rgba(13,139,85,.18),transparent 35%),
- radial-gradient(circle at 85% 80%,rgba(217,180,90,.12),transparent 35%),
- #050706;
- color:#fff;
- font-family:"DM Sans",sans-serif;
-}
-
-.login{
- width:min(470px,100%);
- background:rgba(12,16,14,.9);
- border:1px solid rgba(217,180,90,.2);
- padding:42px;
- box-shadow:0 30px 100px rgba(0,0,0,.55);
-}
-
-.logo{
- display:flex;
- align-items:center;
- gap:12px;
- margin-bottom:35px;
-}
-
-.mark{
- width:44px;
- height:44px;
- border:1px solid #d9b45a;
- border-radius:50%;
- display:grid;
- place-items:center;
- color:#f2d98c;
- font-weight:900;
-}
-
-.brand{
- font-weight:900;
- letter-spacing:1.5px;
-}
-
-.brand span{color:#f2d98c}
-
-.kicker{
- color:#f2d98c;
- font-size:.62rem;
- font-weight:900;
- letter-spacing:3px;
- text-transform:uppercase;
-}
-
-h1{
- font-family:"Playfair Display",serif;
- font-size:2.8rem;
- margin:10px 0;
-}
-
-p{
- color:#858d87;
- font-size:.8rem;
- line-height:1.8;
-}
-
-.field{
- margin-top:23px;
-}
-
-label{
- display:block;
- color:#b8beb9;
- font-size:.68rem;
- font-weight:800;
- text-transform:uppercase;
- letter-spacing:1px;
- margin-bottom:7px;
-}
-
-input{
- width:100%;
- padding:14px;
- background:#070909;
- border:1px solid #252c28;
- color:white;
- outline:none;
- border-radius:3px;
-}
-
-input:focus{border-color:#d9b45a}
-
-button{
- width:100%;
- margin-top:22px;
- padding:14px;
- border:0;
- border-radius:3px;
- background:linear-gradient(135deg,#c89f43,#f2d98c);
- color:#080909;
- font-weight:900;
- cursor:pointer;
-}
-
-.error{
- color:#ff7b84;
- margin-top:15px;
- text-align:center;
- min-height:20px;
- font-size:.75rem;
-}
-
-.back{
- display:block;
- margin-top:25px;
- text-align:center;
- color:#777f79;
- font-size:.7rem;
-}
-.back:hover{color:#f2d98c}
-
-.security{
- margin-top:30px;
- padding-top:20px;
- border-top:1px solid #222824;
- color:#555d57;
- font-size:.62rem;
- line-height:1.7;
-}
-</style>
-</head>
-
-<body>
-
-<div class="login">
-
-<div class="logo">
-<div class="mark">IR</div>
-<div class="brand">ISLAND<span>ROOTZ</span>246</div>
-</div>
-
-<div class="kicker">Management Portal</div>
-
-<h1>Welcome back.</h1>
-
-<p>
-Authorised IslandRootz246 directors and management personnel only.
-This area is not part of the public website.
-</p>
-
-<form id="loginForm">
-
-<div class="field">
-<label>Management Username</label>
-<input id="username" autocomplete="username" required>
-</div>
-
-<div class="field">
-<label>Password</label>
-<input id="password" type="password" autocomplete="current-password" required>
-</div>
-
-<button type="submit">Access Management →</button>
-
-</form>
-
-<div class="error" id="error"></div>
-
-<a class="back" href="index.html">← Return to IslandRootz246</a>
-
-<div class="security">
-Management access should ultimately be connected to server-side authentication.
-Do not use this frontend credential system for sensitive production data.
-</div>
-
-</div>
-
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 20%,rgba(85,210,197,.13),transparent 35%),radial-gradient(circle at 80% 0%,rgba(217,180,91,.14),transparent 32%),#061619;color:#f7f4ea;font-family:Inter,system-ui,sans-serif}
+.wrap{width:min(460px,92%)}.brand{text-align:center;margin-bottom:25px}.mark{width:62px;height:62px;border:1px solid rgba(217,180,91,.7);border-radius:20px;display:grid;place-items:center;margin:auto;color:#f0d487;font-weight:900;background:rgba(217,180,91,.08)}.brand h1{font-family:Georgia,serif;margin:13px 0 4px;font-size:31px}.brand p{color:#9fb7b3;font-size:12px;letter-spacing:.15em;text-transform:uppercase}
+.panel{background:rgba(13,41,45,.9);border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:32px;box-shadow:0 30px 90px rgba(0,0,0,.4)}label{display:block;color:#c8d8d5;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;margin:0 0 7px}input{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.11);background:#06181b;color:#fff;outline:0;margin-bottom:17px}input:focus{border-color:#d9b45b}.btn{width:100%;padding:14px;border:0;border-radius:999px;background:linear-gradient(135deg,#d9b45b,#f0d487);color:#071719;font-weight:900}.err{display:none;color:#ffb4a8;background:rgba(180,50,40,.13);border:1px solid rgba(255,100,80,.2);padding:11px;border-radius:11px;margin-bottom:16px;font-size:13px}.back{text-align:center;margin-top:20px;color:#9fb7b3;font-size:13px}.back a{color:#f0d487}.security{margin-top:18px;color:#728e8b;font-size:10px;text-align:center}
+</style></head>
+<body><div class="wrap">
+<div class="brand"><div class="mark">IR</div><h1>IslandRootz246</h1><p>Administration Portal</p></div>
+<div class="panel"><div class="err" id="err">Incorrect login details.</div>
+<form id="login"><label>Username</label><input id="user" autocomplete="username" required>
+<label>Password</label><input id="pass" type="password" autocomplete="current-password" required>
+<button class="btn">Sign in to Admin</button></form>
+<div class="back"><a href="index.html">← Back to public website</a></div>
+<div class="security">Static deployment mode • Replace client-side demo authentication with server authentication before production.</div>
+</div></div>
 <script>
-/*
- DEFAULT OWNER LOGIN FOR THIS FRONTEND VERSION:
-
- Username: islandrootzadmin
- Password: Rootz246Admin!
-
- IMPORTANT:
- This is only a frontend prototype. Anyone who can inspect the source
- can discover credentials. For real production security, use Supabase,
- Firebase Authentication, Clerk, Auth0, or another server-side auth system.
-*/
-
-const USER="islandrootzadmin";
-const PASS="Rootz246Admin!";
-
-document.getElementById("loginForm").addEventListener("submit",function(e){
+if(localStorage.getItem("IR_ADMIN_SESSION")==="active") location.href="admin.html";
+document.getElementById("login").addEventListener("submit",e=>{
  e.preventDefault();
-
- const username=document.getElementById("username").value;
- const password=document.getElementById("password").value;
-
- if(username===USER && password===PASS){
-   sessionStorage.setItem("islandrootzAdmin","true");
-   sessionStorage.setItem("islandrootzUser",username);
-   window.location.href="admin.html";
- }else{
-   document.getElementById("error").textContent=
-   "Incorrect management username or password.";
- }
+ const u=document.getElementById("user").value,p=document.getElementById("pass").value;
+ if(u==="islandrootzadmin"&&p==="Rootz246Admin!"){localStorage.setItem("IR_ADMIN_SESSION","active");location.href="admin.html"}
+ else{document.getElementById("err").style.display="block"}
 });
 </script>
-
-</body>
-</html>
+</body></html>
