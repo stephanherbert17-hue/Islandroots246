@@ -1,45 +1,1969 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>IslandRootz246 Admin</title>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>IslandRootz246 Admin</title>
+
 <style>
-:root{--bg:#071517;--panel:#0d2426;--panel2:#123437;--text:#f5f1e7;--muted:#aebfba;--gold:#d9b55a;--accent:#2fc4b2}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,rgba(47,196,178,.12),transparent 30%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.layout{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{padding:25px 18px;border-right:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.15);position:sticky;top:0;height:100vh}.logo{font-weight:1000;font-size:18px;margin:0 0 30px}.logo span{color:var(--gold)}.navbtn{width:100%;text-align:left;background:transparent;color:#b9c9c4;border:0;padding:12px 13px;border-radius:10px;margin:3px 0}.navbtn.active,.navbtn:hover{background:rgba(217,181,90,.1);color:var(--gold)}.main{padding:35px;max-width:1400px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;gap:20px;align-items:center}.top h1{font-size:36px;margin:0}.muted{color:var(--muted)}.tab{display:none}.tab.active{display:block}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:25px 0}.stat,.panel{background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:22px}.stat b{font-size:30px;color:var(--gold)}.panel{margin:18px 0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{margin:12px 0}.field label{display:block;font-size:12px;font-weight:800;color:#dce7e2;margin-bottom:6px}input,textarea,select{width:100%;background:#081c1e;border:1px solid rgba(255,255,255,.12);color:white;border-radius:10px;padding:11px}textarea{min-height:100px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:800}.primary{background:var(--gold);color:#111}.secondary{background:rgba(255,255,255,.08);color:white;border:1px solid rgba(255,255,255,.1)}.danger{background:#6d2929;color:white}.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.item{padding:15px;border:1px solid rgba(255,255,255,.09);border-radius:13px;background:rgba(0,0,0,.12);margin:10px 0}.item strong{display:block}.item small{color:var(--gold)}.badge{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(47,196,178,.12);color:#75e6d8;font-size:11px;font-weight:900}.themegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.theme{padding:20px;border-radius:15px;border:2px solid rgba(255,255,255,.08);min-height:105px;cursor:pointer}.theme.active{border-color:var(--gold)}.barb{background:linear-gradient(135deg,#071b1d,#123d3e)}.ind{background:linear-gradient(135deg,#071c18,#17402d)}.xmas{background:linear-gradient(135deg,#101b19,#5b2424)}.easter{background:linear-gradient(135deg,#181522,#563f6e)}.summer{background:linear-gradient(135deg,#061c28,#11627a)}.christian{background:linear-gradient(135deg,#11151f,#303c5b)}@media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:relative;height:auto}.cards{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.themegrid{grid-template-columns:1fr 1fr}}@media(max-width:500px){.main{padding:20px}.cards{grid-template-columns:1fr}}
-</style></head>
+
+:root{
+    --bg:#07151b;
+    --panel:#102832;
+    --text:#f5fbfc;
+    --muted:#aebfc5;
+    --accent:#e6b85c;
+    --accent2:#24d0c4;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Inter,Arial,sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(36,208,196,.1),transparent 35%),
+        linear-gradient(135deg,var(--bg),#030a0e);
+    color:var(--text);
+}
+
+.login{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    padding:20px;
+}
+
+.login-box{
+    width:min(430px,100%);
+    background:var(--panel);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;
+    padding:35px;
+}
+
+.login-box h1{
+    color:var(--accent);
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:12px;
+    background:#061219;
+    color:white;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:8px;
+    margin-top:7px;
+}
+
+textarea{
+    min-height:110px;
+}
+
+button{
+    cursor:pointer;
+}
+
+.btn{
+    padding:12px 18px;
+    border:0;
+    border-radius:9px;
+    background:var(--accent);
+    color:#07151b;
+    font-weight:900;
+}
+
+.danger{
+    background:#a63e47!important;
+    color:white!important;
+}
+
+.app{
+    display:none;
+    min-height:100vh;
+}
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    width:250px;
+    padding:25px 18px;
+    background:#091b22;
+    border-right:1px solid rgba(255,255,255,.1);
+    overflow-y:auto;
+}
+
+.logo{
+    color:var(--accent);
+    font-weight:900;
+    letter-spacing:.1em;
+    margin-bottom:25px;
+}
+
+.sidebar button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    background:transparent;
+    border:1px solid rgba(255,255,255,.08);
+    color:#c7d5d8;
+    border-radius:8px;
+    text-align:left;
+}
+
+.sidebar button:hover{
+    border-color:var(--accent2);
+    color:white;
+}
+
+.main{
+    margin-left:250px;
+    padding:35px;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.panel{
+    background:rgba(16,40,50,.9);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.stat{
+    min-height:120px;
+}
+
+.stat h2{
+    color:var(--accent);
+    font-size:2.2rem;
+}
+
+.item{
+    padding:17px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:12px;
+    margin:10px 0;
+    background:rgba(255,255,255,.025);
+}
+
+.item strong{
+    color:var(--accent);
+}
+
+.muted{
+    color:var(--muted);
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+.tag{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:999px;
+    background:rgba(36,208,196,.13);
+    color:var(--accent2);
+    font-size:.8rem;
+    margin:3px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(200px,1fr));
+    gap:12px;
+}
+
+label{
+    display:block;
+    font-weight:800;
+    margin-top:12px;
+}
+
+.check{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.check input{
+    width:auto;
+}
+
+@media(max-width:800px){
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        min-height:auto;
+    }
+
+    .main{
+        margin-left:0;
+        padding:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
 <body>
-<div class="layout"><aside class="side"><div class="logo">ISLAND<span>ROOTZ</span>246</div>
-<button class="navbtn active" onclick="tab('dashboard',this)">◈ Dashboard</button><button class="navbtn" onclick="tab('bookings',this)">▣ Bookings</button><button class="navbtn" onclick="tab('website',this)">✦ Website Editor</button><button class="navbtn" onclick="tab('services',this)">♫ Services</button><button class="navbtn" onclick="tab('team',this)">♟ Directors / Team</button><button class="navbtn" onclick="tab('themes',this)">◐ Themes & Animation</button><button class="navbtn" onclick="tab('spotlight',this)">★ Business Spotlight</button><button class="navbtn" onclick="tab('settings',this)">⚙ Settings</button><a class="navbtn" href="index.html" target="_blank">↗ View Public Site</a></aside>
-<main class="main"><div class="top"><div><p class="muted">Website & Business Control Centre</p><h1 id="title">Dashboard</h1></div><button class="btn primary" onclick="saveAll()">Save Changes</button></div>
 
-<section id="dashboard" class="tab active"><div class="cards"><div class="stat">Bookings<br><b id="bookCount">0</b></div><div class="stat">Services<br><b id="svcCount">0</b></div><div class="stat">Directors<br><b id="teamCount">0</b></div><div class="stat">Theme<br><b id="themeCount">Barbados</b></div></div><div class="panel"><h2>Admin control</h2><p class="muted">This panel controls the content, services, team, business spotlight, built-in visual themes, animations and booking data used by the public site.</p></div></section>
+<div id="loginScreen" class="login">
 
-<section id="bookings" class="tab"><div class="panel"><h2>Bookings</h2><div id="bookingList"></div></div></section>
+<div class="login-box">
 
-<section id="website" class="tab"><div class="panel"><h2>Website Content</h2><div class="grid2"><div class="field"><label>Hero headline</label><input id="heroTitle" value="Make the moment sound unforgettable."></div><div class="field"><label>Hero description</label><textarea id="heroDesc">IslandRootz246 brings live music, cultural entertainment and tailored performance experiences to celebrations, corporate events, ceremonies and productions across Barbados and beyond.</textarea></div></div><p class="muted">The current public design is intentionally animated and theme-driven. Additional site sections can be added here as the CMS grows.</p></div></section>
+<h1>IslandRootz246</h1>
 
-<section id="services" class="tab"><div class="panel"><h2>Services</h2><div class="grid2"><div><div class="field"><label>Icon / emoji</label><input id="sIcon" value="✨"></div><div class="field"><label>Service name</label><input id="sName"></div><div class="field"><label>Description</label><textarea id="sDesc"></textarea></div><button class="btn primary" onclick="addService()">Add Service</button></div><div id="serviceAdmin"></div></div></div></section>
+<h2>Admin Control Centre</h2>
 
-<section id="team" class="tab"><div class="panel"><h2>Directors / Team</h2><div class="grid2"><div><div class="field"><label>Name</label><input id="tName"></div><div class="field"><label>Position</label><input id="tRole"></div><div class="field"><label>Phone</label><input id="tPhone"></div><button class="btn primary" onclick="addTeam()">Add Team Member</button></div><div id="teamAdmin"></div></div></div></section>
+<p class="muted">
+Manage the entire website, business, bookings,
+services, directors, themes and content.
+</p>
 
-<section id="themes" class="tab"><div class="panel"><h2>Built-in Themes</h2><p class="muted">Select a visual identity. Themes alter the colours, gradients, glow effects and accents. The public site also contains animated background orbs, rotating rings, hover movement and entrance animation.</p><div class="themegrid"><div class="theme barb" data-theme="barbados" onclick="setTheme('barbados')"><b>🇧🇧 Barbados</b><br><small>IslandRootz default</small></div><div class="theme ind" data-theme="independence" onclick="setTheme('independence')"><b>🇧🇧 Independence / Republic</b><br><small>Green & gold</small></div><div class="theme xmas" data-theme="christmas" onclick="setTheme('christmas')"><b>🎄 Christmas</b><br><small>Festive red & green</small></div><div class="theme easter" data-theme="easter" onclick="setTheme('easter')"><b>🌸 Easter</b><br><small>Soft festive palette</small></div><div class="theme summer" data-theme="summer" onclick="setTheme('summer')"><b>☀️ Summer</b><br><small>Ocean energy</small></div><div class="theme christian" data-theme="christian" onclick="setTheme('christian')"><b>✝️ Christian</b><br><small>Formal blue</small></div></div><div class="field"><label>Animation intensity</label><select id="animation"><option value="full">Full motion</option><option value="reduced">Reduced</option><option value="off">Off</option></select></div><button class="btn primary" onclick="saveAll()">Save Theme</button></div></section>
+<form id="loginForm">
 
-<section id="spotlight" class="tab"><div class="panel"><h2>Business Spotlight</h2><div class="field"><label>Business name</label><input id="spotName" value="IslandRootz246"></div><div class="field"><label>Description</label><textarea id="spotDesc">Musical entertainment, cultural entertainment and custom event experiences.</textarea></div><div class="field"><label>Instagram</label><input id="spotInsta" value="https://www.instagram.com/islandrootz.musical.ent"></div><button class="btn primary" onclick="saveAll()">Save Spotlight</button></div></section>
+<label>
+Username
+</label>
 
-<section id="settings" class="tab"><div class="panel"><h2>Business Settings</h2><div class="grid2"><div class="field"><label>Booking email</label><input id="email" value="islandrootz.entertaiment@gmail.com"></div><div class="field"><label>Founder / Executive Director</label><input id="founder" value="Stephan Herbert"></div><div class="field"><label>Founder phone</label><input id="phone" value="+1 (246) 247-6799"></div><div class="field"><label>Payment methods</label><input id="payments" value="Cash, Cheques"></div></div><button class="btn primary" onclick="saveAll()">Save Settings</button></div></section>
-</main></div>
+<input
+id="username"
+required
+autocomplete="username">
+
+<label>
+Password
+</label>
+
+<input
+id="password"
+type="password"
+required
+autocomplete="current-password">
+
+<br><br>
+
+<button class="btn">
+Sign In
+</button>
+
+</form>
+
+<p id="loginError" style="color:#ff8585"></p>
+
+</div>
+
+</div>
+
+
+<div id="app" class="app">
+
+<aside class="sidebar">
+
+<div class="logo">
+ISLANDROOTZ246
+</div>
+
+<button onclick="openPage('dashboard')">
+📊 Dashboard
+</button>
+
+<button onclick="openPage('bookings')">
+📋 Bookings
+</button>
+
+<button onclick="openPage('services')">
+🎤 Booking Options / Services
+</button>
+
+<button onclick="openPage('website')">
+🌐 Website Editor
+</button>
+
+<button onclick="openPage('theme')">
+🎨 Themes & Animations
+</button>
+
+<button onclick="openPage('directors')">
+👥 Directors & Team
+</button>
+
+<button onclick="openPage('spotlight')">
+⭐ Business Spotlight
+</button>
+
+<button onclick="openPage('settings')">
+⚙ Booking Settings
+</button>
+
+<hr>
+
+<button onclick="window.open('/','_blank')">
+↗ View Public Website
+</button>
+
+<button onclick="logout()">
+🚪 Log Out
+</button>
+
+</aside>
+
+
+<main class="main">
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="page active">
+
+<h1>Dashboard</h1>
+
+<div class="grid">
+
+<div class="panel stat">
+<h2 id="bookingCount">0</h2>
+<p class="muted">Bookings</p>
+</div>
+
+<div class="panel stat">
+<h2 id="serviceCount">0</h2>
+<p class="muted">Booking Options</p>
+</div>
+
+<div class="panel stat">
+<h2 id="directorCount">7</h2>
+<p class="muted">Directors / Team</p>
+</div>
+
+<div class="panel stat">
+<h2>CMS</h2>
+<p class="muted">
+Website management active
+</p>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>Website Control</h2>
+
+<p class="muted">
+
+Everything below can be managed from this
+control centre.
+
+<br><br>
+
+Services • Booking Options • Directors •
+Website Content • Themes • Colours • Animations •
+Business Spotlight • Booking Settings
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- BOOKINGS -->
+
+<section id="bookings" class="page">
+
+<h1>Bookings</h1>
+
+<div id="bookingList"></div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services" class="page">
+
+<h1>Booking Options / Services</h1>
+
+<div class="panel">
+
+<h2>Add Booking Option</h2>
+
+<div class="form-row">
+
+<div>
+
+<label>Name</label>
+
+<input
+id="serviceName"
+placeholder="Vocalist">
+
+</div>
+
+<div>
+
+<label>Icon</label>
+
+<input
+id="serviceIcon"
+placeholder="🎤">
+
+</div>
+
+<div>
+
+<label>Description</label>
+
+<input
+id="serviceDescription"
+placeholder="Live vocalist for your event">
+
+</div>
+
+</div>
+
+<br>
+
+<button class="btn"
+onclick="addService()">
+
++ Add Booking Option
+
+</button>
+
+</div>
+
+<div id="serviceList"></div>
+
+</section>
+
+
+<!-- WEBSITE -->
+
+<section id="website" class="page">
+
+<h1>Website Editor</h1>
+
+<div class="panel">
+
+<label>
+Hero Title
+</label>
+
+<input
+id="heroTitle"
+value="Bring Your Event |to Life.">
+
+<label>
+Hero Description
+</label>
+
+<textarea id="heroDescription"></textarea>
+
+<label>
+About Section
+</label>
+
+<textarea id="aboutText"></textarea>
+
+<br>
+
+<button class="btn"
+onclick="saveWebsite()">
+
+Save Website
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- THEME -->
+
+<section id="theme" class="page">
+
+<h1>Themes & Animations</h1>
+
+<div class="panel">
+
+<div class="form-row">
+
+<div>
+
+<label>Theme</label>
+
+<select id="themeName">
+
+<option>Barbados</option>
+<option>Independence</option>
+<option>Christmas</option>
+<option>Easter</option>
+<option>Summer</option>
+<option>Christian</option>
+<option>Custom</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>Animation Level</label>
+
+<select id="animation">
+
+<option>Off</option>
+<option>Subtle</option>
+<option selected>Dynamic</option>
+<option>High Energy</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>Primary Colour</label>
+
+<input
+id="accent"
+type="color"
+value="#e6b85c">
+
+</div>
+
+<div>
+
+<label>Secondary Colour</label>
+
+<input
+id="accent2"
+type="color"
+value="#24d0c4">
+
+</div>
+
+<div>
+
+<label>Background Colour</label>
+
+<input
+id="background"
+type="color"
+value="#07151b">
+
+</div>
+
+</div>
+
+<br>
+
+<button class="btn"
+onclick="saveTheme()">
+
+Apply Theme
+
+</button>
+
+</div>
+
+<div class="panel">
+
+<h2>Built-in Animation System</h2>
+
+<p class="muted">
+
+The website supports ambient animated background
+orbs, floating service icons, entrance animations,
+hover effects, animated lighting/glow effects,
+theme-specific colours and dynamic visual effects.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- DIRECTORS -->
+
+<section id="directors" class="page">
+
+<h1>Directors & Team</h1>
+
+<div class="panel">
+
+<h2>Add Director / Team Member</h2>
+
+<div class="form-row">
+
+<div>
+
+<label>Name</label>
+
+<input id="directorName">
+
+</div>
+
+<div>
+
+<label>Position</label>
+
+<input id="directorRole">
+
+</div>
+
+<div>
+
+<label>Phone</label>
+
+<input id="directorPhone">
+
+</div>
+
+</div>
+
+<br>
+
+<button class="btn"
+onclick="addDirector()">
+
++ Add Director
+
+</button>
+
+</div>
+
+<div id="directorList"></div>
+
+</section>
+
+
+<!-- SPOTLIGHT -->
+
+<section id="spotlight" class="page">
+
+<h1>Business Spotlight</h1>
+
+<div class="panel">
+
+<div class="form-row">
+
+<div>
+
+<label>Business Name</label>
+
+<input id="spotName">
+
+</div>
+
+<div>
+
+<label>Website / Instagram</label>
+
+<input id="spotUrl">
+
+</div>
+
+</div>
+
+<label>Description</label>
+
+<textarea id="spotDescription"></textarea>
+
+<br>
+
+<button class="btn"
+onclick="addSpotlight()">
+
++ Add Business Spotlight
+
+</button>
+
+</div>
+
+<div id="spotlightList"></div>
+
+</section>
+
+
+<!-- SETTINGS -->
+
+<section id="settings" class="page">
+
+<h1>Booking Settings</h1>
+
+<div class="panel">
+
+<label>
+Booking Email
+</label>
+
+<input
+id="bookingEmail"
+value="islandrootz.entertaiment@gmail.com">
+
+<label>
+Payment Methods
+</label>
+
+<input
+id="paymentMethods"
+value="Cash, Cheques">
+
+<label class="check">
+
+<input
+id="termsRequired"
+type="checkbox"
+checked>
+
+Require Terms & Conditions acceptance
+
+</label>
+
+<br>
+
+<button class="btn"
+onclick="saveSettings()">
+
+Save Booking Settings
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
 <script>
-const defaults={services:[["🥁","Tuk Band","Traditional Barbadian energy for cultural events, celebrations and special occasions."],["🎺","Concert Band","Live ensemble entertainment arranged around the atmosphere and repertoire your event needs."],["🎹","Solo Keyboardist","A flexible keyboard performance for ceremonies, receptions, churches and private events."],["🎼","Solo Pianist","Elegant live piano for intimate, formal and special occasions."],["🎶","Steel Panist","Distinctive Caribbean sound for events, welcomes, cocktails and celebrations."],["🥁","Drummer","Live rhythmic support, featured performance or custom ensemble requirement."],["🎷","Saxophonist","Smooth, energetic or contemporary saxophone for your chosen setting."],["🎵","Clarinetist","Versatile clarinet performance for formal, cultural and custom arrangements."],["🎤","Vocalist","Live vocals tailored to your event, repertoire and desired atmosphere."],["💃","Choreography","Planned movement and choreography for performances and productions."],["🇧🇧","Cultural Entertainment","Barbadian cultural presentation designed around your occasion."],["✨","Dance Performance","Live dance entertainment for stage, celebrations and productions."],["⭐","Custom Entertainment","Tell us the experience you want and we will work from your brief."]],team:[["Stephan Herbert","Founder / Executive Director","+1 (246) 247-6799"],["Trevern Innis","Co-Founder / Deputy Executive Director","+1 (246) 833-5046"],["Christian Iffil","Senior Director / Tuk Band Leader","+1 (246) 284-3995"],["Azereio Rose","Senior Director","+1 (246) 250-3762"],["Chloe Grazette","Senior Director / Chairwoman of the Board","+1 (246) 848-4961"],["Embrany Harvey","Senior Director / Deputy Chairwoman","+1 (246) 831-1756"],["Sarah Holder","Junior Director / Choreography / Cultural Officer","+1 (246) 251-1231"]],theme:"barbados",animation:"full"};
-function get(){try{return {...defaults,...JSON.parse(localStorage.getItem("ir246_site_data")||"{}")}}catch(e){return defaults}}
-function save(d){localStorage.setItem("ir246_site_data",JSON.stringify(d))}
-function tab(id,el){document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".navbtn").forEach(x=>x.classList.remove("active"));el.classList.add("active");document.getElementById("title").textContent=el.textContent.replace(/[◈▣✦♫♟◐★⚙]/g,"").trim();render()}
-function addService(){let d=get();d.services.push([sIcon.value||"✨",sName.value||"New Service",sDesc.value||""]);save(d);sName.value="";sDesc.value="";render()}
-function addTeam(){let d=get();d.team.push([tName.value,tRole.value,tPhone.value]);save(d);tName.value=tRole.value=tPhone.value="";render()}
-function delService(i){let d=get();d.services.splice(i,1);save(d);render()}
-function delTeam(i){let d=get();d.team.splice(i,1);save(d);render()}
-function setTheme(t){let d=get();d.theme=t;save(d);render()}
-function saveAll(){let d=get();d.animation=animation.value;d.spotlight={name:spotName.value,description:spotDesc.value,instagram:spotInsta.value};d.settings={email:email.value,founder:founder.value,phone:phone.value,payments:payments.value};save(d);alert("Saved. Open the public site to see the changes.")}
-function render(){let d=get();document.getElementById("bookCount").textContent=JSON.parse(localStorage.getItem("ir246_bookings")||"[]").length;document.getElementById("svcCount").textContent=d.services.length;document.getElementById("teamCount").textContent=d.team.length;document.getElementById("themeCount").textContent=d.theme;animation.value=d.animation||"full";spotName.value=d.spotlight?.name||"IslandRootz246";spotDesc.value=d.spotlight?.description||"Musical entertainment, cultural entertainment and custom event experiences.";spotInsta.value=d.spotlight?.instagram||"https://www.instagram.com/islandrootz.musical.ent";
-serviceAdmin.innerHTML=d.services.map((s,i)=>`<div class="item"><strong>${s[0]} ${s[1]}</strong><small>${s[2]}</small><div class="row" style="margin-top:8px"><button class="btn danger" onclick="delService(${i})">Remove</button></div></div>`).join("");
-teamAdmin.innerHTML=d.team.map((p,i)=>`<div class="item"><strong>${p[0]}</strong><small>${p[1]}</small><div class="muted">${p[2]}</div><button class="btn danger" onclick="delTeam(${i})">Remove</button></div>`).join("");
-document.querySelectorAll(".theme").forEach(x=>x.classList.toggle("active",x.dataset.theme===d.theme));
-let bs=JSON.parse(localStorage.getItem("ir246_bookings")||"[]");bookingList.innerHTML=bs.length?bs.map((b,i)=>`<div class="item"><span class="badge">${b.status}</span><strong>${b.id} — ${b.name}</strong><div class="muted">${b.eventType} · ${b.date} · ${b.time} · ${b.location}</div><div>${b.services.join(", ")}</div><div class="muted">${b.phone} · ${b.email}</div><div class="row" style="margin-top:10px"><select onchange="status(${i},this.value)"><option ${b.status==="New"?"selected":""}>New</option><option ${b.status==="Under Review"?"selected":""}>Under Review</option><option ${b.status==="Quote Sent"?"selected":""}>Quote Sent</option><option ${b.status==="Accepted"?"selected":""}>Accepted</option><option ${b.status==="Payment Pending"?"selected":""}>Payment Pending</option><option ${b.status==="Confirmed"?"selected":""}>Confirmed</option><option ${b.status==="Completed"?"selected":""}>Completed</option><option ${b.status==="Declined"?"selected":""}>Declined</option><option ${b.status==="Cancelled"?"selected":""}>Cancelled</option></select><a class="btn secondary" href="mailto:${b.email}">Email Client</a><a class="btn secondary" href="tel:${b.phone.replace(/[^0-9+]/g,'')}">Call</a></div></div>`).join(""):"<p class='muted'>No bookings yet.</p>"}
-function status(i,v){let bs=JSON.parse(localStorage.getItem("ir246_bookings")||"[]");bs[i].status=v;localStorage.setItem("ir246_bookings",JSON.stringify(bs));render()}
-render();
-</script></body></html>
+
+const DEFAULT_SERVICES = [
+
+{
+name:"Tuk Band",
+icon:"🥁",
+description:"Traditional Barbadian Tuk entertainment."
+},
+
+{
+name:"Concert Band",
+icon:"🎺",
+description:"Live concert band entertainment."
+},
+
+{
+name:"Solo Keyboardist",
+icon:"🎹",
+description:"Professional keyboard entertainment."
+},
+
+{
+name:"Solo Pianist",
+icon:"🎹",
+description:"Piano entertainment."
+},
+
+{
+name:"Steel Panist",
+icon:"🛢️",
+description:"Authentic steel pan entertainment."
+},
+
+{
+name:"Drummer",
+icon:"🥁",
+description:"Live drum performance."
+},
+
+{
+name:"Saxophonist",
+icon:"🎷",
+description:"Solo saxophone entertainment."
+},
+
+{
+name:"Clarinetist",
+icon:"🎶",
+description:"Clarinet performance."
+},
+
+{
+name:"Vocalist",
+icon:"🎤",
+description:"Live vocalist for your event."
+},
+
+{
+name:"Choreography",
+icon:"💃",
+description:"Professional choreography."
+},
+
+{
+name:"Cultural Entertainment",
+icon:"🇧🇧",
+description:"Barbadian cultural entertainment."
+},
+
+{
+name:"Dance Performance",
+icon:"🕺",
+description:"Live dance performance."
+},
+
+{
+name:"Custom Entertainment",
+icon:"✨",
+description:"Build a custom IslandRootz246 experience."
+}
+
+];
+
+
+const DEFAULT_DIRECTORS = [
+
+{
+name:"Stephan Herbert",
+role:"Founder / Executive Director",
+phone:"+1 (246) 247-6799"
+},
+
+{
+name:"Trevern Innis",
+role:"Co-Founder / Deputy Executive Director",
+phone:"+1 (246) 833-5046"
+},
+
+{
+name:"Christian Iffil",
+role:"Senior Director / Tuk Band Leader",
+phone:"+1 (246) 284-3995"
+},
+
+{
+name:"Azereio Rose",
+role:"Senior Director",
+phone:"+1 (246) 250-3762"
+},
+
+{
+name:"Chloe Grazette",
+role:"Senior Director / Chairwoman of the Board",
+phone:"+1 (246) 848-4961"
+},
+
+{
+name:"Embrany Harvey",
+role:"Senior Director / Deputy Chairwoman",
+phone:"+1 (246) 831-1756"
+},
+
+{
+name:"Sarah Holder",
+role:"Junior Director / Choreography / Cultural Officer",
+phone:"+1 (246) 251-1231"
+}
+
+];
+
+
+function getData(key,defaults){
+
+    return JSON.parse(
+        localStorage.getItem(key)
+        || "null"
+    ) || defaults;
+
+}
+
+
+/* LOGIN */
+
+document.getElementById("loginForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const user =
+        document.getElementById("username").value;
+
+    const pass =
+        document.getElementById("password").value;
+
+    /*
+    Demo/static login.
+    Replace with real authentication when
+    connected to Supabase/Firebase/backend.
+    */
+
+    if(
+        user === "islandrootzadmin" &&
+        pass === "Rootz246Admin!"
+    ){
+
+        sessionStorage.setItem(
+            "ir_admin_authenticated",
+            "true"
+        );
+
+        showAdmin();
+
+    }else{
+
+        document.getElementById("loginError")
+            .textContent =
+            "Invalid admin credentials.";
+
+    }
+
+});
+
+
+function showAdmin(){
+
+    document.getElementById("loginScreen")
+        .style.display="none";
+
+    document.getElementById("app")
+        .style.display="block";
+
+    loadAll();
+
+}
+
+
+function logout(){
+
+    sessionStorage.removeItem(
+        "ir_admin_authenticated"
+    );
+
+    location.reload();
+
+}
+
+
+if(
+    sessionStorage.getItem(
+        "ir_admin_authenticated"
+    ) === "true"
+){
+
+    showAdmin();
+
+}
+
+
+/* NAVIGATION */
+
+function openPage(page){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(x =>
+            x.classList.remove("active")
+        );
+
+    document
+        .getElementById(page)
+        .classList.add("active");
+
+    if(page==="bookings")
+        renderBookings();
+
+    if(page==="services")
+        renderServices();
+
+    if(page==="directors")
+        renderDirectors();
+
+    if(page==="spotlight")
+        renderSpotlight();
+
+}
+
+
+/* SERVICES */
+
+function getServices(){
+
+    return getData(
+        "ir_services",
+        DEFAULT_SERVICES
+    );
+
+}
+
+
+function saveServices(data){
+
+    localStorage.setItem(
+        "ir_services",
+        JSON.stringify(data)
+    );
+
+}
+
+
+function addService(){
+
+    const name =
+        document.getElementById(
+            "serviceName"
+        ).value.trim();
+
+    const icon =
+        document.getElementById(
+            "serviceIcon"
+        ).value.trim();
+
+    const description =
+        document.getElementById(
+            "serviceDescription"
+        ).value.trim();
+
+    if(!name){
+
+        alert("Enter a service name.");
+
+        return;
+
+    }
+
+    const data = getServices();
+
+    data.push({
+
+        name,
+        icon:icon || "✨",
+        description:
+            description ||
+            "IslandRootz246 entertainment service."
+
+    });
+
+    saveServices(data);
+
+    document.getElementById(
+        "serviceName"
+    ).value="";
+
+    document.getElementById(
+        "serviceIcon"
+    ).value="";
+
+    document.getElementById(
+        "serviceDescription"
+    ).value="";
+
+    renderServices();
+
+}
+
+
+function renderServices(){
+
+    const data =
+        getServices();
+
+    document.getElementById(
+        "serviceCount"
+    ).textContent =
+        data.length;
+
+    document.getElementById(
+        "serviceList"
+    ).innerHTML =
+        data.map((service,index)=>`
+
+        <div class="item">
+
+            <strong>
+                ${service.icon}
+                ${service.name}
+            </strong>
+
+            <p class="muted">
+                ${service.description}
+            </p>
+
+            <div class="actions">
+
+                <button
+                    class="btn"
+                    onclick="editService(${index})">
+
+                    Edit
+
+                </button>
+
+                <button
+                    class="btn danger"
+                    onclick="deleteService(${index})">
+
+                    Remove
+
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="moveService(${index},-1)">
+
+                    ↑
+
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="moveService(${index},1)">
+
+                    ↓
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+function editService(index){
+
+    const data =
+        getServices();
+
+    const service =
+        data[index];
+
+    const name =
+        prompt(
+            "Service name:",
+            service.name
+        );
+
+    if(name===null)
+        return;
+
+    const description =
+        prompt(
+            "Description:",
+            service.description
+        );
+
+    const icon =
+        prompt(
+            "Icon:",
+            service.icon
+        );
+
+    service.name =
+        name || service.name;
+
+    service.description =
+        description || service.description;
+
+    service.icon =
+        icon || service.icon;
+
+    saveServices(data);
+
+    renderServices();
+
+}
+
+
+function deleteService(index){
+
+    const data =
+        getServices();
+
+    if(
+        !confirm(
+            `Remove "${data[index].name}" from the public booking options?`
+        )
+    )
+        return;
+
+    data.splice(index,1);
+
+    saveServices(data);
+
+    renderServices();
+
+}
+
+
+function moveService(index,direction){
+
+    const data =
+        getServices();
+
+    const target =
+        index + direction;
+
+    if(target < 0 || target >= data.length)
+        return;
+
+    [
+        data[index],
+        data[target]
+    ]=[
+        data[target],
+        data[index]
+    ];
+
+    saveServices(data);
+
+    renderServices();
+
+}
+
+
+/* DIRECTORS */
+
+function getDirectors(){
+
+    return getData(
+        "ir_directors",
+        DEFAULT_DIRECTORS
+    );
+
+}
+
+
+function renderDirectors(){
+
+    const data =
+        getDirectors();
+
+    document.getElementById(
+        "directorCount"
+    ).textContent =
+        data.length;
+
+    document.getElementById(
+        "directorList"
+    ).innerHTML =
+        data.map((person,index)=>`
+
+        <div class="item">
+
+            <strong>
+                ${person.name}
+            </strong>
+
+            <div>
+                ${person.role}
+            </div>
+
+            <div class="muted">
+                ${person.phone}
+            </div>
+
+            <div class="actions">
+
+                <button
+                    class="btn"
+                    onclick="editDirector(${index})">
+
+                    Edit
+
+                </button>
+
+                <button
+                    class="btn danger"
+                    onclick="deleteDirector(${index})">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+function addDirector(){
+
+    const name =
+        document.getElementById(
+            "directorName"
+        ).value.trim();
+
+    const role =
+        document.getElementById(
+            "directorRole"
+        ).value.trim();
+
+    const phone =
+        document.getElementById(
+            "directorPhone"
+        ).value.trim();
+
+    if(!name || !role || !phone){
+
+        alert(
+            "Enter the director name, position and phone number."
+        );
+
+        return;
+
+    }
+
+    const data =
+        getDirectors();
+
+    data.push({
+        name,
+        role,
+        phone
+    });
+
+    localStorage.setItem(
+        "ir_directors",
+        JSON.stringify(data)
+    );
+
+    document.getElementById(
+        "directorName"
+    ).value="";
+
+    document.getElementById(
+        "directorRole"
+    ).value="";
+
+    document.getElementById(
+        "directorPhone"
+    ).value="";
+
+    renderDirectors();
+
+}
+
+
+function editDirector(index){
+
+    const data =
+        getDirectors();
+
+    const person =
+        data[index];
+
+    const name =
+        prompt(
+            "Name:",
+            person.name
+        );
+
+    if(name===null)
+        return;
+
+    const role =
+        prompt(
+            "Position:",
+            person.role
+        );
+
+    const phone =
+        prompt(
+            "Phone:",
+            person.phone
+        );
+
+    person.name =
+        name || person.name;
+
+    person.role =
+        role || person.role;
+
+    person.phone =
+        phone || person.phone;
+
+    localStorage.setItem(
+        "ir_directors",
+        JSON.stringify(data)
+    );
+
+    renderDirectors();
+
+}
+
+
+function deleteDirector(index){
+
+    const data =
+        getDirectors();
+
+    if(
+        !confirm(
+            `Remove ${data[index].name}?`
+        )
+    )
+        return;
+
+    data.splice(index,1);
+
+    localStorage.setItem(
+        "ir_directors",
+        JSON.stringify(data)
+    );
+
+    renderDirectors();
+
+}
+
+
+/* BOOKINGS */
+
+function getBookings(){
+
+    return JSON.parse(
+        localStorage.getItem(
+            "ir_bookings"
+        ) || "[]"
+    );
+
+}
+
+
+function renderBookings(){
+
+    const bookings =
+        getBookings();
+
+    document.getElementById(
+        "bookingCount"
+    ).textContent =
+        bookings.length;
+
+    const list =
+        document.getElementById(
+            "bookingList"
+        );
+
+    if(!bookings.length){
+
+        list.innerHTML = `
+
+        <div class="panel">
+            No bookings yet.
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+    list.innerHTML =
+        bookings.map((booking,index)=>`
+
+        <div class="panel">
+
+            <h2>
+                ${booking.id}
+            </h2>
+
+            <span class="tag">
+                ${booking.status || "New"}
+            </span>
+
+            <br><br>
+
+            <strong>
+                ${booking.name}
+            </strong>
+
+            <p class="muted">
+                ${booking.email}<br>
+                ${booking.phone}
+            </p>
+
+            <p>
+
+                <strong>
+                    Event:
+                </strong>
+
+                ${booking.eventType}
+
+                <br>
+
+                <strong>
+                    Date:
+                </strong>
+
+                ${booking.date}
+
+                <br>
+
+                <strong>
+                    Time:
+                </strong>
+
+                ${booking.time}
+
+                <br>
+
+                <strong>
+                    Location:
+                </strong>
+
+                ${booking.location}
+
+            </p>
+
+            <p>
+
+                <strong>
+                    Services:
+                </strong>
+
+                ${(booking.services || [])
+                    .map(x =>
+                        `<span class="tag">${x}</span>`
+                    )
+                    .join("")}
+
+            </p>
+
+            <p class="muted">
+
+                Budget:
+                ${booking.currency || ""}
+                ${booking.budget || "Not supplied"}
+
+                <br>
+
+                Guests:
+                ${booking.guests || "Not supplied"}
+
+                <br>
+
+                Duration:
+                ${booking.duration || "Not supplied"}
+
+                <br>
+
+                Travel:
+                ${booking.travel || "Barbados"}
+
+            </p>
+
+            <p>
+                ${booking.requirements || ""}
+            </p>
+
+            <div class="actions">
+
+                <button
+                    class="btn"
+                    onclick="bookingStatus(${index},'Under Review')">
+
+                    Under Review
+
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="bookingStatus(${index},'Quote Sent')">
+
+                    Quote Sent
+
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="bookingStatus(${index},'Accepted')">
+
+                    Accept
+
+                </button>
+
+                <button
+                    class="btn danger"
+                    onclick="bookingStatus(${index},'Declined')">
+
+                    Decline
+
+                </button>
+
+                <button
+                    class="btn danger"
+                    onclick="deleteBooking(${index})">
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+function bookingStatus(index,status){
+
+    const bookings =
+        getBookings();
+
+    bookings[index].status =
+        status;
+
+    localStorage.setItem(
+        "ir_bookings",
+        JSON.stringify(bookings)
+    );
+
+    renderBookings();
+
+}
+
+
+function deleteBooking(index){
+
+    if(!confirm("Delete this booking?"))
+        return;
+
+    const bookings =
+        getBookings();
+
+    bookings.splice(index,1);
+
+    localStorage.setItem(
+        "ir_bookings",
+        JSON.stringify(bookings)
+    );
+
+    renderBookings();
+
+}
+
+
+/* WEBSITE */
+
+function saveWebsite(){
+
+    localStorage.setItem(
+        "ir_website",
+        JSON.stringify({
+
+            heroTitle:
+                document.getElementById(
+                    "heroTitle"
+                ).value,
+
+            heroDescription:
+                document.getElementById(
+                    "heroDescription"
+                ).value,
+
+            aboutText:
+                document.getElementById(
+                    "aboutText"
+                ).value
+
+        })
+    );
+
+    alert(
+        "Website content saved."
+    );
+
+}
+
+
+/* THEME */
+
+function saveTheme(){
+
+    localStorage.setItem(
+        "ir_theme",
+        JSON.stringify({
+
+            theme:
+                document.getElementById(
+                    "themeName"
+                ).value,
+
+            animation:
+                document.getElementById(
+                    "animation"
+                ).value,
+
+            accent:
+                document.getElementById(
+                    "accent"
+                ).value,
+
+            accent2:
+                document.getElementById(
+                    "accent2"
+                ).value,
+
+            bg:
+                document.getElementById(
+                    "background"
+                ).value
+
+        })
+    );
+
+    alert(
+        "Theme and animation settings saved."
+    );
+
+}
+
+
+/* SPOTLIGHT */
+
+function getSpotlights(){
+
+    return getData(
+        "ir_spotlight",
+        []
+    );
+
+}
+
+
+function addSpotlight(){
+
+    const name =
+        document.getElementById(
+            "spotName"
+        ).value.trim();
+
+    const description =
+        document.getElementById(
+            "spotDescription"
+        ).value.trim();
+
+    const url =
+        document.getElementById(
+            "spotUrl"
+        ).value.trim();
+
+    if(!name){
+
+        alert(
+            "Enter a business name."
+        );
+
+        return;
+
+    }
+
+    const data =
+        getSpotlights();
+
+    data.push({
+        name,
+        description,
+        url
+    });
+
+    localStorage.setItem(
+        "ir_spotlight",
+        JSON.stringify(data)
+    );
+
+    document.getElementById(
+        "spotName"
+    ).value="";
+
+    document.getElementById(
+        "spotDescription"
+    ).value="";
+
+    document.getElementById(
+        "spotUrl"
+    ).value="";
+
+    renderSpotlight();
+
+}
+
+
+function renderSpotlight(){
+
+    const data =
+        getSpotlights();
+
+    document.getElementById(
+        "spotlightList"
+    ).innerHTML =
+        data.map((item,index)=>`
+
+        <div class="item">
+
+            <strong>
+                ${item.name}
+            </strong>
+
+            <p>
+                ${item.description}
+            </p>
+
+            <p class="muted">
+                ${item.url}
+            </p>
+
+            <button
+                class="btn danger"
+                onclick="deleteSpotlight(${index})">
+
+                Remove
+
+            </button>
+
+        </div>
+
+    `).join("");
+
+}
+
+
+function deleteSpotlight(index){
+
+    const data =
+        getSpotlights();
+
+    data.splice(index,1);
+
+    localStorage.setItem(
+        "ir_spotlight",
+        JSON.stringify(data)
+    );
+
+    renderSpotlight();
+
+}
+
+
+/* SETTINGS */
+
+function saveSettings(){
+
+    localStorage.setItem(
+        "ir_booking_settings",
+        JSON.stringify({
+
+            email:
+                document.getElementById(
+                    "bookingEmail"
+                ).value,
+
+            payment:
+                document.getElementById(
+                    "paymentMethods"
+                ).value,
+
+            terms:
+                document.getElementById(
+                    "termsRequired"
+                ).checked
+
+        })
+    );
+
+    alert(
+        "Booking settings saved."
+    );
+
+}
+
+
+/* LOAD */
+
+function loadAll(){
+
+    renderServices();
+    renderDirectors();
+    renderBookings();
+    renderSpotlight();
+
+    const website =
+        JSON.parse(
+            localStorage.getItem(
+                "ir_website"
+            ) || "null"
+        );
+
+    if(website){
+
+        if(website.heroTitle)
+            document.getElementById(
+                "heroTitle"
+            ).value =
+                website.heroTitle;
+
+        if(website.heroDescription)
+            document.getElementById(
+                "heroDescription"
+            ).value =
+                website.heroDescription;
+
+        if(website.aboutText)
+            document.getElementById(
+                "aboutText"
+            ).value =
+                website.aboutText;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
