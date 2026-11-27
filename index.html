@@ -8,35 +8,70 @@
 <meta name="description" content="IslandRootz246 Musical Entertainment — musical and cultural entertainment in Barbados.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
-:root{--bg:#061619;--bg2:#092327;--panel:rgba(12,38,42,.78);--text:#f8f3e5;--muted:#9fb7b4;--gold:#d8b45a;--gold2:#f2d98a;--aqua:#58d4c7;--line:rgba(255,255,255,.105);--shadow:0 30px 90px rgba(0,0,0,.38)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}a{text-decoration:none;color:inherit}button,input,textarea,select{font:inherit}button{cursor:pointer}
+:root{
+--bg:#061619;--bg2:#092327;--panel:rgba(12,38,42,.78);--text:#f8f3e5;--muted:#9fb7b4;
+--gold:#d8b45a;--gold2:#f2d98a;--aqua:#58d4c7;--line:rgba(255,255,255,.105);
+--shadow:0 30px 90px rgba(0,0,0,.38);--accent:#d8b45a;--accent2:#58d4c7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .7s,color .5s}
+a{text-decoration:none;color:inherit}button,input,textarea,select{font:inherit}button{cursor:pointer}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 0%,rgba(85,210,197,.025) 45%,rgba(216,180,90,.03) 100%);z-index:-3}
 body:after{content:"";position:fixed;width:650px;height:650px;right:-280px;top:-300px;border-radius:50%;background:radial-gradient(circle,rgba(216,180,90,.13),transparent 67%);pointer-events:none;z-index:-2}
 .container{width:min(1200px,92%);margin:auto}.hide{display:none!important}
-.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}.reveal.visible{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{opacity:1;transform:none}
 .top{position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px solid transparent;transition:.35s;background:rgba(4,16,18,.28);backdrop-filter:blur(14px)}
 .top.scrolled{background:rgba(4,16,18,.88);border-color:var(--line)}
-.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{display:flex;align-items:center;gap:12px}.mark{width:44px;height:44px;border:1px solid rgba(216,180,90,.7);border-radius:15px;display:grid;place-items:center;font-weight:900;color:var(--gold2);background:linear-gradient(145deg,rgba(216,180,90,.16),rgba(88,212,199,.06));box-shadow:0 0 30px rgba(216,180,90,.08)}.brand small{display:block;color:var(--gold);font-size:8px;letter-spacing:.23em;font-weight:900}.brand b{font-size:14px;letter-spacing:.04em}.links{display:flex;gap:25px;font-size:13px;color:#d8e2df}.links a{position:relative}.links a:after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--gold);transition:.25s}.links a:hover{color:var(--gold2)}.links a:hover:after{width:100%}.navbtn{padding:11px 18px;border-radius:999px;border:0;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#061619;font-weight:900}
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 70px}.hero:before{content:"";position:absolute;width:900px;height:900px;left:-500px;top:5%;border-radius:50%;background:radial-gradient(circle,rgba(88,212,199,.12),transparent 65%);z-index:-1}
-.pulse{position:absolute;right:10%;top:27%;width:180px;height:180px;border:1px solid rgba(216,180,90,.18);border-radius:50%;animation:pulse 4s infinite ease-in-out}.pulse:before,.pulse:after{content:"";position:absolute;inset:25px;border:1px solid rgba(88,212,199,.18);border-radius:50%;animation:pulse 4s infinite ease-in-out reverse}.pulse:after{inset:52px;animation-delay:1s}@keyframes pulse{50%{transform:scale(1.12);opacity:.45}}
-.eyebrow{color:var(--gold);font-size:10px;letter-spacing:.25em;font-weight:900;text-transform:uppercase;margin-bottom:20px}.hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(48px,8vw,92px);line-height:.94;letter-spacing:-.045em;max-width:900px}.hero h1 em{font-style:normal;color:var(--gold2);display:inline-block;animation:wordFloat 4s ease-in-out infinite}@keyframes wordFloat{50%{transform:translateY(-5px)}}
-.hero p{max-width:680px;color:var(--muted);font-size:17px;line-height:1.8;margin:27px 0 31px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:999px;font-weight:900;font-size:13px;transition:.25s}.primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#061619;box-shadow:0 12px 35px rgba(216,180,90,.16)}.primary:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(216,180,90,.24)}.ghost{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.025)}.ghost:hover{border-color:rgba(216,180,90,.5);transform:translateY(-2px)}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;gap:12px}.mark{width:44px;height:44px;border:1px solid rgba(216,180,90,.7);border-radius:15px;display:grid;place-items:center;font-weight:900;color:var(--gold2);background:linear-gradient(145deg,rgba(216,180,90,.16),rgba(88,212,199,.06));box-shadow:0 0 30px rgba(216,180,90,.08)}
+.brand small{display:block;color:var(--gold);font-size:8px;letter-spacing:.23em;font-weight:900}.brand b{font-size:14px;letter-spacing:.04em}
+.links{display:flex;gap:25px;font-size:13px;color:#d8e2df}.links a{position:relative}.links a:after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--gold);transition:.25s}.links a:hover{color:var(--gold2)}.links a:hover:after{width:100%}
+.navbtn{padding:11px 18px;border-radius:999px;border:0;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#061619;font-weight:900}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 70px}
+.hero:before{content:"";position:absolute;width:900px;height:900px;left:-500px;top:5%;border-radius:50%;background:radial-gradient(circle,rgba(88,212,199,.12),transparent 65%);z-index:-1}
+.pulse{position:absolute;right:10%;top:27%;width:180px;height:180px;border:1px solid rgba(216,180,90,.18);border-radius:50%;animation:pulse 4s infinite ease-in-out}.pulse:before,.pulse:after{content:"";position:absolute;inset:25px;border:1px solid rgba(88,212,199,.18);border-radius:50%;animation:pulse 4s infinite ease-in-out reverse}.pulse:after{inset:52px;animation-delay:1s}
+@keyframes pulse{50%{transform:scale(1.12);opacity:.45}}
+.eyebrow{color:var(--gold);font-size:10px;letter-spacing:.25em;font-weight:900;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(48px,8vw,92px);line-height:.94;letter-spacing:-.045em;max-width:900px}
+.hero h1 em{font-style:normal;color:var(--gold2);display:inline-block;animation:wordFloat 4s ease-in-out infinite}
+@keyframes wordFloat{50%{transform:translateY(-5px)}}
+.hero p{max-width:680px;color:var(--muted);font-size:17px;line-height:1.8;margin:27px 0 31px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:999px;font-weight:900;font-size:13px;transition:.25s}
+.primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#061619;box-shadow:0 12px 35px rgba(216,180,90,.16)}.primary:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(216,180,90,.24)}
+.ghost{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.025)}.ghost:hover{border-color:rgba(216,180,90,.5);transform:translateY(-2px)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);max-width:850px;margin-top:70px;border-top:1px solid var(--line);padding-top:23px}.stat:not(:last-child){border-right:1px solid var(--line)}.stat{padding-right:25px;margin-right:25px}.stat b{display:block;color:var(--gold2);font-size:21px}.stat span{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.15em}
 .section{padding:105px 0;position:relative}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:38px}.kicker{font-size:10px;letter-spacing:.23em;text-transform:uppercase;color:var(--gold);font-weight:900}.section h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(36px,5vw,58px);line-height:1;margin-top:8px}.sectionhead p{max-width:490px;color:var(--muted);line-height:1.8;font-size:14px}
-.grid{display:grid;gap:17px}.services{grid-template-columns:repeat(3,1fr)}.card{background:linear-gradient(150deg,rgba(15,49,53,.88),rgba(6,24,27,.9));border:1px solid var(--line);border-radius:25px;padding:29px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .35s,border-color .35s}.card:before{content:"";position:absolute;width:130px;height:130px;right:-70px;top:-70px;border-radius:50%;background:radial-gradient(circle,rgba(216,180,90,.12),transparent 70%)}.card:hover{transform:translateY(-7px);border-color:rgba(216,180,90,.32)}.icon{width:48px;height:48px;border-radius:15px;border:1px solid rgba(216,180,90,.27);display:grid;place-items:center;color:var(--gold2);font-weight:900;margin-bottom:20px}.num{font-size:10px;letter-spacing:.16em;color:var(--gold);font-weight:900}.card h3{font-size:21px;margin:11px 0 8px}.card p{color:var(--muted);font-size:13px;line-height:1.75}
-.experience{background:linear-gradient(135deg,#0d3034,#07191c);border:1px solid var(--line);border-radius:31px;padding:36px;box-shadow:var(--shadow)}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#bfd0cd;font-weight:900}input,select,textarea{width:100%;background:#051619;border:1px solid var(--line);border-radius:12px;padding:13px;color:var(--text);outline:0}input:focus,select:focus,textarea:focus{border-color:rgba(216,180,90,.7);box-shadow:0 0 0 3px rgba(216,180,90,.05)}textarea{min-height:110px;resize:vertical}.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.check{display:flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(255,255,255,.025);padding:11px;border-radius:11px}.check input{width:auto}.check span{font-size:12px}.fine{font-size:11px;color:var(--muted);margin-top:10px}
+.grid{display:grid;gap:17px}.services{grid-template-columns:repeat(3,1fr)}.card{background:linear-gradient(150deg,rgba(15,49,53,.88),rgba(6,24,27,.9));border:1px solid var(--line);border-radius:25px;padding:29px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .35s,border-color .35s}.card:before{content:"";position:absolute;width:130px;height:130px;right:-70px;top:-70px;border-radius:50%;background:radial-gradient(circle,rgba(216,180,90,.12),transparent 70%)}.card:hover{transform:translateY(-7px);border-color:rgba(216,180,90,.32)}
+.icon{width:48px;height:48px;border-radius:15px;border:1px solid rgba(216,180,90,.27);display:grid;place-items:center;color:var(--gold2);font-weight:900;margin-bottom:20px}.num{font-size:10px;letter-spacing:.16em;color:var(--gold);font-weight:900}.card h3{font-size:21px;margin:11px 0 8px}.card p{color:var(--muted);font-size:13px;line-height:1.75}
+.experience{background:linear-gradient(135deg,#0d3034,#07191c);border:1px solid var(--line);border-radius:31px;padding:36px;box-shadow:var(--shadow)}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#bfd0cd;font-weight:900}
+input,select,textarea{width:100%;background:#051619;border:1px solid var(--line);border-radius:12px;padding:13px;color:var(--text);outline:0}input:focus,select:focus,textarea:focus{border-color:rgba(216,180,90,.7);box-shadow:0 0 0 3px rgba(216,180,90,.05)}textarea{min-height:110px;resize:vertical}
+.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.check{display:flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(255,255,255,.025);padding:11px;border-radius:11px}.check input{width:auto}.check span{font-size:12px}.fine{font-size:11px;color:var(--muted);margin-top:10px}
 .team{grid-template-columns:repeat(4,1fr)}.person{min-height:195px}.role{color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.11em;font-weight:900}.person p{color:var(--muted);font-size:12px;margin-top:8px}
 .spotlight{grid-template-columns:repeat(3,1fr)}.spot{min-height:205px;display:flex;flex-direction:column;justify-content:space-between}.spot .tag{color:var(--aqua);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:900}
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contactbox{border:1px solid var(--line);border-radius:27px;padding:33px;background:linear-gradient(145deg,rgba(15,49,53,.9),rgba(6,24,27,.9))}.contactbox h3{font-size:25px;margin:8px 0}.contactbox p{color:var(--muted);font-size:13px;line-height:1.8}.contactbox a{color:var(--gold2)}
 footer{border-top:1px solid var(--line);padding:34px 0;color:#718d89;font-size:11px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.adminlink{opacity:.35}.adminlink:hover{opacity:1;color:var(--gold2)}
-.toast{position:fixed;right:20px;bottom:20px;z-index:300;background:#f7f2e5;color:#061619;border-radius:14px;padding:14px 18px;font-weight:800;display:none;box-shadow:var(--shadow)}
-/* integrated admin */
-.adminscreen{position:fixed;inset:0;z-index:500;background:rgba(3,12,14,.94);backdrop-filter:blur(18px);display:none;overflow:auto}.adminscreen.open{display:block}.adminwrap{width:min(1350px,94%);margin:25px auto 60px}.adminhead{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 0 25px;border-bottom:1px solid var(--line)}.adminhead h2{font-family:"Playfair Display",serif;font-size:34px}.adminhead p{color:var(--muted);font-size:12px}.adminclose{border:1px solid var(--line);background:transparent;color:var(--text);padding:9px 15px;border-radius:999px}.adminlogin{width:min(430px,100%);margin:11vh auto;background:var(--panel);border:1px solid var(--line);padding:32px;border-radius:25px}.adminlogin h2{font-family:"Playfair Display",serif;font-size:31px;margin-bottom:5px}.adminlogin p{color:var(--muted);font-size:12px;margin-bottom:22px}.adminnav{display:flex;gap:7px;overflow:auto;padding:18px 0}.adminnav button{white-space:nowrap;border:1px solid var(--line);background:transparent;color:#a9bfbc;padding:9px 13px;border-radius:999px}.adminnav button.active{color:#061619;background:var(--gold);border-color:var(--gold)}.adminpage{display:none}.adminpage.active{display:block}.adminstats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.adminstat{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:19px}.adminstat b{font-size:28px;color:var(--gold2)}.adminstat span{display:block;color:var(--muted);font-size:9px;letter-spacing:.12em;text-transform:uppercase}.adminbox{margin-top:15px;background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:20px;overflow:auto}.adminbox h3{margin-bottom:15px}.admintable{width:100%;border-collapse:collapse;min-width:800px}.admintable th,.admintable td{border-bottom:1px solid var(--line);padding:11px 8px;text-align:left;font-size:11px}.admintable th{color:#78938f;text-transform:uppercase;font-size:9px;letter-spacing:.1em}.pill{display:inline-block;border:1px solid rgba(88,212,199,.2);background:rgba(88,212,199,.07);color:#92e5dc;padding:5px 8px;border-radius:999px;font-size:9px;font-weight:900}.adminform{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.adminform .full{grid-column:1/-1}.smallbtn{border:1px solid var(--line);background:transparent;color:var(--text);padding:7px 10px;border-radius:8px;font-size:10px}.smallbtn.gold{color:var(--gold2);border-color:rgba(216,180,90,.3)}.smallbtn.red{color:#ffaaa0}.miniadmin{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.miniadmin article{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:14px;padding:15px}.miniadmin h4{font-size:14px}.miniadmin p{font-size:11px;color:var(--muted);margin:5px 0}.adminnote{font-size:11px;color:var(--muted);line-height:1.7}
+.toast{position:fixed;right:20px;bottom:20px;z-index:700;background:#f7f2e5;color:#061619;border-radius:14px;padding:14px 18px;font-weight:800;display:none;box-shadow:var(--shadow)}
+.theme-banner{position:fixed;left:50%;top:94px;transform:translateX(-50%);z-index:95;display:none;padding:8px 15px;border:1px solid var(--line);border-radius:999px;background:rgba(5,20,22,.82);backdrop-filter:blur(14px);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold2)}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden;display:none}
+.particle{position:absolute;top:-30px;opacity:.8;animation:fall linear infinite}
+.snow{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.9)}
+.spark{width:3px;height:3px;border-radius:50%;background:var(--gold2);box-shadow:0 0 14px var(--gold2)}
+.confetti{width:5px;height:13px;background:var(--gold2);transform:rotate(20deg)}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(420deg)}}
+.theme-glyph{position:fixed;pointer-events:none;z-index:39;font-size:24px;opacity:.14;animation:floatGlyph 8s ease-in-out infinite}
+@keyframes floatGlyph{50%{transform:translateY(-30px) rotate(8deg)}}
+.anniversary{display:none;align-items:center;gap:8px;margin-top:18px;font-size:11px;color:var(--muted)}.anniversary strong{font-size:20px;color:var(--gold2);letter-spacing:.02em}
+.adminscreen{position:fixed;inset:0;z-index:800;background:rgba(3,12,14,.95);backdrop-filter:blur(18px);display:none;overflow:auto}.adminscreen.open{display:block}.adminwrap{width:min(1350px,94%);margin:25px auto 60px}.adminhead{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 0 25px;border-bottom:1px solid var(--line)}.adminhead h2{font-family:"Playfair Display",serif;font-size:34px}.adminhead p{color:var(--muted);font-size:12px}.adminclose{border:1px solid var(--line);background:transparent;color:var(--text);padding:9px 15px;border-radius:999px}.adminlogin{width:min(430px,100%);margin:11vh auto;background:var(--panel);border:1px solid var(--line);padding:32px;border-radius:25px}.adminlogin h2{font-family:"Playfair Display",serif;font-size:31px;margin-bottom:5px}.adminlogin p{color:var(--muted);font-size:12px;margin-bottom:22px}.adminnav{display:flex;gap:7px;overflow:auto;padding:18px 0}.adminnav button{white-space:nowrap;border:1px solid var(--line);background:transparent;color:#a9bfbc;padding:9px 13px;border-radius:999px}.adminnav button.active{color:#061619;background:var(--gold);border-color:var(--gold)}.adminpage{display:none}.adminpage.active{display:block}.adminstats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.adminstat{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:19px}.adminstat b{font-size:28px;color:var(--gold2)}.adminstat span{display:block;color:var(--muted);font-size:9px;letter-spacing:.12em;text-transform:uppercase}.adminbox{margin-top:15px;background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:20px;overflow:auto}.adminbox h3{margin-bottom:15px}.admintable{width:100%;border-collapse:collapse;min-width:800px}.admintable th,.admintable td{border-bottom:1px solid var(--line);padding:11px 8px;text-align:left;font-size:11px}.admintable th{color:#78938f;text-transform:uppercase;font-size:9px;letter-spacing:.1em}.pill{display:inline-block;border:1px solid rgba(88,212,199,.2);background:rgba(88,212,199,.07);color:#92e5dc;padding:5px 8px;border-radius:999px;font-size:9px;font-weight:900}.adminform{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.adminform .full{grid-column:1/-1}.smallbtn{border:1px solid var(--line);background:transparent;color:var(--text);padding:7px 10px;border-radius:8px;font-size:10px}.smallbtn.gold{color:var(--gold2);border-color:rgba(216,180,90,.3)}.smallbtn.red{color:#ffaaa0}.miniadmin{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.miniadmin article{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:14px;padding:15px}.miniadmin h4{font-size:14px}.miniadmin p{font-size:11px;color:var(--muted);margin:5px 0}.adminnote{font-size:11px;color:var(--muted);line-height:1.7}
 @media(max-width:900px){.links{display:none}.services,.team,.spotlight{grid-template-columns:1fr 1fr}.adminstats{grid-template-columns:1fr 1fr}.miniadmin{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.hero h1{font-size:51px}.stats{grid-template-columns:1fr;gap:12px}.stat{border-right:0!important;border-bottom:1px solid var(--line);padding-bottom:14px;margin:0}.services,.team,.spotlight,.contact,.formgrid,.adminform,.miniadmin{grid-template-columns:1fr}.full{grid-column:auto}.experience{padding:21px}.checks{grid-template-columns:1fr}.section{padding:78px 0}}
 </style>
 </head>
 <body>
+<div id="particles"></div>
+<div class="theme-banner" id="themeBanner"></div>
+
 <header class="top" id="top"><nav class="nav container">
 <a class="brand" href="#home"><div class="mark">IR</div><div><small>BARBADOS</small><b>ISLANDROOTZ246</b></div></a>
 <div class="links"><a href="#services">Services</a><a href="#experience">Book</a><a href="#team">Directors</a><a href="#spotlight">Spotlight</a><a href="#contact">Contact</a></div>
@@ -46,23 +81,17 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:#718d89;font-size:1
 <main id="home">
 <section class="hero">
 <div class="pulse"></div><div class="container">
-<div class="eyebrow reveal">Musical Entertainment • Cultural Experiences • Barbados</div>
+<div class="eyebrow reveal" id="heroEyebrow">Musical Entertainment • Cultural Experiences • Barbados</div>
 <h1 class="reveal">Sound with <em>identity.</em><br>Entertainment with presence.</h1>
-<p class="reveal">IslandRootz246 creates live musical and cultural experiences for events, celebrations, ceremonies and stages — built around your occasion, your audience and your sound.</p>
+<p class="reveal" id="heroText">IslandRootz246 creates live musical and cultural experiences for events, celebrations, ceremonies and stages — built around your occasion, your audience and your sound.</p>
 <div class="actions reveal"><a class="btn primary" href="#experience">Start a Booking</a><a class="btn ghost" href="#services">Explore Services</a></div>
+<div class="anniversary" id="anniversary"><strong id="annivText"></strong><span id="annivSub"></span></div>
 <div class="stats reveal"><div class="stat"><b>01</b><span>Live Musical Entertainment</span></div><div class="stat"><b>02</b><span>Cultural Experiences</span></div><div class="stat"><b>03</b><span>Custom Event Builds</span></div></div>
 </div></section>
 
 <section class="section" id="services"><div class="container">
 <div class="sectionhead reveal"><div><div class="kicker">What we do</div><h2>Built for the occasion.</h2></div><p>Choose one service or combine several. Every booking is reviewed around the actual event rather than forced into a fixed package.</p></div>
-<div class="grid services">
-<article class="card reveal"><div class="icon">TK</div><div class="num">01 / ENSEMBLE</div><h3>Tuk Band</h3><p>Traditional Barbadian Tuk energy for cultural events, celebrations, parades and special appearances.</p></article>
-<article class="card reveal"><div class="icon">CB</div><div class="num">02 / ENSEMBLE</div><h3>Concert Band</h3><p>Live band entertainment arranged around your event, repertoire and performance space.</p></article>
-<article class="card reveal"><div class="icon">♬</div><div class="num">03 / SOLO</div><h3>Solo Steel Pan</h3><p>Steel pan performance for receptions, ceremonies, cocktails, corporate events and intimate occasions.</p></article>
-<article class="card reveal"><div class="icon">KB</div><div class="num">04 / SOLO</div><h3>Solo Keyboard</h3><p>Keyboard-led live music for elegant arrivals, ceremonies, receptions, background sets and featured moments.</p></article>
-<article class="card reveal"><div class="icon">TR</div><div class="num">05 / SOLO</div><h3>Solo Trumpet</h3><p>Trumpet performance for entrances, ceremonies, celebrations, tributes and musical features.</p></article>
-<article class="card reveal"><div class="icon">CU</div><div class="num">06 / CULTURE</div><h3>Choreography & Cultural Entertainment</h3><p>Movement, cultural presentation and coordinated entertainment designed to complement the musical programme.</p></article>
-</div></div></section>
+<div class="grid services" id="serviceGrid"></div></div></section>
 
 <section class="section" id="experience"><div class="container">
 <div class="sectionhead reveal"><div><div class="kicker">Custom booking</div><h2>Build your experience.</h2></div><p>Tell us what you need. Your request is reviewed by IslandRootz246 and the final quote is customized to the event.</p></div>
@@ -74,14 +103,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:#718d89;font-size:1
 <div class="field"><label>Event date</label><input id="bDate" type="date" required></div><div class="field"><label>Location</label><input id="bLocation" required placeholder="Venue / parish"></div>
 <div class="field"><label>Approx. duration</label><select id="bDuration"><option>15–30 minutes</option><option>30–60 minutes</option><option>1–2 hours</option><option>2–4 hours</option><option>4+ hours</option><option>Not sure yet</option></select></div>
 <div class="field"><label>Estimated budget (BBD)</label><input id="bBudget" type="number" min="0" placeholder="Optional"></div>
-<div class="field full"><label>Entertainment requested</label><div class="checks">
-<label class="check"><input type="checkbox" name="service" value="Tuk Band"><span>Tuk Band</span></label>
-<label class="check"><input type="checkbox" name="service" value="Concert Band"><span>Concert Band</span></label>
-<label class="check"><input type="checkbox" name="service" value="Solo Steel Pan"><span>Solo Steel Pan</span></label>
-<label class="check"><input type="checkbox" name="service" value="Solo Keyboard"><span>Solo Keyboard</span></label>
-<label class="check"><input type="checkbox" name="service" value="Solo Trumpet"><span>Solo Trumpet</span></label>
-<label class="check"><input type="checkbox" name="service" value="Choreography / Cultural Entertainment"><span>Choreography / Cultural</span></label>
-</div></div>
+<div class="field full"><label>Entertainment requested</label><div class="checks" id="serviceChecks"></div></div>
 <div class="field full"><label>Song requests / programme details</label><textarea id="bSongs" placeholder="Songs, artists, cultural pieces, entrances, special moments, dress expectations, etc."></textarea></div>
 <div class="field full"><label>Additional notes</label><textarea id="bNotes" placeholder="Anything else we should know?"></textarea></div>
 <div class="field full"><button class="btn primary">Submit Booking Request</button><div class="fine">Submitting a request does not confirm the booking. IslandRootz246 will review the details and contact you.</div></div>
@@ -90,24 +112,23 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:#718d89;font-size:1
 <section class="section" id="team"><div class="container"><div class="sectionhead reveal"><div><div class="kicker">Leadership</div><h2>The people behind Rootz.</h2></div><p>Leadership across music, operations, culture and event delivery.</p></div><div class="grid team" id="teamGrid"></div></div></section>
 <section class="section" id="spotlight"><div class="container"><div class="sectionhead reveal"><div><div class="kicker">Business Spotlight</div><h2>Rootz in the community.</h2></div><p>Featured businesses and partners can be displayed through the administration portal.</p></div><div class="grid spotlight" id="spotlightGrid"></div></div></section>
 <section class="section" id="contact"><div class="container"><div class="sectionhead reveal"><div><div class="kicker">Contact</div><h2>Let's make it happen.</h2></div></div><div class="contact reveal">
-<div class="contactbox"><div class="kicker">Bookings</div><h3>IslandRootz246 Musical Entertainment</h3><p>Bookings, collaborations and custom entertainment requests.</p><p style="margin-top:17px"><a href="mailto:islandrootz.entertaiment@gmail.com">islandrootz.entertaiment@gmail.com</a><br><a href="tel:+12462476799">+1 (246) 247-6799</a></p></div>
-<div class="contactbox"><div class="kicker">Social</div><h3>Follow the movement.</h3><p>Stay connected with IslandRootz246 Musical Entertainment.</p><p style="margin-top:17px"><a href="https://www.instagram.com/islandrootz.musical.ent" target="_blank">@islandrootz.musical.ent</a></p></div>
+<div class="contactbox"><div class="kicker">Bookings</div><h3>IslandRootz246 Musical Entertainment</h3><p>Bookings, collaborations and custom entertainment requests.</p><p style="margin-top:17px"><a id="emailLink" href="mailto:islandrootz.entertaiment@gmail.com">islandrootz.entertaiment@gmail.com</a><br><a id="phoneLink" href="tel:+12462476799">+1 (246) 247-6799</a></p></div>
+<div class="contactbox"><div class="kicker">Social</div><h3>Follow the movement.</h3><p>Stay connected with IslandRootz246 Musical Entertainment.</p><p style="margin-top:17px"><a id="igLink" href="https://www.instagram.com/islandrootz.musical.ent" target="_blank">@islandrootz.musical.ent</a></p></div>
 </div></div></section>
 </main>
 
 <footer><div class="container foot"><span>© <span id="year"></span> IslandRootz246 Musical Entertainment.</span><span>Barbados • Musical Entertainment • Cultural Experiences</span><a class="adminlink" href="#admin">Director Portal</a></div></footer>
 <div class="toast" id="toast"></div>
 
-<!-- INTEGRATED ADMIN: accessible from the footer or index.html#admin -->
 <section class="adminscreen" id="adminScreen">
-<div class="adminwrap" id="adminArea">
+<div class="adminwrap">
 <div class="adminlogin" id="adminLogin">
 <div class="kicker">IslandRootz246</div><h2>Director Portal</h2><p>Administration access for IslandRootz246 Musical Entertainment.</p>
 <form id="adminLoginForm"><div class="field"><label>Username</label><input id="aUser" required></div><div class="field" style="margin-top:14px"><label>Password</label><input id="aPass" type="password" required></div><button class="btn primary" style="width:100%;margin-top:17px">Enter Administration</button></form>
 <p style="font-size:10px;margin-top:15px">Static-site mode. Production authentication should be moved server-side.</p>
 </div>
 <div id="adminDashboard" class="hide">
-<div class="adminhead"><div><div class="kicker">Administration</div><h2>IslandRootz246 Control Centre</h2><p>Bookings, directors, services, spotlight and website controls.</p></div><button class="adminclose" id="closeAdmin">Close Portal</button></div>
+<div class="adminhead"><div><div class="kicker">Administration</div><h2>IslandRootz246 Control Centre</h2><p>Bookings, directors, services, spotlight and live website theme controls.</p></div><button class="adminclose" id="closeAdmin">Close Portal</button></div>
 <div class="adminnav">
 <button class="active" data-ap="adash">Overview</button><button data-ap="abook">Bookings</button><button data-ap="adirectors">Directors</button><button data-ap="aservices">Services</button><button data-ap="aspot">Spotlight</button><button data-ap="atheme">Theme</button><button data-ap="acontent">Content</button><button data-ap="adata">Data</button>
 </div>
@@ -116,12 +137,22 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:#718d89;font-size:1
 <section class="adminpage" id="adirectors"><div class="adminbox"><h3>Current Directors</h3><div class="adminform" id="directorForm"><div class="field"><label>Name</label><input id="dName"></div><div class="field"><label>Position</label><input id="dRole"></div><div class="field"><label>Phone</label><input id="dPhone"></div><div class="field"><button class="btn primary" id="addDirector">Add Director</button></div></div><div class="miniadmin" id="directorAdminList" style="margin-top:16px"></div></div></section>
 <section class="adminpage" id="aservices"><div class="adminbox"><h3>Bookable Services</h3><div class="miniadmin" id="serviceAdminList"></div></div></section>
 <section class="adminpage" id="aspot"><div class="adminbox"><h3>Business Spotlight</h3><div class="adminform"><div class="field"><label>Business name</label><input id="spName"></div><div class="field"><label>Instagram</label><input id="spIg"></div><div class="field full"><label>Description</label><textarea id="spDesc"></textarea></div><div class="field"><button class="btn primary" id="addSpot">Add Spotlight</button></div></div><div class="miniadmin" id="spotAdminList" style="margin-top:16px"></div></div></section>
-<section class="adminpage" id="atheme"><div class="adminbox"><h3>Website Theme</h3><p class="adminnote">Christmas is a seasonal option only. The core public positioning remains musical and cultural entertainment.</p><div class="adminform" style="margin-top:15px"><div class="field"><label>Theme</label><select id="themeChoice"><option value="signature">Signature Barbados</option><option value="independence">Independence / Republic</option><option value="summer">Summer</option><option value="easter">Easter</option><option value="christian">Christian</option><option value="christmas">Christmas</option></select></div><div class="field"><label>Seasonal label</label><input id="themeLabel" placeholder="Optional"></div><div class="field"><button class="btn primary" id="saveTheme">Save Theme</button></div></div></div></section>
-<section class="adminpage" id="acontent"><div class="adminbox"><h3>Website Content</h3><div class="adminform"><div class="field"><label>Tagline</label><input id="cTagline"></div><div class="field"><label>Booking Email</label><input id="cEmail"></div><div class="field"><label>Phone</label><input id="cPhone"></div><div class="field"><label>Instagram</label><input id="cIg"></div><div class="field full"><label>Hero Description</label><textarea id="cHero"></textarea></div><div class="field"><button class="btn primary" id="saveContent">Save Content</button></div></div></div></section>
+<section class="adminpage" id="atheme"><div class="adminbox"><h3>Live Website Theme</h3><p class="adminnote">Theme settings are saved in the shared site configuration used by the public page. No index.html edit is required for a theme change.</p>
+<div class="adminform" style="margin-top:15px">
+<div class="field"><label>Theme</label><select id="themeChoice"><option value="signature">Signature Barbados</option><option value="independence">Independence / Republic</option><option value="summer">Summer</option><option value="easter">Easter</option><option value="christian">Christian</option><option value="christmas">Christmas</option></select></div>
+<div class="field"><label>Seasonal label</label><input id="themeLabel" placeholder="Optional"></div>
+<div class="field"><label>Animation intensity</label><select id="themeIntensity"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></div>
+<div class="field"><label>Auto anniversary</label><select id="autoAnniv"><option value="on">On</option><option value="off">Off</option></select></div>
+<div class="field"><label>Independence year</label><input id="indYear" type="number" value="1966"></div>
+<div class="field"><label>Republic year</label><input id="repYear" type="number" value="2021"></div>
+<div class="field full"><button class="btn primary" id="saveTheme">Publish Theme to Website</button></div>
+</div></div></section>
+<section class="adminpage" id="acontent"><div class="adminbox"><h3>Website Content</h3><div class="adminform"><div class="field"><label>Tagline</label><input id="cTagline"></div><div class="field"><label>Booking Email</label><input id="cEmail"></div><div class="field"><label>Phone</label><input id="cPhone"></div><div class="field"><label>Instagram</label><input id="cIg"></div><div class="field full"><label>Hero Description</label><textarea id="cHero"></textarea></div><div class="field"><button class="btn primary" id="saveContent">Publish Content</button></div></div></div></section>
 <section class="adminpage" id="adata"><div class="adminbox"><h3>Data</h3><p class="adminnote">Export your local administration data before changing device/browser. Static local storage is not shared between different visitors or devices.</p><div class="actions" style="margin-top:15px"><button class="btn primary" id="exportData">Export Backup</button><button class="btn ghost" id="clearData">Clear Bookings</button></div></div></section>
 </div></div></section>
 
 <script>
+const KEY="IR_DATA_V6",BOOK="IR_BOOKINGS_V6";
 const DEFAULT={
 directors:[
 {name:"Stephan Herbert",role:"Founder / Executive Director",phone:"+1 (246) 247-6799"},
@@ -138,60 +169,93 @@ services:[
 {name:"Solo Keyboard",desc:"Solo keyboard performance."},
 {name:"Solo Trumpet",desc:"Solo trumpet performance."},
 {name:"Choreography / Cultural Entertainment",desc:"Cultural presentation and choreography."}],
-spotlights:[],theme:"signature",
+spotlights:[],
+theme:{name:"signature",label:"",intensity:"medium",autoAnniv:"on",independenceYear:1966,republicYear:2021},
 content:{tagline:"Sound with identity. Entertainment with presence.",email:"islandrootz.entertaiment@gmail.com",phone:"+1 (246) 247-6799",instagram:"https://www.instagram.com/islandrootz.musical.ent",hero:"IslandRootz246 creates live musical and cultural experiences for events, celebrations, ceremonies and stages — built around your occasion, your audience and your sound."}
 };
-const getData=()=>{let d;try{d=JSON.parse(localStorage.getItem("IR_DATA_V5"))}catch(e){}if(!d){d=DEFAULT;localStorage.setItem("IR_DATA_V5",JSON.stringify(d))}return d};
-const saveData=d=>localStorage.setItem("IR_DATA_V5",JSON.stringify(d));
-const getBookings=()=>JSON.parse(localStorage.getItem("IR_BOOKINGS_V5")||"[]");
-const saveBookings=b=>localStorage.setItem("IR_BOOKINGS_V5",JSON.stringify(b));
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
-const toast=m=>{const t=document.getElementById("toast");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",3500)};
-window.addEventListener("scroll",()=>document.getElementById("top").classList.toggle("scrolled",scrollY>30));
-const io=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add("visible")),{threshold:.12});document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function data(){try{let d=JSON.parse(localStorage.getItem(KEY));if(d)return d}catch(e){}localStorage.setItem(KEY,JSON.stringify(DEFAULT));return clone(DEFAULT)}
+function save(d){localStorage.setItem(KEY,JSON.stringify(d));window.dispatchEvent(new Event("ir-data-updated"))}
+function bookings(){return JSON.parse(localStorage.getItem(BOOK)||"[]")}
+function saveBookings(b){localStorage.setItem(BOOK,JSON.stringify(b))}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",3000)}
+function currentAnniversary(t){const y=new Date().getFullYear(),i=y-(+t.independenceYear||1966),r=y-(+t.republicYear||2021);return `${i}&${r}`}
+function renderTheme(){
+ const d=data(),t=d.theme||DEFAULT.theme,name=t.name||"signature";
+ const vars={
+ signature:["#061619","#092327","#d8b45a","#58d4c7"],
+ barbados:["#061619","#092327","#d8b45a","#58d4c7"],
+ independence:["#061619","#071e42","#f1c40f","#58d4c7"],
+ summer:["#061b22","#0b3440","#e5c45e","#63e6d8"],
+ easter:["#17101e","#29192f","#e6b8d6","#9ad7c8"],
+ christian:["#11100c","#211b13","#d8b45a","#e9e0c8"],
+ christmas:["#071714","#10291f","#e4c86b","#d94b4b"]
+ };
+ const v=vars[name]||vars.signature;document.documentElement.style.setProperty("--bg",v[0]);document.documentElement.style.setProperty("--bg2",v[1]);document.documentElement.style.setProperty("--gold",v[2]);document.documentElement.style.setProperty("--gold2",v[2]);document.documentElement.style.setProperty("--aqua",v[3]);
+ const banner=document.getElementById("themeBanner"),particles=document.getElementById("particles");particles.innerHTML="";
+ const labels={signature:"Signature Barbados",independence:"Barbados • Independence / Republic",summer:"Summer Season",easter:"Easter Season",christian:"Christian Theme",christmas:"Christmas Season"};
+ let label=t.label||labels[name]||"IslandRootz246";
+ if(t.autoAnniv==="on" && (name==="signature"||name==="independence")) label += ` • ${currentAnniversary(t)}`;
+ banner.textContent=label;banner.style.display=(name!=="signature"||t.label||t.autoAnniv==="on")?"block":"none";
+ if(t.autoAnniv==="on"&&(name==="signature"||name==="independence")){anniversary.style.display="flex";annivText.textContent=currentAnniversary(t);annivSub.textContent="Barbados Independence & Republic anniversary";}else anniversary.style.display="none";
+ const intensity=t.intensity||"medium",count=intensity==="high"?75:intensity==="low"?25:45;
+ let type=name==="christmas"?"snow":name==="independence"?"confetti":name==="easter"?"spark":name==="summer"?"spark":name==="christian"?"spark":"spark";
+ if(name!=="signature"){particles.style.display="block";for(let i=0;i<count;i++){const el=document.createElement("i");el.className="particle "+type;el.style.left=Math.random()*100+"vw";el.style.animationDuration=(type==="snow"?6+Math.random()*8:4+Math.random()*7)+"s";el.style.animationDelay=(-Math.random()*10)+"s";el.style.setProperty("--drift",(Math.random()*180-90)+"px");particles.appendChild(el)}}
+ if(name==="christmas"){for(let i=0;i<9;i++){const g=document.createElement("div");g.className="theme-glyph";g.textContent=i%2?"✦":"❄";g.style.left=(5+i*11)+"%";g.style.top=(16+(i%4)*18)+"%";g.style.animationDelay=(i*.7)+"s";document.body.appendChild(g)}}
+ document.querySelectorAll(".theme-glyph").forEach((x,i)=>{if(i>=9||name!=="christmas")x.remove()});
+}
 function renderPublic(){
- const d=getData();
+ const d=data(),c=d.content||{};
+ document.getElementById("heroText").textContent=c.hero||DEFAULT.content.hero;
+ document.getElementById("emailLink").textContent=c.email||DEFAULT.content.email;document.getElementById("emailLink").href="mailto:"+c.email;
+ document.getElementById("phoneLink").textContent=c.phone||DEFAULT.content.phone;document.getElementById("phoneLink").href="tel:"+String(c.phone||DEFAULT.content.phone).replace(/\D/g,"");
+ document.getElementById("igLink").href=c.instagram||DEFAULT.content.instagram;
+ document.getElementById("igLink").textContent=(c.instagram||DEFAULT.content.instagram).replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,"");
+ serviceGrid.innerHTML=d.services.map((x,i)=>`<article class="card reveal visible"><div class="icon">${String(i+1).padStart(2,"0")}</div><div class="num">${String(i+1).padStart(2,"0")} / SERVICE</div><h3>${esc(x.name)}</h3><p>${esc(x.desc)}</p></article>`).join("");
+ serviceChecks.innerHTML=d.services.map(x=>`<label class="check"><input type="checkbox" name="service" value="${esc(x.name)}"><span>${esc(x.name)}</span></label>`).join("");
  teamGrid.innerHTML=d.directors.map((x,i)=>`<article class="card person reveal visible"><div class="num">${String(i+1).padStart(2,"0")} / DIRECTOR</div><h3>${esc(x.name)}</h3><div class="role">${esc(x.role)}</div><p>${esc(x.phone)}</p></article>`).join("");
- const s=d.spotlights.filter(x=>x.active!==false);
- spotlightGrid.innerHTML=s.length?s.map(x=>`<article class="card spot reveal visible"><div><div class="tag">Featured Business</div><h3>${esc(x.name)}</h3><p>${esc(x.description)}</p></div>${x.instagram?`<a class="btn ghost" target="_blank" href="${esc(x.instagram)}">Visit Instagram</a>`:""}</article>`).join(""):`<div class="card"><p style="color:var(--muted)">No businesses are currently featured.</p></div>`;
- year.textContent=new Date().getFullYear();
+ const s=d.spotlights.filter(x=>x.active!==false);spotlightGrid.innerHTML=s.length?s.map(x=>`<article class="card spot reveal visible"><div><div class="tag">Featured Business</div><h3>${esc(x.name)}</h3><p>${esc(x.description)}</p></div>${x.instagram?`<a class="btn ghost" target="_blank" rel="noopener" href="${esc(x.instagram)}">Visit Instagram</a>`:""}</article>`).join(""):`<div class="card"><p style="color:var(--muted)">No businesses are currently featured.</p></div>`;
+ year.textContent=new Date().getFullYear();renderTheme();
 }
 bookingForm.onsubmit=e=>{
 e.preventDefault();const services=[...document.querySelectorAll('input[name="service"]:checked')].map(x=>x.value);if(!services.length){alert("Please select at least one entertainment service.");return}
 const b={id:"IR-"+Date.now(),createdAt:new Date().toISOString(),status:"New",name:bName.value,email:bEmail.value,phone:bPhone.value,eventType:bType.value,date:bDate.value,location:bLocation.value,duration:bDuration.value,budget:bBudget.value,songs:bSongs.value,notes:bNotes.value,services};
-const all=getBookings();all.unshift(b);saveBookings(all);
+const all=bookings();all.unshift(b);saveBookings(all);
 const subject=encodeURIComponent("New IslandRootz246 Booking Request "+b.id),body=encodeURIComponent(`Booking ID: ${b.id}\nName: ${b.name}\nEmail: ${b.email}\nPhone: ${b.phone}\nEvent: ${b.eventType}\nDate: ${b.date}\nLocation: ${b.location}\nDuration: ${b.duration}\nBudget: ${b.budget||"Not provided"} BBD\nServices: ${b.services.join(", ")}\nSong/programme: ${b.songs||"None"}\nNotes: ${b.notes||"None"}`);
-window.location.href=`mailto:${getData().content.email}?subject=${subject}&body=${body}`;toast("Booking saved — your email app will open to send it.");bookingForm.reset();
+window.location.href=`mailto:${data().content.email}?subject=${subject}&body=${body}`;toast("Booking saved — your email app will open to send it.");bookingForm.reset();
 };
-function openAdmin(){document.getElementById("adminScreen").classList.add("open");history.replaceState(null,"","#admin");if(localStorage.getItem("IR_ADMIN_SESSION_V5")==="1")showDashboard()}
-function closeAdmin(){document.getElementById("adminScreen").classList.remove("open");history.replaceState(null,"",location.pathname+location.search)}
+function openAdmin(){adminScreen.classList.add("open");history.replaceState(null,"","#admin");if(localStorage.getItem("IR_ADMIN_SESSION_V6")==="1")showDashboard()}
+function closeAdmin(){adminScreen.classList.remove("open");history.replaceState(null,"",location.pathname+location.search)}
 function showDashboard(){adminLogin.classList.add("hide");adminDashboard.classList.remove("hide");renderAdmin()}
 function renderAdmin(){
- const bs=getBookings(),d=getData();asTotal.textContent=bs.length;asNew.textContent=bs.filter(x=>x.status==="New").length;asConfirm.textContent=bs.filter(x=>x.status==="Confirmed").length;asDir.textContent=d.directors.length;
+ const bs=bookings(),d=data();asTotal.textContent=bs.length;asNew.textContent=bs.filter(x=>x.status==="New").length;asConfirm.textContent=bs.filter(x=>x.status==="Confirmed").length;asDir.textContent=d.directors.length;
  recentAdmin.innerHTML=bs.slice(0,8).map(x=>`<tr><td><b>${esc(x.name)}</b><br><span style="color:var(--muted)">${esc(x.email)}</span></td><td>${esc(x.eventType)}</td><td>${esc(x.date)}</td><td>${esc((x.services||[]).join(", "))}</td><td><span class="pill">${esc(x.status)}</span></td></tr>`).join("")||`<tr><td colspan="5">No bookings.</td></tr>`;
  adminBookings.innerHTML=bs.map(x=>`<tr><td>${esc(x.name)}<br><span style="color:var(--muted)">${esc(x.email)}</span></td><td>${esc(x.eventType)}</td><td>${esc(x.date)}</td><td>${esc(x.location)}</td><td>${esc((x.services||[]).join(", "))}</td><td><select onchange="updateBooking('${x.id}',this.value)">${["New","Under Review","Awaiting Client","Quote Sent","Accepted","Payment Pending","Confirmed","Completed","Declined","Cancelled"].map(s=>`<option ${s===x.status?"selected":""}>${s}</option>`).join("")}</select></td><td><button class="smallbtn gold" onclick="mailClient('${x.id}')">Email</button> <button class="smallbtn red" onclick="deleteBooking('${x.id}')">Delete</button></td></tr>`).join("")||`<tr><td colspan="7">No bookings.</td></tr>`;
  directorAdminList.innerHTML=d.directors.map((x,i)=>`<article><h4>${esc(x.name)}</h4><p>${esc(x.role)}</p><p>${esc(x.phone)}</p><button class="smallbtn red" onclick="removeDirector(${i})">Remove</button></article>`).join("");
  serviceAdminList.innerHTML=d.services.map(x=>`<article><h4>${esc(x.name)}</h4><p>${esc(x.desc)}</p></article>`).join("");
  spotAdminList.innerHTML=d.spotlights.map((x,i)=>`<article><h4>${esc(x.name)}</h4><p>${esc(x.description)}</p><p>${x.active?"Published":"Hidden"}</p><button class="smallbtn gold" onclick="toggleSpot(${i})">${x.active?"Hide":"Publish"}</button> <button class="smallbtn red" onclick="removeSpot(${i})">Delete</button></article>`).join("")||`<article><p>No spotlight entries.</p></article>`;
  cTagline.value=d.content.tagline;cEmail.value=d.content.email;cPhone.value=d.content.phone;cIg.value=d.content.instagram;cHero.value=d.content.hero;
- themeChoice.value=d.theme||"signature";themeLabel.value=d.themeLabel||"";
+ const t=d.theme||DEFAULT.theme;themeChoice.value=t.name;themeLabel.value=t.label||"";themeIntensity.value=t.intensity||"medium";autoAnniv.value=t.autoAnniv||"on";indYear.value=t.independenceYear||1966;repYear.value=t.republicYear||2021;
 }
-window.updateBooking=(id,status)=>{let b=getBookings();let x=b.find(y=>y.id===id);if(x)x.status=status;saveBookings(b);renderAdmin();renderPublic()};
-window.deleteBooking=id=>{if(confirm("Delete this booking?")){saveBookings(getBookings().filter(x=>x.id!==id));renderAdmin()}};
-window.mailClient=id=>{const x=getBookings().find(y=>y.id===id);if(x)location.href=`mailto:${x.email}?subject=${encodeURIComponent("IslandRootz246 Booking "+x.id)}&body=${encodeURIComponent("Hello "+x.name+",\n\nYour IslandRootz246 booking request is currently: "+x.status+".\n\nRegards,\nIslandRootz246 Musical Entertainment")}`};
-addDirector.onclick=()=>{if(!dName.value||!dRole.value)return;let d=getData();d.directors.push({name:dName.value,role:dRole.value,phone:dPhone.value});saveData(d);dName.value=dRole.value=dPhone.value="";renderAdmin();renderPublic()};
-window.removeDirector=i=>{if(confirm("Remove this director from the public team?")){let d=getData();d.directors.splice(i,1);saveData(d);renderAdmin();renderPublic()}};
-addSpot.onclick=()=>{if(!spName.value)return;let d=getData();d.spotlights.push({name:spName.value,instagram:spIg.value,description:spDesc.value,active:true});saveData(d);spName.value=spIg.value=spDesc.value="";renderAdmin();renderPublic()};
-window.toggleSpot=i=>{let d=getData();d.spotlights[i].active=!d.spotlights[i].active;saveData(d);renderAdmin();renderPublic()};
-window.removeSpot=i=>{let d=getData();d.spotlights.splice(i,1);saveData(d);renderAdmin();renderPublic()};
-saveTheme.onclick=()=>{let d=getData();d.theme=themeChoice.value;d.themeLabel=themeLabel.value;saveData(d);toast("Website theme saved.")};
-saveContent.onclick=()=>{let d=getData();d.content={tagline:cTagline.value,email:cEmail.value,phone:cPhone.value,instagram:cIg.value,hero:cHero.value};saveData(d);toast("Website content saved.")};
-exportData.onclick=()=>{const blob=new Blob([JSON.stringify({data:getData(),bookings:getBookings()},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="islandrootz246-backup.json";a.click()};
-clearData.onclick=()=>{if(confirm("Clear every booking stored in this browser?")){localStorage.removeItem("IR_BOOKINGS_V5");renderAdmin()}};
-adminLoginForm.onsubmit=e=>{e.preventDefault();if(aUser.value==="islandrootzadmin"&&aPass.value==="Rootz246Admin!"){localStorage.setItem("IR_ADMIN_SESSION_V5","1");showDashboard()}else alert("Incorrect admin login.")};
+window.updateBooking=(id,status)=>{let b=bookings();let x=b.find(y=>y.id===id);if(x)x.status=status;saveBookings(b);renderAdmin()};
+window.deleteBooking=id=>{if(confirm("Delete this booking?")){saveBookings(bookings().filter(x=>x.id!==id));renderAdmin()}};
+window.mailClient=id=>{const x=bookings().find(y=>y.id===id);if(x)location.href=`mailto:${x.email}?subject=${encodeURIComponent("IslandRootz246 Booking "+x.id)}&body=${encodeURIComponent("Hello "+x.name+",\n\nYour IslandRootz246 booking request is currently: "+x.status+".\n\nRegards,\nIslandRootz246 Musical Entertainment")}`};
+addDirector.onclick=()=>{if(!dName.value||!dRole.value)return;let d=data();d.directors.push({name:dName.value,role:dRole.value,phone:dPhone.value});save(d);dName.value=dRole.value=dPhone.value="";renderAdmin();renderPublic()};
+window.removeDirector=i=>{if(confirm("Remove this director from the public team?")){let d=data();d.directors.splice(i,1);save(d);renderAdmin();renderPublic()}};
+addSpot.onclick=()=>{if(!spName.value)return;let d=data();d.spotlights.push({name:spName.value,instagram:spIg.value,description:spDesc.value,active:true});save(d);spName.value=spIg.value=spDesc.value="";renderAdmin();renderPublic()};
+window.toggleSpot=i=>{let d=data();d.spotlights[i].active=!d.spotlights[i].active;save(d);renderAdmin();renderPublic()};
+window.removeSpot=i=>{let d=data();d.spotlights.splice(i,1);save(d);renderAdmin();renderPublic()};
+saveTheme.onclick=()=>{let d=data();d.theme={name:themeChoice.value,label:themeLabel.value,intensity:themeIntensity.value,autoAnniv:autoAnniv.value,independenceYear:+indYear.value||1966,republicYear:+repYear.value||2021};save(d);renderPublic();toast("Theme published. The public website has been updated.")};
+saveContent.onclick=()=>{let d=data();d.content={tagline:cTagline.value,email:cEmail.value,phone:cPhone.value,instagram:cIg.value,hero:cHero.value};save(d);renderPublic();toast("Website content published.")};
+exportData.onclick=()=>{const blob=new Blob([JSON.stringify({data:data(),bookings:bookings()},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="islandrootz246-backup.json";a.click()};
+clearData.onclick=()=>{if(confirm("Clear every booking stored in this browser?")){localStorage.removeItem(BOOK);renderAdmin()}};
+adminLoginForm.onsubmit=e=>{e.preventDefault();if(aUser.value==="islandrootzadmin"&&aPass.value==="Rootz246Admin!"){localStorage.setItem("IR_ADMIN_SESSION_V6","1");showDashboard()}else alert("Incorrect admin login.")};
 document.querySelectorAll(".adminnav button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".adminnav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".adminpage").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.ap).classList.add("active")});
 closeAdmin.onclick=closeAdmin;
 window.addEventListener("hashchange",()=>location.hash==="#admin"?openAdmin():null);
+window.addEventListener("storage",e=>{if(e.key===KEY||e.key===BOOK)renderPublic()});
+window.addEventListener("ir-data-updated",renderPublic);
 renderPublic();
 if(location.hash==="#admin")openAdmin();
 </script>
